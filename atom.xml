@@ -1,313 +1,28 @@
-<!doctype html>
-
-
-
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Roc Zhang&#39;s Blog</title>
   
-
-
-<html class="theme-next mist use-motion">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
+  <link href="/atom.xml" rel="self"/>
   
+  <link href="http://roczhang.com/"/>
+  <updated>2016-10-29T07:53:25.000Z</updated>
+  <id>http://roczhang.com/</id>
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
+  <author>
+    <name>Roc Zhang</name>
     
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我的设计学习之旅</title>
+    <link href="http://roczhang.com/2016/10/29/%E6%88%91%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85/"/>
+    <id>http://roczhang.com/2016/10/29/我的设计学习之旅/</id>
+    <published>2016-10-28T21:03:38.000Z</published>
+    <updated>2016-10-29T07:53:25.000Z</updated>
     
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Roc Zhang" />
-
-
-
-
-
-  <link rel="alternate" href="/atom.xml" title="Roc Zhang's Blog" type="application/atom+xml" />
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
-
-
-
-
-
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="Roc Zhang's Blog">
-<meta property="og:url" content="http://roczhang.com/index.html">
-<meta property="og:site_name" content="Roc Zhang's Blog">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Roc Zhang's Blog">
-
-
-
-<script type="text/javascript" id="hexo.configuration">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: 0,
-      author: '博主'
-    }
-  };
-</script>
-
-
-
-
-  <link rel="canonical" href="http://roczhang.com/"/>
-
-  <title> Roc Zhang's Blog </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
-
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Roc Zhang's Blog</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-  <p class="site-subtitle"></p>
-</div>
-
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/29/我的设计学习之旅/" itemprop="url">
-                  我的设计学习之旅
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-29T05:03:38+08:00" content="2016-10-29">
-              2016-10-29
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Design/" itemprop="url" rel="index">
-                    <span itemprop="name">Design</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/29/我的设计学习之旅/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/29/我的设计学习之旅/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>今晚逛 Dribbble 的时候突然又点开看了自己悲剧的 Debuts ，于是突然想到理理这个，正好可以也当作自己博客 Design 系列第一篇。</p>
+    <content type="html"><![CDATA[<p>今晚逛 Dribbble 的时候突然又点开看了自己悲剧的 Debuts ，于是突然想到理理这个，正好可以也当作自己博客 Design 系列第一篇。</p>
 <h2 id="大学前"><a href="#大学前" class="headerlink" title="大学前"></a>大学前</h2><p>大学前基本应该不懂啥是设计（现在应该也不懂）。</p>
 <p>初中的时候机缘巧合参加了网页制作的比赛，那时候第一次开始用 Photoshop，做一些素材，修改排版。当时觉得来回折腾调整，或者这种在“制作／创作”的感觉非常有意思。而初高中时期除了偶尔帮班主任做一些班会的 PPT 也就没什么时间和机会做东西了。那会儿能算的上接触的设计作品也就算是各种主题了。</p>
 <h2 id="大学后"><a href="#大学后" class="headerlink" title="大学后"></a>大学后</h2><h3 id="大一"><a href="#大一" class="headerlink" title="大一"></a>大一</h3><p>大一刚进大学那会儿除了日常写程序结果是做各种 PPT，居然还被班上同学嘲笑为 “PPT 小王子”。其实是根本没啥特别的，只不过我没有用 Office 艺术字而已。附上一个那会儿给一个小活动做的 Keynote。</p>
@@ -328,126 +43,28 @@
 <p>Dribbble 上的地址是：<a href="https://dribbble.com/shots/2969219-Hello-Dribbble" target="_blank" rel="external">https://dribbble.com/shots/2969219-Hello-Dribbble</a></p>
 <p>现在感觉确实画的不好后悔把这个当 Debuts 啦。</p>
 <h3 id="尾巴"><a href="#尾巴" class="headerlink" title="尾巴"></a>尾巴</h3><p>想起来刚开始练习做设计的时候还怀疑过不写代码自己是不是跑偏了，后来觉得如果是自己想要做一个产品的话，设计和开发都是实现好产品的一种方式，本质是相同的。我想过做设计的目的是什么，嗯，应该是悦心，从设计产品的 look 到 work，好的设计总能让人感到愉悦。这太值得了。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
+]]></content>
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
+    <summary type="html">
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/24/iOS 中的 Delegate 设计模式/" itemprop="url">
-                  iOS 中的 Delegate 设计模式
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-24T23:32:31+08:00" content="2016-10-24">
-              2016-10-24
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Code/" itemprop="url" rel="index">
-                    <span itemprop="name">Code</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/24/iOS 中的 Delegate 设计模式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/24/iOS 中的 Delegate 设计模式/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
+      &lt;p&gt;今晚逛 Dribbble 的时候突然又点开看了自己悲剧的 Debuts ，于是突然想到理理这个，正好可以也当作自己博客 Design 系列第一篇。&lt;/p&gt;
+&lt;h2 id=&quot;大学前&quot;&gt;&lt;a href=&quot;#大学前&quot; class=&quot;headerlink&quot; title=&quot;大学前&quot;&gt;
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>最近写的 iOS/Swift 代码比较多，很久没动笔又没怎么写过技术类的文章。所以决定从小小的总结一下 Delegate 模式开始写一写，因此这也是一篇入门文章。</p>
+    </summary>
+    
+      <category term="Design" scheme="http://roczhang.com/categories/Design/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>iOS 中的 Delegate 设计模式</title>
+    <link href="http://roczhang.com/2016/10/24/iOS%20%E4%B8%AD%E7%9A%84%20Delegate%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://roczhang.com/2016/10/24/iOS 中的 Delegate 设计模式/</id>
+    <published>2016-10-24T15:32:31.000Z</published>
+    <updated>2016-10-24T17:28:03.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近写的 iOS/Swift 代码比较多，很久没动笔又没怎么写过技术类的文章。所以决定从小小的总结一下 Delegate 模式开始写一写，因此这也是一篇入门文章。</p>
 <h2 id="What-is-Delegate"><a href="#What-is-Delegate" class="headerlink" title="What is Delegate ?"></a>What is Delegate ?</h2><p>我想很多同学第一次遇见 Delegate 这个词是在写 tableView 的时候。那时候我也只是每每需要用的时候就照着这种模式写上 tableView.delegate = self, tableView.dataSource = self 也并不理解究竟是什么意思。</p>
 <p>应该说 delegate 是 Cocoa/CocoaTouch 中的一种设计模式，正如前面提到的 tableView 一样，Cocoa 框架中很多地方都用到了这种设计模式。这种设计模式中我们可以将一个对象的一些功能委托给另一个对象来实现。因此使用 delegate 模式可以帮助我们设计出更松耦合的代码。</p>
 <p>delegate 使用起来非常简单。假设我们现在需要一个电视机和一个音响，我们想要将电视机播放声音的职责委托给外置的音响来实现，我们就可以这样编写:</p>
@@ -474,126 +91,28 @@
 <p>这样就可以啦。</p>
 <p>此外，为什么 class TV 中的 delegate 我们用了 optional 类型，因为我们使用了 weak 来修饰 delegate， 这就有可能导致 delegate 在使用过程中变为 nil，所以我们需要使用 optional 类型。否则编译器也将报 “ ‘weak’ variable shoule have optional type ‘…?’ “ 错。</p>
 <h2 id="See-you"><a href="#See-you" class="headerlink" title="See you"></a>See you</h2><p>Created by ROC Zhang on 2016-10-24.<br>Copyright © 2016 ROC Zhang. All rights reserved.</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
+]]></content>
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
+    <summary type="html">
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/14/跨越大二下：（一）/" itemprop="url">
-                  跨越大二下：（一）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-14T23:49:38+08:00" content="2016-08-14">
-              2016-08-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Life/" itemprop="url" rel="index">
-                    <span itemprop="name">Life</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/14/跨越大二下：（一）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/14/跨越大二下：（一）/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
+      &lt;p&gt;最近写的 iOS/Swift 代码比较多，很久没动笔又没怎么写过技术类的文章。所以决定从小小的总结一下 Delegate 模式开始写一写，因此这也是一篇入门文章。&lt;/p&gt;
+&lt;h2 id=&quot;What-is-Delegate&quot;&gt;&lt;a href=&quot;#What-is-Delegat
     
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>北京时间2016年8月14日23点49分。</p>
+    </summary>
+    
+      <category term="Code" scheme="http://roczhang.com/categories/Code/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>跨越大二下：（一）</title>
+    <link href="http://roczhang.com/2016/08/14/%E8%B7%A8%E8%B6%8A%E5%A4%A7%E4%BA%8C%E4%B8%8B%EF%BC%9A%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://roczhang.com/2016/08/14/跨越大二下：（一）/</id>
+    <published>2016-08-14T15:49:38.000Z</published>
+    <updated>2016-08-16T03:15:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>北京时间2016年8月14日23点49分。</p>
 <p>日子真的过的好快，就这样到了8月中旬。来帝都已经两周多了，实习的日子应该也只剩下两周，之后紧接着又要开学。一直想把从上学期到现在蛮久一段时间的事情理一理，却又一直没能真正坐下来动笔。呼～就今天开始吧。</p>
 <p>嗯，还是先闪回到上学期的日子，慢慢开始理吧。</p>
 <h2 id="3月-6月"><a href="#3月-6月" class="headerlink" title="3月-6月"></a>3月-6月</h2><h3 id="在学校的糟糕生活"><a href="#在学校的糟糕生活" class="headerlink" title="在学校的糟糕生活"></a>在学校的糟糕生活</h3><p>说起来大二下这一个学期我过的并不愉快。这一学期似乎我的的确确没有在其他事情上花很多时间，生活方式简单到概括起来除去我在实验室写代码的时间只剩下在寝室弹吉他、去看电影、和好友约饭。而且这些其他的事情占的比例其实很小。然而在学校的日子到后面开始让我越发感到煎熬起来，甚至很多事我也越来越不想参与，有不少课我都没有去上而是在实验室继续做自己的事。总结其原因，我觉得真的可以用 JustZht 说的三观不合来回答。真的开始感觉自己越来越和这个学校很多人三观不合。我并不想而且也没有啥资格去评价别人的生活方式价值取向如何如何，因为每个人的生活完全是自己的事，被自己不认可的人干预和评价并不是一件愉快的事情。</p>
@@ -612,256 +131,19 @@
 <p>所以这两种放松的方式实在是非常适合我。</p>
 <p>惭愧的是本学期依然没有开始好好锻炼身体，以至于现在每当我和班上同学说起我要去锻炼身体一事，他们的脸上总是会透露出让我难以名状的笑容。然而严肃的说，现在可能坐的时间对着屏幕的时间越来越多了，有时候也会通宵 Coding，我有时候能感受到自己身体发出的不舒适的信号。所以剩下能在学校继续呆的一年多的时间，放掉其他的事情之后，锻炼身体是必须的了。而且在学校的日子里，饮食上也总是很难挑选或者控制。</p>
 <p>于此乎，2016年6月结束。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
+]]></content>
     
-  </section>
-
-  
-
-
-          </div>
-          
-
-
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.png"
-               alt="Roc Zhang" />
-          <p class="site-author-name" itemprop="name">Roc Zhang</p>
-          <p class="site-description motion-element" itemprop="description"></p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">3</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
-
-          
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-
-        </nav>
-
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
-          </div>
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-        
-        
-
-        
-        
-
-      </section>
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2016</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Roc Zhang</span>
-</div>
-
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
-
-        
-
-        
-      </div>
-    </footer>
-
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-  
-
-
-
-  
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
-
-
-
-  
-
-  
+    <summary type="html">
     
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"roczhang"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
+      &lt;p&gt;北京时间2016年8月14日23点49分。&lt;/p&gt;
+&lt;p&gt;日子真的过的好快，就这样到了8月中旬。来帝都已经两周多了，实习的日子应该也只剩下两周，之后紧接着又要开学。一直想把从上学期到现在蛮久一段时间的事情理一理，却又一直没能真正坐下来动笔。呼～就今天开始吧。&lt;/p&gt;
+&lt;p&gt;
     
-    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
+    </summary>
+    
+      <category term="Life" scheme="http://roczhang.com/categories/Life/"/>
+    
+    
+  </entry>
   
-
-
-
-
-
-
-  
-  
-
-  
-
-  
-
-  
-
-</body>
-</html>
+</feed>
