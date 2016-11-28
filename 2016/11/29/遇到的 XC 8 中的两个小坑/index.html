@@ -97,7 +97,7 @@
 <meta property="og:image" content="http://p1.bpimg.com/4851/6cef865f9bef302d.png">
 <meta property="og:image" content="http://p1.bpimg.com/4851/960c9bffa8db51e8.png">
 <meta property="og:image" content="http://p1.bpimg.com/4851/313c960e725367c2.png">
-<meta property="og:updated_time" content="2016-11-28T17:50:34.000Z">
+<meta property="og:updated_time" content="2016-11-28T17:54:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="遇到的 XC 8 中的两个小坑">
 <meta name="twitter:description" content="今天可能时运不济，一次碰到了两个小坑，趁着现在 pod repo update 的时候记一下。">
@@ -315,7 +315,7 @@
 <p>所以我当然也是要点的。<br>结果我期待的结果并没有和以前一样发生，程序居然奔溃退出了，就像这样。</p>
 <p><img src="http://p1.bpimg.com/4851/100d68e61bc45fa2.png" alt="Markdown preferences pane"></p>
 <p>我开始以为是自己代码有问题，于是调试了一会儿，最后发现即使我在方法里什么都不做调用的时候还是会奔溃。有点懵。然后我在模拟器上试了一发，结果发现并没有任何问题！调用是成功的！</p>
-<p>Google 了一发，在 Apple Developer Forums 里看到了一篇贴 （<a href="https://forums.developer.apple.com/thread/51361" target="_blank" rel="external">https://forums.developer.apple.com/thread/51361</a> ），也有人在 Xcode 8 上遇到了一样的情况：</p>
+<p>Google 了一发，在 Apple Developer Forums 里看到了一篇贴 ( <a href="https://forums.developer.apple.com/thread/51361" target="_blank" rel="external">https://forums.developer.apple.com/thread/51361</a> )，也有人在 Xcode 8 上遇到了一样的情况：</p>
 <p><img src="http://p1.bpimg.com/4851/544f7a16ca99aeee.png" alt="Markdown preferences pane"></p>
 <p>然而最后是怎么解决的呢？当然不是等20分钟让他自然发生调用。你会发现在真机上点击后的奔溃是 Xcode 自己断开的，然后你再轻轻的点一下继续执行按钮，它就把我的 Background Fetch 执行好了。</p>
 <p><img src="http://p1.bpimg.com/4851/6cef865f9bef302d.png" alt="Markdown preferences pane"></p>
@@ -323,7 +323,7 @@
 <h2 id="UNNotificationSound"><a href="#UNNotificationSound" class="headerlink" title="UNNotificationSound"></a>UNNotificationSound</h2><p>还有就是关于 UNNotificationSound 的问题。</p>
 <p>我在尝试用 iOS 10 新的 UserNotification 来创建通知，一个本地通知，其他的一切都没有问题，然而自定义的提醒通知的声音就是无法播放。并且以前创建通知写法的代码是没有问题可以播放的。</p>
 <p><img src="http://p1.bpimg.com/4851/960c9bffa8db51e8.png" alt="Markdown preferences pane"></p>
-<p>从苹果的文档 （<a href="https://developer.apple.com/reference/usernotifications/unnotificationsound）" target="_blank" rel="external">https://developer.apple.com/reference/usernotifications/unnotificationsound）</a> 看到 UNNotificationSound 支持由 Linear PCM ／ MA4 (IMA/ADPCM)／ µLaw ／ aLaw 封装成的 aiff, wav, caf 几种格式的文件。我也转换了几种格式都试了下想确定是不是格式的问题，而无论怎么测试，系统始终播放的是默认的三连音：哒哒哒。</p>
+<p>从苹果的文档 ( <a href="https://developer.apple.com/reference/usernotifications/unnotificationsound" target="_blank" rel="external">https://developer.apple.com/reference/usernotifications/unnotificationsound</a> ) 看到 UNNotificationSound 支持由 Linear PCM ／ MA4 (IMA/ADPCM)／ µLaw ／ aLaw 封装成的 aiff, wav, caf 几种格式的文件。我也转换了几种格式都试了下想确定是不是格式的问题，而无论怎么测试，系统始终播放的是默认的三连音：哒哒哒。</p>
 <p>然后我又遇到了一样处境的人（这次的人比较多），还是在 Apple Developer Forums 里的帖子（ <a href="https://forums.developer.apple.com/thread/49512" target="_blank" rel="external">https://forums.developer.apple.com/thread/49512</a> ）。</p>
 <p>有人好像找到了暂时解决的方法：重启 iOS 设备，卸载 App ，然后重新安装，自定义的铃声就可以生效了。但是有人说这种方法在你使用 Xcode 再装 App 的时候又会失效了。</p>
 <p><img src="http://p1.bpimg.com/4851/313c960e725367c2.png" alt="Markdown preferences pane"></p>
