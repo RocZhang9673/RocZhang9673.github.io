@@ -86,19 +86,16 @@
 
 
 
-<meta name="description" content="最近写的 iOS/Swift 代码比较多，很久没动笔又没怎么写过技术类的文章。所以决定从小小的总结一下 Delegate 模式开始写一写，因此这也是一篇入门文章。
-What is Delegate ?我想很多同学第一次遇见 Delegate 这个词是在写 tableView 的时候。那时候我也只是每每需要用的时候就照着这种模式写上 tableView.delegate = self, tableV">
+<meta name="description" content="最近写的 iOS/Swift 代码比较多，很久没动笔又没怎么写过技术类的文章。所以决定从小小的总结一下 Delegate 模式开始写一写，因此这也是一篇入门文章。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS 中的 Delegate 设计模式">
 <meta property="og:url" content="http://roczhang.com/2016/10/24/iOS 中的 Delegate 设计模式/index.html">
 <meta property="og:site_name" content="Roc Zhang's Blog">
-<meta property="og:description" content="最近写的 iOS/Swift 代码比较多，很久没动笔又没怎么写过技术类的文章。所以决定从小小的总结一下 Delegate 模式开始写一写，因此这也是一篇入门文章。
-What is Delegate ?我想很多同学第一次遇见 Delegate 这个词是在写 tableView 的时候。那时候我也只是每每需要用的时候就照着这种模式写上 tableView.delegate = self, tableV">
-<meta property="og:updated_time" content="2016-10-24T17:28:03.000Z">
+<meta property="og:description" content="最近写的 iOS/Swift 代码比较多，很久没动笔又没怎么写过技术类的文章。所以决定从小小的总结一下 Delegate 模式开始写一写，因此这也是一篇入门文章。">
+<meta property="og:updated_time" content="2016-11-28T17:40:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 中的 Delegate 设计模式">
-<meta name="twitter:description" content="最近写的 iOS/Swift 代码比较多，很久没动笔又没怎么写过技术类的文章。所以决定从小小的总结一下 Delegate 模式开始写一写，因此这也是一篇入门文章。
-What is Delegate ?我想很多同学第一次遇见 Delegate 这个词是在写 tableView 的时候。那时候我也只是每每需要用的时候就照着这种模式写上 tableView.delegate = self, tableV">
+<meta name="twitter:description" content="最近写的 iOS/Swift 代码比较多，很久没动笔又没怎么写过技术类的文章。所以决定从小小的总结一下 Delegate 模式开始写一写，因此这也是一篇入门文章。">
 
 
 
@@ -307,7 +304,7 @@ What is Delegate ?我想很多同学第一次遇见 Delegate 这个词是在写 
       
 
       
-        <p>最近写的 iOS/Swift 代码比较多，很久没动笔又没怎么写过技术类的文章。所以决定从小小的总结一下 Delegate 模式开始写一写，因此这也是一篇入门文章。</p>
+        <p>最近写的 iOS/Swift 代码比较多，很久没动笔又没怎么写过技术类的文章。所以决定从小小的总结一下 Delegate 模式开始写一写，因此这也是一篇入门文章。<br><a id="more"></a></p>
 <h2 id="What-is-Delegate"><a href="#What-is-Delegate" class="headerlink" title="What is Delegate ?"></a>What is Delegate ?</h2><p>我想很多同学第一次遇见 Delegate 这个词是在写 tableView 的时候。那时候我也只是每每需要用的时候就照着这种模式写上 tableView.delegate = self, tableView.dataSource = self 也并不理解究竟是什么意思。</p>
 <p>应该说 delegate 是 Cocoa/CocoaTouch 中的一种设计模式，正如前面提到的 tableView 一样，Cocoa 框架中很多地方都用到了这种设计模式。这种设计模式中我们可以将一个对象的一些功能委托给另一个对象来实现。因此使用 delegate 模式可以帮助我们设计出更松耦合的代码。</p>
 <p>delegate 使用起来非常简单。假设我们现在需要一个电视机和一个音响，我们想要将电视机播放声音的职责委托给外置的音响来实现，我们就可以这样编写:</p>
@@ -441,7 +438,7 @@ What is Delegate ?我想很多同学第一次遇见 Delegate 这个词是在写 
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
