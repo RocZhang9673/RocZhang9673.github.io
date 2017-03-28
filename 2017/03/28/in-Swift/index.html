@@ -89,16 +89,18 @@
 
 
 
-<meta name="description" content="最近写的 iOS/Swift 代码比较多，很久没动笔又没怎么写过技术类的文章。所以决定从小小的总结一下 Delegate 模式开始写一写，因此这也是一篇入门文章。">
+<meta name="description" content="一篇简短的小记。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS 中的 Delegate 设计模式">
-<meta property="og:url" content="http://www.roczhang.com/2016/10/24/iOS 中的 Delegate 设计模式/index.html">
+<meta property="og:title" content="'===' & '!==' in Swift">
+<meta property="og:url" content="http://www.roczhang.com/2017/03/28/in-Swift/index.html">
 <meta property="og:site_name" content="Roc Zhang's Blog">
-<meta property="og:description" content="最近写的 iOS/Swift 代码比较多，很久没动笔又没怎么写过技术类的文章。所以决定从小小的总结一下 Delegate 模式开始写一写，因此这也是一篇入门文章。">
-<meta property="og:updated_time" content="2016-11-28T17:40:56.000Z">
+<meta property="og:description" content="一篇简短的小记。">
+<meta property="og:image" content="http://i1.piimg.com/577817/dc057c7c28ef5d73.jpg">
+<meta property="og:updated_time" content="2017-03-28T15:12:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS 中的 Delegate 设计模式">
-<meta name="twitter:description" content="最近写的 iOS/Swift 代码比较多，很久没动笔又没怎么写过技术类的文章。所以决定从小小的总结一下 Delegate 模式开始写一写，因此这也是一篇入门文章。">
+<meta name="twitter:title" content="'===' & '!==' in Swift">
+<meta name="twitter:description" content="一篇简短的小记。">
+<meta name="twitter:image" content="http://i1.piimg.com/577817/dc057c7c28ef5d73.jpg">
 
 
 
@@ -126,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://www.roczhang.com/2016/10/24/iOS 中的 Delegate 设计模式/"/>
+  <link rel="canonical" href="http://www.roczhang.com/2017/03/28/in-Swift/"/>
 
 
 
 
 
-  <title> iOS 中的 Delegate 设计模式 | Roc Zhang's Blog </title>
+  <title> '===' & '!==' in Swift | Roc Zhang's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -271,7 +273,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://www.roczhang.com/2016/10/24/iOS 中的 Delegate 设计模式/">
+    <link itemprop="mainEntityOfPage" href="http://www.roczhang.com/2017/03/28/in-Swift/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Roc Zhang">
@@ -292,7 +294,7 @@
             
             
               
-                iOS 中的 Delegate 设计模式
+                '===' & '!==' in Swift
               
             
           </h2>
@@ -307,8 +309,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-24T23:32:31+08:00">
-                2016-10-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-28T22:21:43+08:00">
+                2017-03-28
               </time>
             
 
@@ -348,7 +350,7 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/2016/10/24/iOS 中的 Delegate 设计模式/#comments" itemprop="discussionUrl">
+                <a class="cloud-tie-join-count" href="/2017/03/28/in-Swift/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -375,33 +377,34 @@
       
 
       
-        <p>最近写的 iOS/Swift 代码比较多，很久没动笔又没怎么写过技术类的文章。所以决定从小小的总结一下 Delegate 模式开始写一写，因此这也是一篇入门文章。<br><a id="more"></a></p>
-<h2 id="What-is-Delegate"><a href="#What-is-Delegate" class="headerlink" title="What is Delegate ?"></a>What is Delegate ?</h2><p>我想很多同学第一次遇见 Delegate 这个词是在写 tableView 的时候。那时候我也只是每每需要用的时候就照着这种模式写上 tableView.delegate = self, tableView.dataSource = self 也并不理解究竟是什么意思。</p>
-<p>应该说 delegate 是 Cocoa/CocoaTouch 中的一种设计模式，正如前面提到的 tableView 一样，Cocoa 框架中很多地方都用到了这种设计模式。这种设计模式中我们可以将一个对象的一些功能委托给另一个对象来实现。因此使用 delegate 模式可以帮助我们设计出更松耦合的代码。</p>
-<p>delegate 使用起来非常简单。假设我们现在需要一个电视机和一个音响，我们想要将电视机播放声音的职责委托给外置的音响来实现，我们就可以这样编写:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">// 首先定义一个 Protocol 协议</div><div class="line">protocol PlayAudioDelegate &#123;</div><div class="line">  func playAudio()</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 编写一个遵循 PlayAudioDelegate 协议的音响对象，实现协议中的方法</div><div class="line">class Speaker: PlayAudioDelegate &#123;</div><div class="line">  func playAudio() &#123;</div><div class="line">    printLog(&quot;Start Play!&quot;)</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 编写电视机</div><div class="line">class TV &#123;</div><div class="line">  // delegate 可以为任何遵守 PlayAudioDelegate 协议的对象</div><div class="line">  var delegate: PlayAudioDelegate?</div><div class="line"></div><div class="line">  func play() &#123;</div><div class="line">    // 当 delegate 对象存在时，调用对象的 playAudio 方法</div><div class="line">    delegate?.playAudio()</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">let tv = TV()</div><div class="line">let speaker = Speaker()</div><div class="line"></div><div class="line">tv.delegate = speaker</div><div class="line">tv.play()  // printLog 将输出 &quot;Start Play!&quot;</div></pre></td></tr></table></figure>
-<p>如上，使用起来并不复杂，但还是存在一些问题的。</p>
-<h2 id="可选"><a href="#可选" class="headerlink" title="可选"></a>可选</h2><p>上面的例子里，我们使用 PlayAudioDelegate 这个 Protocol 来定义了一些方法，我们也知道 Swift 中当让一个类遵循某个协议的时候，这个类中必须将 Protocol 中定义的所有属性和方法实现，否则编译器将报错。</p>
-<p>但实际情况中，我们可能只需要当前类实现 Protocol 中的部分方法，就好像在使用 tableView 中，我们并不是想要每一次都需要将 UITableViewDelegate 和 UITableViewDataSource 中所有方法都全部实现。</p>
-<p>我们有两种方法来实现 Protocol 中的可选。</p>
-<h3 id="objc"><a href="#objc" class="headerlink" title="@objc"></a>@objc</h3><p>一种是借用 @objc 关键字来实现。我们可以在定义 Protocol 时在前面加上 @objc 关键字，然后在协议中需要定义为可选的方法前也加上 @objc 和 optional 来定义一个可选方法。如:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@objc protocol PlayMediaDelegate &#123;</div><div class="line">  @objc optional func playAudio()</div><div class="line">  @objc optional func playVideo()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这样在需要类遵循 PlayMediaDelegate 协议时其中的 playAudio() 和 playVideo() 方法就不再是必须要实现的。</p>
-<h3 id="extension-Protocol"><a href="#extension-Protocol" class="headerlink" title="extension Protocol"></a>extension Protocol</h3><p>第二种方法，也是我个人更常用的方法，就是将协议扩展，给出协议中方法的默认实现来达到不需要在遵循 protocol 的类中必须实现所有方法的效果。</p>
-<p>我们使用 Swift 中的 extension 来对 Protocol 进行扩展。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// MARK: - PlayMediaDelegate Protocol</div><div class="line">protocol PlayMediaDelegate &#123;</div><div class="line">  func playAudio()</div><div class="line">&#125;</div><div class="line"></div><div class="line">// MARK: - Extension PlayMediaDelegate Protocol</div><div class="line">extension PlayMediaDelegate &#123;</div><div class="line">  func playAudio() &#123;</div><div class="line">    printLog(&quot;Play Audio Now&quot;)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这样，我们通过在扩展中给出需要可选方法的默认实现，也可以达到效果。在使用时，遵循当前 Protocol 的类在不实现方法时将使用 extension 中的默认实现。当然，你也可以再类中给出这个方法重新实现。</p>
-<h2 id="weak"><a href="#weak" class="headerlink" title="weak"></a>weak</h2><p>倘若你对内存管理和 ARC 有一定的理解，你可能会发现我们在上面的代码中可能存在一些问题（ 内存管理和 ARC 这里就不展开了）。<br>为了避免循环引用，我们可能会通过尝试在 delegate 前加上 weak 来声明当前类不负责保持 delegate 这个对象，让它的销毁由外部控制。从而利用 ARC 的这个特性帮助我们完成内存管理。如将上面的例子改成：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">protocol PlayAudioDelegate &#123;</div><div class="line">  func playAudio()</div><div class="line">&#125;</div><div class="line"></div><div class="line">class TV &#123;</div><div class="line">  weak var delegate: PlayAudioDelegate?</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>但很快就会发现编译器报错了。</p>
-<p>为什么？<br>在 <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Protocols.html#//apple_ref/doc/uid/TP40014097-CH25-ID281" target="_blank" rel="external">Apple 爸爸的这篇文档</a> 里，我们可以知道：</p>
-<p>1) Swift 中的 Protocol 是可以 class, struct, enum 这些类型都可以遵循的<br>2) 而 struct, enum 并不通过 ARC 来管理内存，所以 ARC 中的 weak 并不能用来修饰</p>
-<p>那应该怎么办？</p>
-<p>答案是将 Protocol 限制为 Class-Only Protocol，也就是只能被 class 而不能被其他类型遵循的协议。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">protocol PlayAudioDelegate: class &#123;</div><div class="line">  func playAudio()</div><div class="line">&#125;</div><div class="line"></div><div class="line">class TV &#123;</div><div class="line">  weak var delegate: PlayAudioDelegate?</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这样就可以啦。</p>
-<p>此外，为什么 class TV 中的 delegate 我们用了 optional 类型，因为我们使用了 weak 来修饰 delegate， 这就有可能导致 delegate 在使用过程中变为 nil，所以我们需要使用 optional 类型。否则编译器也将报 “ ‘weak’ variable shoule have optional type ‘…?’ “ 错。</p>
-<h2 id="See-you"><a href="#See-you" class="headerlink" title="See you"></a>See you</h2><p>Created by ROC Zhang on 2016-10-24.<br>Copyright © 2016 ROC Zhang. All rights reserved.</p>
+        <p>一篇简短的小记。<br><a id="more"></a></p>
+<h1 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h1><p>由于最近比较多的用了 IGListKit 来写新的模块和重构旧的模块，其中 IGListKit 要求模型遵遁 IGListDiffable 协议，其中需要你实现一个函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">public func isEqual(toDiffableObject object: IGListDiffable?) -&gt; Bool</div></pre></td></tr></table></figure>
+<p>来告诉 IGList 接收到的和给定的 object 是否相等。一般情况用模型里的 hash id 来判断就可以解决，但今天和师傅讨论到如果是一个数组，而且数组里的模型又没有 ID 属性，该如何判断相等。</p>
+<p>由此想到了 ‘===’ &amp; ‘!==’ 运算符。</p>
+<h1 id="‘-’-amp-‘-’"><a href="#‘-’-amp-‘-’" class="headerlink" title="‘===’ &amp; ‘!==’"></a>‘===’ &amp; ‘!==’</h1><p>比起常用的 == 和 != ，这两个运算貌似使用的频度非常低，其实用法倒是很简单的， === 和 !== 用于比较 引用类型（Reference Type）是否是相同的引用。</p>
+<p>不过随便查看几个搜索结果会发现好像有这么一段说法：</p>
+<p>“Check whether two arrays or subarrays share the same storage and elements by comparing them with the identity operators (=== and !==).”</p>
+<p>嗯嗯嗯？还可以比较数组或者子数组的？原生支持？如此方便？<br>在 Playground 中简单一试：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let array1 = [1, 2, 3]</div><div class="line">var array2 = array1</div><div class="line"></div><div class="line">array1 !== array2</div></pre></td></tr></table></figure>
+<p>马上就会 “Error: binary operator ‘!==’ cannot be applied to…”。</p>
+<p>不过等等，Swift 中的 Array 不是 Value Type 吗，是应该不能用这个啊，那为什么会有可以比较数组这种说法？难道记错了？</p>
+<p>“Array and Dictionary in Swift are implemented as structs.”</p>
+<p>没记错， Array 是 Value Type.</p>
+<p>后来发现，之所以有比较数组这种说法是因为，在 2014 年 Swift beta 3 之前，Swift 中的 Array 有一些小小的不同，引用喵神以前的博客里的一句话：</p>
+<p>“Swift 考虑到实际使用的情景，对 Array 做了特殊的处理。除非需要（比如 Array 的大小发生改变，或者显式地要求进行复制），否则 Array 在传递的时候会使用参照。”</p>
+<p>而之后</p>
+<p>“对于 Array 中元素的改变，在 beta 3 中发生了变化。现在不再存在作为一个值类型但是却在赋值和改变时表现为参照类型的 Array 的特例，而是彻头彻尾表现出了值类型的特点。”</p>
+<p>所以， ‘===’ &amp; ‘!==’ 用于比较数组的这种说法也是很早之前的老文档中存在的，现在并不能用啦。</p>
+<p>等等，谁说不能？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let array1 = NSArray(array: [A, B])</div><div class="line">var array2 = array1</div><div class="line"></div><div class="line">array1 !== array2</div></pre></td></tr></table></figure>
+<p>用 Cocoa 中的容器类自然没问题，因为是引用类嘛。</p>
+<p>但这就没有 Swift 的 “钦定” 感了! 🙃</p>
+<p>善变的 Swift! 🙃</p>
+<h1 id="Swift-3-1"><a href="#Swift-3-1" class="headerlink" title="Swift 3.1"></a>Swift 3.1</h1><p>Xcode 8.3 出来了！ Swift 3.1 出来了！<br>Apple 还说 “Faster builds for large projects that mix Objective-C and Swift code”!<br>赶紧一试！</p>
+<p><img src="http://i1.piimg.com/577817/dc057c7c28ef5d73.jpg" alt="Markdown preferences pane"></p>
+<p>120 秒… 还有 Swift 3.1 附赠的爆炸多的警告… 🙃<br>也许还是在提示我电脑不行了。 🙃</p>
+<h1 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h1><p><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/ClassesAndStructures.html#//apple_ref/doc/uid/TP40014097-CH13-ID82" target="_blank" rel="external">Apple - Classes and Structures</a><br><a href="https://onevcat.com/2014/06/walk-in-swift/" target="_blank" rel="external">OneV’s Den - 行走于 Swift 的世界中</a></p>
 
       
     </div>
@@ -430,7 +433,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://www.roczhang.com/2016/10/24/iOS 中的 Delegate 设计模式/" title="iOS 中的 Delegate 设计模式">http://www.roczhang.com/2016/10/24/iOS 中的 Delegate 设计模式/</a>
+      <a href="http://www.roczhang.com/2017/03/28/in-Swift/" title="'===' & '!==' in Swift">http://www.roczhang.com/2017/03/28/in-Swift/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -453,8 +456,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/14/跨越大二下：（一）/" rel="next" title="跨越大二下：（一）">
-                <i class="fa fa-chevron-left"></i> 跨越大二下：（一）
+              <a href="/2017/03/26/3D-Touch-for-iOS-10-适配指南/" rel="next" title="3D Touch for iOS 10 适配指南">
+                <i class="fa fa-chevron-left"></i> 3D Touch for iOS 10 适配指南
               </a>
             
           </div>
@@ -462,10 +465,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/29/我的设计学习之旅/" rel="prev" title="我的设计学习之旅">
-                我的设计学习之旅 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -594,7 +593,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-Delegate"><span class="nav-number">1.</span> <span class="nav-text">What is Delegate ?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可选"><span class="nav-number">2.</span> <span class="nav-text">可选</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#objc"><span class="nav-number">2.1.</span> <span class="nav-text">@objc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#extension-Protocol"><span class="nav-number">2.2.</span> <span class="nav-text">extension Protocol</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#weak"><span class="nav-number">3.</span> <span class="nav-text">weak</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#See-you"><span class="nav-number">4.</span> <span class="nav-text">See you</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Start"><span class="nav-number">1.</span> <span class="nav-text">Start</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#‘-’-amp-‘-’"><span class="nav-number">2.</span> <span class="nav-text">‘===’ & ‘!==’</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Swift-3-1"><span class="nav-number">3.</span> <span class="nav-text">Swift 3.1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关链接"><span class="nav-number">4.</span> <span class="nav-text">相关链接</span></a></li></ol></div>
             
 
           </div>

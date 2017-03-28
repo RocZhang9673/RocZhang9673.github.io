@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.roczhang.com/"/>
-  <updated>2017-03-26T16:11:52.000Z</updated>
+  <updated>2017-03-28T15:12:04.000Z</updated>
   <id>http://www.roczhang.com/</id>
   
   <author>
@@ -14,6 +14,54 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>&#39;===&#39; &amp; &#39;!==&#39; in Swift</title>
+    <link href="http://www.roczhang.com/2017/03/28/in-Swift/"/>
+    <id>http://www.roczhang.com/2017/03/28/in-Swift/</id>
+    <published>2017-03-28T14:21:43.000Z</published>
+    <updated>2017-03-28T15:12:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>一篇简短的小记。<br><a id="more"></a></p>
+<h1 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h1><p>由于最近比较多的用了 IGListKit 来写新的模块和重构旧的模块，其中 IGListKit 要求模型遵遁 IGListDiffable 协议，其中需要你实现一个函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">public func isEqual(toDiffableObject object: IGListDiffable?) -&gt; Bool</div></pre></td></tr></table></figure>
+<p>来告诉 IGList 接收到的和给定的 object 是否相等。一般情况用模型里的 hash id 来判断就可以解决，但今天和师傅讨论到如果是一个数组，而且数组里的模型又没有 ID 属性，该如何判断相等。</p>
+<p>由此想到了 ‘===’ &amp; ‘!==’ 运算符。</p>
+<h1 id="‘-’-amp-‘-’"><a href="#‘-’-amp-‘-’" class="headerlink" title="‘===’ &amp; ‘!==’"></a>‘===’ &amp; ‘!==’</h1><p>比起常用的 == 和 != ，这两个运算貌似使用的频度非常低，其实用法倒是很简单的， === 和 !== 用于比较 引用类型（Reference Type）是否是相同的引用。</p>
+<p>不过随便查看几个搜索结果会发现好像有这么一段说法：</p>
+<p>“Check whether two arrays or subarrays share the same storage and elements by comparing them with the identity operators (=== and !==).”</p>
+<p>嗯嗯嗯？还可以比较数组或者子数组的？原生支持？如此方便？<br>在 Playground 中简单一试：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let array1 = [1, 2, 3]</div><div class="line">var array2 = array1</div><div class="line"></div><div class="line">array1 !== array2</div></pre></td></tr></table></figure>
+<p>马上就会 “Error: binary operator ‘!==’ cannot be applied to…”。</p>
+<p>不过等等，Swift 中的 Array 不是 Value Type 吗，是应该不能用这个啊，那为什么会有可以比较数组这种说法？难道记错了？</p>
+<p>“Array and Dictionary in Swift are implemented as structs.”</p>
+<p>没记错， Array 是 Value Type.</p>
+<p>后来发现，之所以有比较数组这种说法是因为，在 2014 年 Swift beta 3 之前，Swift 中的 Array 有一些小小的不同，引用喵神以前的博客里的一句话：</p>
+<p>“Swift 考虑到实际使用的情景，对 Array 做了特殊的处理。除非需要（比如 Array 的大小发生改变，或者显式地要求进行复制），否则 Array 在传递的时候会使用参照。”</p>
+<p>而之后</p>
+<p>“对于 Array 中元素的改变，在 beta 3 中发生了变化。现在不再存在作为一个值类型但是却在赋值和改变时表现为参照类型的 Array 的特例，而是彻头彻尾表现出了值类型的特点。”</p>
+<p>所以， ‘===’ &amp; ‘!==’ 用于比较数组的这种说法也是很早之前的老文档中存在的，现在并不能用啦。</p>
+<p>等等，谁说不能？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let array1 = NSArray(array: [A, B])</div><div class="line">var array2 = array1</div><div class="line"></div><div class="line">array1 !== array2</div></pre></td></tr></table></figure>
+<p>用 Cocoa 中的容器类自然没问题，因为是引用类嘛。</p>
+<p>但这就没有 Swift 的 “钦定” 感了! 🙃</p>
+<p>善变的 Swift! 🙃</p>
+<h1 id="Swift-3-1"><a href="#Swift-3-1" class="headerlink" title="Swift 3.1"></a>Swift 3.1</h1><p>Xcode 8.3 出来了！ Swift 3.1 出来了！<br>Apple 还说 “Faster builds for large projects that mix Objective-C and Swift code”!<br>赶紧一试！</p>
+<p><img src="http://i1.piimg.com/577817/dc057c7c28ef5d73.jpg" alt="Markdown preferences pane"></p>
+<p>120 秒… 还有 Swift 3.1 附赠的爆炸多的警告… 🙃<br>也许还是在提示我电脑不行了。 🙃</p>
+<h1 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h1><p><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/ClassesAndStructures.html#//apple_ref/doc/uid/TP40014097-CH13-ID82" target="_blank" rel="external">Apple - Classes and Structures</a><br><a href="https://onevcat.com/2014/06/walk-in-swift/" target="_blank" rel="external">OneV’s Den - 行走于 Swift 的世界中</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一篇简短的小记。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Code" scheme="http://www.roczhang.com/categories/Code/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>3D Touch for iOS 10 适配指南</title>
