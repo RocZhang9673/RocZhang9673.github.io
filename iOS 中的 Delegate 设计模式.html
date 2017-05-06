@@ -89,22 +89,16 @@
 
 
 
-<meta name="description" content="北京时间2016年8月14日23点49分。
-日子真的过的好快，就这样到了8月中旬。来帝都已经两周多了，实习的日子应该也只剩下两周，之后紧接着又要开学。一直想把从上学期到现在蛮久一段时间的事情理一理，却又一直没能真正坐下来动笔。呼～就今天开始吧。
-嗯，还是先闪回到上学期的日子，慢慢开始理吧。">
+<meta name="description" content="最近写的 iOS/Swift 代码比较多，很久没动笔又没怎么写过技术类的文章。所以决定从小小的总结一下 Delegate 模式开始写一写，因此这也是一篇入门文章。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="跨越大二下：（一）">
-<meta property="og:url" content="http://www.roczhang.com/2016/08/14/跨越大二下：（一）/index.html">
+<meta property="og:title" content="iOS 中的 Delegate 设计模式">
+<meta property="og:url" content="http://www.roczhang.com/iOS 中的 Delegate 设计模式.html">
 <meta property="og:site_name" content="Roc Zhang's Blog">
-<meta property="og:description" content="北京时间2016年8月14日23点49分。
-日子真的过的好快，就这样到了8月中旬。来帝都已经两周多了，实习的日子应该也只剩下两周，之后紧接着又要开学。一直想把从上学期到现在蛮久一段时间的事情理一理，却又一直没能真正坐下来动笔。呼～就今天开始吧。
-嗯，还是先闪回到上学期的日子，慢慢开始理吧。">
-<meta property="og:updated_time" content="2016-11-28T17:41:05.000Z">
+<meta property="og:description" content="最近写的 iOS/Swift 代码比较多，很久没动笔又没怎么写过技术类的文章。所以决定从小小的总结一下 Delegate 模式开始写一写，因此这也是一篇入门文章。">
+<meta property="og:updated_time" content="2016-11-28T17:40:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="跨越大二下：（一）">
-<meta name="twitter:description" content="北京时间2016年8月14日23点49分。
-日子真的过的好快，就这样到了8月中旬。来帝都已经两周多了，实习的日子应该也只剩下两周，之后紧接着又要开学。一直想把从上学期到现在蛮久一段时间的事情理一理，却又一直没能真正坐下来动笔。呼～就今天开始吧。
-嗯，还是先闪回到上学期的日子，慢慢开始理吧。">
+<meta name="twitter:title" content="iOS 中的 Delegate 设计模式">
+<meta name="twitter:description" content="最近写的 iOS/Swift 代码比较多，很久没动笔又没怎么写过技术类的文章。所以决定从小小的总结一下 Delegate 模式开始写一写，因此这也是一篇入门文章。">
 
 
 
@@ -132,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://www.roczhang.com/2016/08/14/跨越大二下：（一）/"/>
+  <link rel="canonical" href="http://www.roczhang.com/iOS 中的 Delegate 设计模式.html"/>
 
 
 
 
 
-  <title> 跨越大二下：（一） | Roc Zhang's Blog </title>
+  <title> iOS 中的 Delegate 设计模式 | Roc Zhang's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -277,7 +271,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://www.roczhang.com/2016/08/14/跨越大二下：（一）/">
+    <link itemprop="mainEntityOfPage" href="http://www.roczhang.com/iOS 中的 Delegate 设计模式.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Roc Zhang">
@@ -298,7 +292,7 @@
             
             
               
-                跨越大二下：（一）
+                iOS 中的 Delegate 设计模式
               
             
           </h2>
@@ -313,8 +307,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-14T23:49:38+08:00">
-                2016-08-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-24T23:32:31+08:00">
+                2016-10-24
               </time>
             
 
@@ -336,8 +330,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Life/" itemprop="url" rel="index">
-                    <span itemprop="name">Life</span>
+                  <a href="/categories/Code/" itemprop="url" rel="index">
+                    <span itemprop="name">Code</span>
                   </a>
                 </span>
 
@@ -354,7 +348,7 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/2016/08/14/跨越大二下：（一）/#comments" itemprop="discussionUrl">
+                <a class="cloud-tie-join-count" href="/iOS 中的 Delegate 设计模式.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -381,25 +375,33 @@
       
 
       
-        <p>北京时间2016年8月14日23点49分。</p>
-<p>日子真的过的好快，就这样到了8月中旬。来帝都已经两周多了，实习的日子应该也只剩下两周，之后紧接着又要开学。一直想把从上学期到现在蛮久一段时间的事情理一理，却又一直没能真正坐下来动笔。呼～就今天开始吧。</p>
-<p>嗯，还是先闪回到上学期的日子，慢慢开始理吧。<br><a id="more"></a></p>
-<h2 id="3月-6月"><a href="#3月-6月" class="headerlink" title="3月-6月"></a>3月-6月</h2><h3 id="在学校的糟糕生活"><a href="#在学校的糟糕生活" class="headerlink" title="在学校的糟糕生活"></a>在学校的糟糕生活</h3><p>说起来大二下这一个学期我过的并不愉快。这一学期似乎我的的确确没有在其他事情上花很多时间，生活方式简单到概括起来除去我在实验室写代码的时间只剩下在寝室弹吉他、去看电影、和好友约饭。而且这些其他的事情占的比例其实很小。然而在学校的日子到后面开始让我越发感到煎熬起来，甚至很多事我也越来越不想参与，有不少课我都没有去上而是在实验室继续做自己的事。总结其原因，我觉得真的可以用 JustZht 说的三观不合来回答。真的开始感觉自己越来越和这个学校很多人三观不合。我并不想而且也没有啥资格去评价别人的生活方式价值取向如何如何，因为每个人的生活完全是自己的事，被自己不认可的人干预和评价并不是一件愉快的事情。</p>
-<p>但于我单方面而言，这种三观不合给我在学校的生活带来很多不适。举例来说，就比如之前和寝室里其他同学越发不可调和的冲突，使得这种不合已经逐渐到了开始让我感觉恶心的一步。我对别人生活的选择是无权干涉，但每天每周每月每学期夜里两三点还有音乐播放和台灯照射，每天午休都是打印机的声音与游戏鼠标的劈劈啪啪，这种种的事情已经对我的生活造成了无法回避到无法忍受的困扰。而即便是这种情况居然还会有其他同学的评论是我应该体谅容忍，我对自己胸怀的狭小真是感到抱歉。又或是在技术方面，实际上身处若大的一个计科院，你却很难感受得到对技术的热情。因为并没有太多人热衷于关注和讨论行业相关的事情。本来就没有多少人关心技术，所以更是没多少人关心新技术。并且整个学校也总是会时不时弥漫着面向创业、面向 PPT 编程的氛围，所以在学校也难以找到几个聊得来的同学。可能只有实验室算是要好一些的地方。</p>
-<p>于此种种，大事小事，似乎真的只能用三观不合来解释了。我也越来越不愿意和别人理论争论什么，因为很多事说起来似乎都是小事，说大了那就是三观问题，浪费生命在这些事上没有意义。</p>
-<p>解决？我已经决定大三开学就搬出去了，学习技术或者准备考研，这种事情放在我的寝室里是永远无法进行下去的事情。而其他的不合，回避。保持和能聊得来的朋友的日常交际，就已尽非常足够了。</p>
-<h3 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h3><p>这学期开始给自己添了一些新设备。一是从 WASD 定制了一个机械键盘，茶轴无刻，自选配色，看起来漂亮用起来爽。二是买了一个 DELL UltraSharp 25’ 显示器，和 MacBook 用 ThunberBolt 接起来，非常省心。还有其他的一些小东西。我总觉得在干活的家伙上开销是非常值得的，光只是这两样就让我 Coding 时候的效率和心情都高了不少。这学期也是读了不少书，一类是关于设计的书，比如寒假时 Kevin 推荐的 About Face 和设计心里学的4册，剩下的就是技术类的书了。技术上这学期开始学了 React Native，中间趁机学了一小把 Android。Android 说起来好像也就只是摸了一把，写了一个2048，所以也不能算真的学了。然后就是跟着学校点了一些数据库和 JAVA 的技能。说起来上课我是真的没有太仔细听的，到后期好像都在用纸手写代码或者带着 Kindle 去看书。这两门课都是到后来要交课程设计的时候我才开始学的，课程设计我写了一个 MySQL + JAVA + iOS App 的小系统直接当做两门课的课程设计交了两次，写了两天。JAVA 老师最后点评说这个可以当毕业设计了我是有点惊讶不知道是真是假。</p>
-<p>说回上课不听的这种方式，这样当然是有不好的地方，期末之前总要体验一把绝望的感觉和被挂科支配的恐惧。但明知如此，我还是更喜欢花时间在自己钻研技术上，只是如果要考研的话，可能以后还要多花很多力气吧。不过还好，这学期依旧延续从前，没有挂科，有些科目考的还算不错。</p>
-<p>关于技能除了刚才说的 React Native \ Android \ JAVA \ DataBase 这些，主要时间还是花在 iOS 上了。开始学习了 Apple 的 SpriteKit 和 SceneKit, 然后重新好好读了一些关于 Swift 的文章，感觉起来对很多 Swift 里的概念和特性又有了新的理解，比如函数式的一些有趣的东西。之后写了两个至今难产的 Project， 虽然产品难产，但过程里还是收获了不少，包括 GCD, CA, CG 之类。造了两个小轮子。但我开始感觉自己之前尤其是大一的时候好像走了弯路，浪费了不少时间，对 iOS ，真的是要继续深入不停学习才是，自己还是太嫩了。</p>
-<p>其他，这学期体验了一把代教选修课。到最后感觉并不特别愉悦，总让我感觉无论是学校还是学生对待选修课似乎都不是一个严肃的事情，比如选修课时间总是会被各种事情占用，让人感觉似乎就不是一个严肃的教学和学习的地方。不过也无妨，这种事情本来还是看个人自己的呗，靠外面 PUSH 有啥子用。</p>
-<p>快期末的时候受一位老师指点去研究一个开源的物联网项目。趁此机会又一次的温故和学习了一些 Linux 相关的，还有部署之类的，最后花了一些时间去了解使用了 MongoDB ／ Maven / MQTT , 也仅限是了解和尝试，并没有深入。</p>
-<p>还有不知道算不算是技术上的，这学期去考的那个软件设计师，之前查询结果通过了，所以也是在大二结束了这个事情。我个人对考证的兴趣是不大的，而且这个考试并不会对某一个方面有很深入的考察，但是横向的面却撒的很大。考着玩是可以的，我也没有在准备这个考试上花时间，甚至是交报名表和打印准考证的时间。哈，这要感谢我们实验室被称为小暖男的学弟。</p>
-<p>最后，在今年的 WWDC 第二天去注册了 Apple Developer Program。为啥这么晚注册呢，因为之前好像没咋考虑过要上架的事情？所以以后每年 WWDC 续费 Developer Program 的时候还可以提醒自己想想干了啥。然后还有幸去参加了的的确确是 Apple 举办的一个小型研讨会，中途茶歇的时候还和一位 Apple 的人员简单的交流了一会儿，非常棒的体验。</p>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>从开始练习 FingerStyle 的指弹吉他演奏，这学期还是有一直坚持继续练习吉他。这学期弹会的曲子不多，把之前的 Kujira 练熟了，之后学弹了 Little Martha 、Rings 和 Voyage for Ireland，一共换了两幅弦，还是 Elixir 11025 。值得一提的是，5月的时候和阿汪一起去听了 Pierre Bensusan 的武汉场演奏会，坐在内场5排，第一次亲眼见到三叔，印象非常深刻。感觉三叔确实老了，但在现场亲耳听到 So Long Michael 、 WuWei 等等自己听了许久的 DADGAD 名曲的时候确实很感动。想起自己当时学弹 FingerStyle 可能也就是为了演奏三叔的 WuWei …</p>
-<p>其实因为说起来在学校好像也没有什么健康有趣适合我的放松方式，加上我又是一个完全玩不转游戏的人，所以写代码和看书之外的放松，我就会去看电影或弹吉他。去看电影的话平均每周可能至少都会抽出时间去看一次，算起来好像上学期也看了20场以上了。其中当然一个人也会去，我想大部分人都会非常享受能有一段完全属于自己而不会被别人打扰的放松时间。</p>
-<p>所以这两种放松的方式实在是非常适合我。</p>
-<p>惭愧的是本学期依然没有开始好好锻炼身体，以至于现在每当我和班上同学说起我要去锻炼身体一事，他们的脸上总是会透露出让我难以名状的笑容。然而严肃的说，现在可能坐的时间对着屏幕的时间越来越多了，有时候也会通宵 Coding，我有时候能感受到自己身体发出的不舒适的信号。所以剩下能在学校继续呆的一年多的时间，放掉其他的事情之后，锻炼身体是必须的了。而且在学校的日子里，饮食上也总是很难挑选或者控制。</p>
-<p>于此乎，2016年6月结束。</p>
+        <p>最近写的 iOS/Swift 代码比较多，很久没动笔又没怎么写过技术类的文章。所以决定从小小的总结一下 Delegate 模式开始写一写，因此这也是一篇入门文章。<br><a id="more"></a></p>
+<h2 id="What-is-Delegate"><a href="#What-is-Delegate" class="headerlink" title="What is Delegate ?"></a>What is Delegate ?</h2><p>我想很多同学第一次遇见 Delegate 这个词是在写 tableView 的时候。那时候我也只是每每需要用的时候就照着这种模式写上 tableView.delegate = self, tableView.dataSource = self 也并不理解究竟是什么意思。</p>
+<p>应该说 delegate 是 Cocoa/CocoaTouch 中的一种设计模式，正如前面提到的 tableView 一样，Cocoa 框架中很多地方都用到了这种设计模式。这种设计模式中我们可以将一个对象的一些功能委托给另一个对象来实现。因此使用 delegate 模式可以帮助我们设计出更松耦合的代码。</p>
+<p>delegate 使用起来非常简单。假设我们现在需要一个电视机和一个音响，我们想要将电视机播放声音的职责委托给外置的音响来实现，我们就可以这样编写:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">// 首先定义一个 Protocol 协议</div><div class="line">protocol PlayAudioDelegate &#123;</div><div class="line">  func playAudio()</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 编写一个遵循 PlayAudioDelegate 协议的音响对象，实现协议中的方法</div><div class="line">class Speaker: PlayAudioDelegate &#123;</div><div class="line">  func playAudio() &#123;</div><div class="line">    printLog(&quot;Start Play!&quot;)</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 编写电视机</div><div class="line">class TV &#123;</div><div class="line">  // delegate 可以为任何遵守 PlayAudioDelegate 协议的对象</div><div class="line">  var delegate: PlayAudioDelegate?</div><div class="line"></div><div class="line">  func play() &#123;</div><div class="line">    // 当 delegate 对象存在时，调用对象的 playAudio 方法</div><div class="line">    delegate?.playAudio()</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">let tv = TV()</div><div class="line">let speaker = Speaker()</div><div class="line"></div><div class="line">tv.delegate = speaker</div><div class="line">tv.play()  // printLog 将输出 &quot;Start Play!&quot;</div></pre></td></tr></table></figure>
+<p>如上，使用起来并不复杂，但还是存在一些问题的。</p>
+<h2 id="可选"><a href="#可选" class="headerlink" title="可选"></a>可选</h2><p>上面的例子里，我们使用 PlayAudioDelegate 这个 Protocol 来定义了一些方法，我们也知道 Swift 中当让一个类遵循某个协议的时候，这个类中必须将 Protocol 中定义的所有属性和方法实现，否则编译器将报错。</p>
+<p>但实际情况中，我们可能只需要当前类实现 Protocol 中的部分方法，就好像在使用 tableView 中，我们并不是想要每一次都需要将 UITableViewDelegate 和 UITableViewDataSource 中所有方法都全部实现。</p>
+<p>我们有两种方法来实现 Protocol 中的可选。</p>
+<h3 id="objc"><a href="#objc" class="headerlink" title="@objc"></a>@objc</h3><p>一种是借用 @objc 关键字来实现。我们可以在定义 Protocol 时在前面加上 @objc 关键字，然后在协议中需要定义为可选的方法前也加上 @objc 和 optional 来定义一个可选方法。如:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@objc protocol PlayMediaDelegate &#123;</div><div class="line">  @objc optional func playAudio()</div><div class="line">  @objc optional func playVideo()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样在需要类遵循 PlayMediaDelegate 协议时其中的 playAudio() 和 playVideo() 方法就不再是必须要实现的。</p>
+<h3 id="extension-Protocol"><a href="#extension-Protocol" class="headerlink" title="extension Protocol"></a>extension Protocol</h3><p>第二种方法，也是我个人更常用的方法，就是将协议扩展，给出协议中方法的默认实现来达到不需要在遵循 protocol 的类中必须实现所有方法的效果。</p>
+<p>我们使用 Swift 中的 extension 来对 Protocol 进行扩展。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// MARK: - PlayMediaDelegate Protocol</div><div class="line">protocol PlayMediaDelegate &#123;</div><div class="line">  func playAudio()</div><div class="line">&#125;</div><div class="line"></div><div class="line">// MARK: - Extension PlayMediaDelegate Protocol</div><div class="line">extension PlayMediaDelegate &#123;</div><div class="line">  func playAudio() &#123;</div><div class="line">    printLog(&quot;Play Audio Now&quot;)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样，我们通过在扩展中给出需要可选方法的默认实现，也可以达到效果。在使用时，遵循当前 Protocol 的类在不实现方法时将使用 extension 中的默认实现。当然，你也可以再类中给出这个方法重新实现。</p>
+<h2 id="weak"><a href="#weak" class="headerlink" title="weak"></a>weak</h2><p>倘若你对内存管理和 ARC 有一定的理解，你可能会发现我们在上面的代码中可能存在一些问题（ 内存管理和 ARC 这里就不展开了）。<br>为了避免循环引用，我们可能会通过尝试在 delegate 前加上 weak 来声明当前类不负责保持 delegate 这个对象，让它的销毁由外部控制。从而利用 ARC 的这个特性帮助我们完成内存管理。如将上面的例子改成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">protocol PlayAudioDelegate &#123;</div><div class="line">  func playAudio()</div><div class="line">&#125;</div><div class="line"></div><div class="line">class TV &#123;</div><div class="line">  weak var delegate: PlayAudioDelegate?</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>但很快就会发现编译器报错了。</p>
+<p>为什么？<br>在 <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Protocols.html#//apple_ref/doc/uid/TP40014097-CH25-ID281" target="_blank" rel="external">Apple 爸爸的这篇文档</a> 里，我们可以知道：</p>
+<p>1) Swift 中的 Protocol 是可以 class, struct, enum 这些类型都可以遵循的<br>2) 而 struct, enum 并不通过 ARC 来管理内存，所以 ARC 中的 weak 并不能用来修饰</p>
+<p>那应该怎么办？</p>
+<p>答案是将 Protocol 限制为 Class-Only Protocol，也就是只能被 class 而不能被其他类型遵循的协议。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">protocol PlayAudioDelegate: class &#123;</div><div class="line">  func playAudio()</div><div class="line">&#125;</div><div class="line"></div><div class="line">class TV &#123;</div><div class="line">  weak var delegate: PlayAudioDelegate?</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样就可以啦。</p>
+<p>此外，为什么 class TV 中的 delegate 我们用了 optional 类型，因为我们使用了 weak 来修饰 delegate， 这就有可能导致 delegate 在使用过程中变为 nil，所以我们需要使用 optional 类型。否则编译器也将报 “ ‘weak’ variable shoule have optional type ‘…?’ “ 错。</p>
+<h2 id="See-you"><a href="#See-you" class="headerlink" title="See you"></a>See you</h2><p>Created by ROC Zhang on 2016-10-24.<br>Copyright © 2016 ROC Zhang. All rights reserved.</p>
 
       
     </div>
@@ -428,7 +430,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://www.roczhang.com/2016/08/14/跨越大二下：（一）/" title="跨越大二下：（一）">http://www.roczhang.com/2016/08/14/跨越大二下：（一）/</a>
+      <a href="http://www.roczhang.com/iOS 中的 Delegate 设计模式.html" title="iOS 中的 Delegate 设计模式">http://www.roczhang.com/iOS 中的 Delegate 设计模式.html</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -451,14 +453,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/跨越大二下：（一）.html" rel="next" title="跨越大二下：（一）">
+                <i class="fa fa-chevron-left"></i> 跨越大二下：（一）
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/10/24/iOS 中的 Delegate 设计模式/" rel="prev" title="iOS 中的 Delegate 设计模式">
-                iOS 中的 Delegate 设计模式 <i class="fa fa-chevron-right"></i>
+              <a href="/我的设计学习之旅.html" rel="prev" title="我的设计学习之旅">
+                我的设计学习之旅 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -588,7 +594,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#3月-6月"><span class="nav-number">1.</span> <span class="nav-text">3月-6月</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在学校的糟糕生活"><span class="nav-number">1.1.</span> <span class="nav-text">在学校的糟糕生活</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#技术"><span class="nav-number">1.2.</span> <span class="nav-text">技术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">1.3.</span> <span class="nav-text">其他</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-Delegate"><span class="nav-number">1.</span> <span class="nav-text">What is Delegate ?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可选"><span class="nav-number">2.</span> <span class="nav-text">可选</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#objc"><span class="nav-number">2.1.</span> <span class="nav-text">@objc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#extension-Protocol"><span class="nav-number">2.2.</span> <span class="nav-text">extension Protocol</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#weak"><span class="nav-number">3.</span> <span class="nav-text">weak</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#See-you"><span class="nav-number">4.</span> <span class="nav-text">See you</span></a></li></ol></div>
             
 
           </div>
