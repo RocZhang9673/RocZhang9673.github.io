@@ -129,10 +129,16 @@ p.testFlightLabel {
   -webkit-box-shadow: 0px 1px 2px 1px rgba(70, 70, 70, 0.04);
 }
 
+@font-face {
+	font-family: 'JosefinSans';
+	src:url('../fonts/JosefinSans-Bold.ttf');
+	src:url('../fonts/JosefinSans-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+
 .mainTitle {
-  font-family:'JosefinSans-Bold';
-  src:url('font/JosefinSans-Bold.ttf')
-  format('truetype');
+  font-family:'JosefinSans', "Helvetica Neue";
   color:#454545;
   letter-spacing:0.5rem;
   padding-top: 70px;
