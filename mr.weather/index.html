@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mr.Weather</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/colors.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/jquery.fullPage.css" rel="stylesheet">
+    <link href="css/james_typography.css" rel="stylesheet" >
+
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.fullPage.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Main Section -->
+    <section class="mw_backgroundColor">
+
+      <!-- Main -->
+      <div class="container-fluid align-center">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 home_content">
+            <h2>Mr.Weather</h2>
+						<h6>人性天气应用 高度定制自由</h6>
+          </div>
+
+          <div class="home_mockups">
+            <img src="images/mockup.png" alt="" class="img-responsive">
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- Notification Section -->
+    <section class="mw_white">
+
+      <div style="padding-top:120px; padding-bottom: 100px">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 align-center">
+              <h3>定制推送通知</h3>
+              <p>设定任何你关心的天气状况交给 Mr.Weather 监控<br>发生时 Mr.Weather 将主动通知你而不必再反复手动查看</p>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 30px;">
+            <!-- NotificationPreview Column -->
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 align-center ">
+
+              <!-- Notification A -->
+              <div class="notification_wrap" style="padding-left:20px; padding-right:20px;">
+                <div class="row center-vertical" style="height: 100%;">
+                  <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 text-left" style="height: 100%; display:table; margin: 0 auto;">
+                    <h6 class="notificationTitle" style="height: 100%; margin-top: 0; margin-bottom: 0; line-height: auto; display:table-cell; vertical-align:middle;"> <strong>第二天</strong><br>需要 <strong>带伞</strong><br>在 <strong>晚上</strong> 提醒我</h6>
+                  </div>
+
+                  <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 text-right" style="height: 100%; display:table; margin: 0 auto;">
+                    <p class="notificationSubtitle" style="height: 100%; margin-top: 0; margin-bottom: 0; line-height: auto; display:table-cell; vertical-align:middle;">降雨概率<br>大于 80%</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Notification B -->
+              <div class="notification_wrap" style="margin-top: 25px; padding-left:20px; padding-right:20px;">
+                <div class="row center-vertical" style="height: 100%;">
+                  <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 text-left" style="height: 100%; display:table; margin: 0 auto;">
+                    <h6 class="notificationTitle" style="height: 100%; margin-top: 0; margin-bottom: 0; line-height: auto; display:table-cell; vertical-align:middle;"> <strong>第二天</strong><br>需要 <strong>带伞</strong><br>在 <strong>晚上</strong> 提醒我</h6>
+                  </div>
+
+                  <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 text-right" style="height: 100%; display:table; margin: 0 auto;">
+                    <p class="notificationSubtitle" style="height: 100%; margin-top: 0; margin-bottom: 0; line-height: auto; display:table-cell; vertical-align:middle;">降雨概率<br>大于 80%</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-xs-12 col-sm-12 visible-xs visiable-sm" style="height: 35px;"> </div>
+
+            <!-- NotificationSteps Column -->
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 align-center">
+              <!-- Step1 Row -->
+              <div class="row align-left">
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="margin-right: 0;">
+                  <p>1</p>
+                </div>
+
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                  <strong>设定检测时间</strong>
+                  <p>设定你要检测哪一天。可以是当天、明天甚至一周后。</p>
+                </div>
+              </div>
+
+              <!-- Step2 Row -->
+              <div class="row align-left">
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xs-offset-1 col-md-offset-1 col-lg-offset-1">
+                  <p>2</p>
+                </div>
+
+                <div class="col-xs-8 col-sm-9 col-md-9 col-lg-9">
+                  <strong>设定触发条件</strong>
+                  <p>设定某个天气因素达到了怎样的条件的时候应该通知您。可以是温度小于 0 度时、PM 2.5 大于 100 时，也可以是天气状况为雨雪时。</p>
+                </div>
+              </div>
+
+              <!-- Step3 Row -->
+              <div class="row align-left">
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xs-offset-1 col-md-offset-1 col-lg-offset-1">
+                  <p>3</p>
+                </div>
+
+                <div class="col-xs-8 col-sm-9 col-md-9 col-lg-9">
+                  <strong>设定通知时间</strong>
+                  <p>设定当上方触发条件满足时 Mr.Weather 应当在什么时候通知您。可以是早晨出门前的 8 点，也可以是晚上入睡前的 22 点。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Card Section-->
+    <section class="mw_backgroundColor">
+
+      <div style="padding-top:120px; padding-bottom: 100px">
+        <div class="container">
+
+          <div class="row text-center">
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 align-center">
+               <h3>自由选择卡片</h3>
+               <p>Mr.Weather 内置了四大类别的天气卡片，可自由选择需要展示的信息项<br>一打开便可直接看到你最关心的内容</p>
+            </div>
+          </div>
+
+          <div class="row align-center" style="margin-top: 20px">
+            <div class="col-xs-5 col-sm-5 col-md-2 col-lg-2 col-xs-offset-1 col-sm-offset-1 col-md-offset-2 col-lg-offset-2 margin-bottom-2">
+              <img src="images/card1.png" class="img-responsive" alt="">
+            </div>
+
+            <div class="col-xs-5 col-sm-5 col-md-2 col-lg-2 margin-bottom-2">
+              <img src="images/card2.png" class="img-responsive" alt="">
+            </div>
+
+            <div class="col-xs-5 col-sm-5 col-md-2 col-lg-2 col-xs-offset-1 col-sm-offset-1 col-md-offset-0 col-lg-offset-0 margin-bottom-2">
+              <img src="images/card3.png" class="img-responsive" alt="">
+            </div>
+
+            <div class="col-xs-5 col-sm-5 col-md-2 col-lg-2 margin-bottom-2">
+              <img src="images/card4.png" class="img-responsive" alt="">
+            </div>
+
+          </div>
+
+          <div class="row" style="margin-top: 10px">
+            <div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-2 col-lg-offset-2 align-center">
+              <div class="card_wrap">
+                <img src="images/cardPreview1.png" class="img-responsive" alt="">
+              </div>
+            </div>
+
+            <div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-0 col-lg-offset-0 align-center">
+              <div class="card_wrap">
+                <img src="images/cardPreview2.png" class="img-responsive" alt="">
+              </div>
+            </div>
+
+            <div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-2 col-lg-offset-2 align-center">
+              <div class="card_wrap">
+                <img src="images/cardPreview3.png" class="img-responsive" alt="">
+              </div>
+            </div>
+
+            <div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-0 col-lg-offset-0 align-center">
+              <div class="card_wrap">
+                <img src="images/cardPreview4.png" class="img-responsive" alt="">
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- TestFlight Section -->
+    <section class="mw_black">
+
+      <div style="padding-top: 120px; padding-bottom: 100px">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-10 col-sm-10 col-md-6 col-lg-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+              <h3 style="color:#ffffff">加入 TestFlight</h3>
+              <p style="color:#8c8f94">发送一封邮件即可申请加入<br>之后便可提前获取到最新测试版本，帮助 Mr.Weather 进行改进</p>
+            </div>
+
+            <div class="visible-xs visiable-sm" style="height: 35px;">
+
+            </div>
+
+            <div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1" style="padding-top: 55px;">
+              <a href="mailto:roczhang9673@gmail.com">
+                <div class="testFlightButton">
+                  <p class="testFlightLabel center-vertical">GET STARTED</p>
+                </div>
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+
+  </body>
+
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/retina.js"></script>
+</html>

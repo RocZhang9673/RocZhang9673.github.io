@@ -1,0 +1,117 @@
+.mw_fullScreen {
+  padding-top: 2rem;
+  padding-bottom: 0;
+}
+
+.align-center {text-align:center}
+.align-left {text-align:left}
+.align-right {text-align:right}
+.float-left {float:left}
+.home_content {
+	padding-top:5rem;
+	padding-bottom:5rem;
+}
+.subsection { padding-top:7rem; padding-bottom:7rem; position:relative; z-index:100;}
+.layer {
+	position:absolute;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	margin: 0 auto;
+}
+
+img.main_mockup {
+  margin-top: -5rem;
+}
+
+.notification_wrap {
+	width: 80%;
+	height: 115px;
+	border: 2px solid #eaedee;
+	border-radius: 6.51px;
+	margin: 0 auto;
+}
+
+h6.notificationTitle {
+	font-family: PingFangSC-Regular;
+	color: #454545;
+	letter-spacing: 0;
+	text-align: left;
+}
+
+p.notificationSubtitle {
+	opacity: 0.38;
+	font-family: PingFangSC-Regular;
+	color: #454545;
+	letter-spacing: 0;
+	text-align: right;
+}
+
+.card_wrap {
+	display: block;
+	font-size: 1rem;
+	min-height: auto;
+	width: auto;
+	margin-bottom:1.5rem;
+}
+
+.mdl-shadow--3dp {
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .14), 0 3px 3px -2px rgba(0, 0, 0, .2), 0 1px 8px 0 rgba(0, 0, 0, .12)
+}
+
+.testFlightButton {
+  opacity:0.3;
+  border:2px solid #ffffff;
+  border-radius:30px;
+  width:236px;
+  height:56px;
+}
+
+p.testFlightLabel {
+  font-family:Montserrat-Regular;
+  font-size:14px;
+  color:#ffffff;
+  letter-spacing:1.5px;
+  text-align:center;
+}
+
+.home_content {
+	position:relative;
+	width:100%;
+}
+
+.home_mockups {
+	position:relative;
+	margin-top:3rem;
+	z-index:3
+}
+
+.center {
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-pack: center;
+  -moz-box-align: center;
+
+  display: -o-box;
+  -o-box-orient: horizontal;
+  -o-box-pack: center;
+  -o-box-align: center;
+
+  display: -ms-box;
+  -ms-box-orient: horizontal;
+  -ms-box-pack: center;
+  -ms-box-align: center;
+
+  display: box;
+  box-orient: horizontal;
+  box-pack: center;
+  box-align: center;
+}
+
+.center-vertical { position:relative; top:50%; transform:translateY(-50%); }
