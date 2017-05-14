@@ -69,6 +69,7 @@ p.notificationSubtitle {
 }
 
 p.testFlightLabel {
+  font-family: PingFangSC-Semibold;
   font-size:14px;
   color:#ffffff;
   letter-spacing:1.5px;
@@ -78,12 +79,6 @@ p.testFlightLabel {
 .home_content {
 	position:relative;
 	width:100%;
-}
-
-.home_mockups {
-	position:relative;
-	margin-top:3rem;
-	z-index:3
 }
 
 .center {
@@ -113,4 +108,96 @@ p.testFlightLabel {
   box-align: center;
 }
 
-.center-vertical { position:relative; top:50%; transform:translateY(-50%); }
+.center-vertical {
+  position:relative;
+  top:50%;
+  transform:translateY(-50%);
+}
+
+.mockup {
+  position:relative;
+  padding-bottom: 30px;
+  margin: 0 auto;
+	animation: animLoadedContent 1s cubic-bezier(0.7,0,0.3,1) both;
+  -webkit-animation: animLoadedContent 1s cubic-bezier(0.7,0,0.3,1) both;
+  animation-delay: 0.5s;
+  -webkit-animation-delay: 0.5s;
+}
+
+.cardPreview {
+  box-shadow: 0px 1px 2px 1px rgba(70, 70, 70, 0.04);
+  -webkit-box-shadow: 0px 1px 2px 1px rgba(70, 70, 70, 0.04);
+}
+
+.mainTitle {
+  font-family:'JosefinSans-Bold';
+  src:url('font/JosefinSans-Bold.ttf')
+  format('truetype');
+  color:#454545;
+  letter-spacing:0.5rem;
+  padding-top: 70px;
+}
+
+.mainTitleAnimation {
+  animation: animLoadedContent 1s cubic-bezier(0.5,0,0.3,1) both;
+  -webkit-animation: animLoadedContent 1s cubic-bezier(0.5,0,0.3,1) both;
+  animation-delay: 0s;
+  -webkit-animation-delay: 0s;
+}
+
+.downloadButtonAnimation {
+  animation: animLoadedContent 1s cubic-bezier(0.5,0,0.3,1) both;
+  -webkit-animation: animLoadedContent 1s cubic-bezier(0.5,0,0.3,1) both;
+  animation-delay: 1s;
+  -webkit-animation-delay: 1s;
+}
+
+.aboutMe_wrap {
+  margin-top: 100px;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  background:rgba(255,255,255,0.05);
+}
+
+@keyframes animLoadedContent {
+    from {
+        opacity: 0;
+        transform: translate3d(0,25px,0);
+    }
+}
+
+@-webkit-keyframes animLoadedContent {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0,25px,0);
+    }
+}
+
+@-webkit-keyframes animLoadedLoader {
+  to {
+      opacity: 1;
+      -webkit-transform: translate3d(0,0,0);
+  }
+}
+
+@keyframes animLoadedLoader {
+  to {
+      opacity: 1;
+      -webkit-transform: translate3d(0,0,0);
+  }
+}
+
+.content_container h2 {
+    animation-delay: 0.2s;
+    -webkit-animation-delay: 0.2s;
+}
+
+.content_container h6 {
+    animation-delay: 0.25s;
+    -webkit-animation-delay: 0.25s;
+}
+
+.animationEnd {
+  -webkit-animation: animLoadedLoader 0.5s cubic-bezier(0.7,0,0.3,1) forwards;
+	animation: animLoadedLoader 0.5s cubic-bezier(0.7,0,0.3,1) forwards;
+}
