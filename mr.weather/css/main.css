@@ -64,7 +64,7 @@ p.notificationSubtitle {
   opacity:0.3;
   border:2px solid #ffffff;
   border-radius:30px;
-  width:236px;
+  width:220px;
   height:56px;
 }
 
@@ -160,8 +160,8 @@ p.testFlightLabel {
 
 .aboutMe_wrap {
   margin-top: 100px;
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   background:rgba(255,255,255,0.05);
 }
 
@@ -206,4 +206,8 @@ p.testFlightLabel {
 .animationEnd {
   -webkit-animation: animLoadedLoader 0.5s cubic-bezier(0.7,0,0.3,1) forwards;
 	animation: animLoadedLoader 0.5s cubic-bezier(0.7,0,0.3,1) forwards;
+}
+
+h5.aboutMeFont {
+  font-family: PingFangSC-Regular;
 }
