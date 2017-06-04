@@ -137,6 +137,12 @@ p.testFlightLabel {
 	font-style: normal;
 }
 
+.mainTitleInElse {
+  font-family:'JosefinSans', "Helvetica Neue";
+  color:#FFFFFF;
+  letter-spacing:0.5rem;
+}
+
 .mainTitle {
   font-family:'JosefinSans', "Helvetica Neue";
   color:#454545;
@@ -162,6 +168,12 @@ p.testFlightLabel {
   margin-top: 100px;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  background:rgba(255,255,255,0.05);
+}
+
+.title_wrap {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   background:rgba(255,255,255,0.05);
 }
 
