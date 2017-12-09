@@ -1,0 +1,835 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="roczhang" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Roc Zhang's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="节选翻译来自 Clean Swift iOS Architecture for Fixing Massive View Controller 系列第一篇。原作者：Raymond翻译者：Roc Zhang">
+<meta property="og:type" content="article">
+<meta property="og:title" content="翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （一）">
+<meta property="og:url" content="http://www.roczhang.com/翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （一）.html">
+<meta property="og:site_name" content="Roc Zhang's Blog">
+<meta property="og:description" content="节选翻译来自 Clean Swift iOS Architecture for Fixing Massive View Controller 系列第一篇。原作者：Raymond翻译者：Roc Zhang">
+<meta property="og:image" content="http://www.roczhang.com/images/cleanSwift/vipCycle.png">
+<meta property="og:updated_time" content="2017-12-09T07:21:09.115Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （一）">
+<meta name="twitter:description" content="节选翻译来自 Clean Swift iOS Architecture for Fixing Massive View Controller 系列第一篇。原作者：Raymond翻译者：Roc Zhang">
+<meta name="twitter:image" content="http://www.roczhang.com/images/cleanSwift/vipCycle.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.roczhang.com/翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （一）.html"/>
+
+
+
+
+
+  <title> 翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （一） | Roc Zhang's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Roc Zhang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-me">
+          <a href="/me" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.roczhang.com/翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （一）.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roc Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roc Zhang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （一）
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-09T14:49:05+08:00">
+                2017-12-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Code/" itemprop="url" rel="index">
+                    <span itemprop="name">Code</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （一）.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （一）.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>节选翻译来自 Clean Swift iOS Architecture for Fixing Massive View Controller 系列第一篇。<br>原作者：Raymond<br>翻译者：Roc Zhang<br><a id="more"></a><br>第一次尝试翻译，如有任何问题还请留言指出。  </p>
+<p>E-mail: roczhang9673@gmail.com<br>Weibo: @张鹏roczhang<br>Twitter: @Lighters9673 </p>
+<hr>
+<p>开始之前: 原作者提供了付费的 <a href="https://clean-swift.com/handbook" target="_blank" rel="external">The Clean Swift Handbook</a>，以及可以通过订阅他的 list 来下载 Clean Swift 的 Xcode 模版。示例代码在原文发布后有更新，因此文中所提及代码可能与你下载到的代码有所出入。   </p>
+<p>#Clean Swift - 适用于 iOS 上的 Clean 架构<br>Clean Swift 架构起源于由 Uncle Bob 提出的 Clean 架构，他们之间有很多概念互通，例如 Components 组件，Boundaries 边界，以及 Models 模型。我将会实现一个由 Uncle Bob 谈过的“创建订单”用例。Uncle Bob 使用 Java 在 Web 应用程序中做了示范，我将会向你展示如何使用 Swift 将 Clean 架构应用到 iOS 项目中。</p>
+<p>##“创建订单” 用例<br>这个用例由 Uncle Bob 在 <a href="https://skillsmatter.com/skillscasts/2437-uncle-bob-web-architecture" target="_blank" rel="external">Why can’t anyone get Web architecture right?</a> 中提出。它起源于 Ivar Jacobson 的 <a href="http://www.amazon.com/Object-Oriented-Software-Engineering-Approach/dp/0201544350" target="_blank" rel="external">Object Oriented Software Engineering</a> 一书。此用例包含了 Clean Swift 中除 routing 外的绝大多数特性，是一个非常好的例子。</p>
+<p><strong>Data 数据:</strong>  </p>
+<ul>
+<li>Customer-id<br>– Customer-contact-info<br>– Shipment-destination<br>– Shipment-mechanism<br>– Payment-information  </li>
+</ul>
+<p><strong>Primary Course:</strong><br>1.用上面的数据命令 clerk 发出“创建订单”命令。<br>2.系统验证所有数据。<br>3.系统创建订单并确定订单 ID。<br>4.系统将订单 ID 传达给 clerk。  </p>
+<p><strong>Exception Course:</strong><br>Validation Error 验证错误，由系统将错误信息送达给 clerk。</p>
+<p>我们将给这个用例中的数据建模到我们的模型层，并且创建特定的 request（请求）、response（响应）和 view models（视图模型）来在 view controller（视图控制器）、interactor（交互器）和 presenter （展示器）这些组件的边界中传递数据。</p>
+<p>首先来看一下我们如何在 Xcode 项目中组织我们的代码。</p>
+<p>##在 Xcode 中组织你的代码<br>我们将创建一个新的 Xcode 项目，将其命名为 <strong>CleanStore</strong>。为了简单起见选择“Single View Application” 和 “仅 iPhone” 就行，并确定在语言中选择了 Swift。接下来，创建一个嵌套的子 Group: <strong>Scene -&gt; CreateOrder</strong>。当我们稍后开始实现删除订单的用例时，再创建一个新的子 Group 叫做 <strong>Scenes -&gt; DeleteOrder</strong>。</p>
+<p>在一个典型的 Xcode 项目中，我们通常会见到文件被组织成 <strong>Model（模型）</strong>、<strong>View（视图）</strong>和 <strong>Controller（控制器）</strong> 三个组。每个 iOS 开发者都知道 MVC 架构，但让并没有告诉你任何关于项目更明确具体的信息。如 Uncle Bob 所指出，group（组）和 file names （文件命名）应当展现出你对此用例的意图，而不应该是反映底层框架结构。所以我们将在 Scene 下嵌套一个新的 group 来管理我们的每一个用例。</p>
+<p>在 <strong>CreateOrder</strong> 组中，你可以预计到这里所有文件要做的事情都会和创建订单有关。同样的如果在 <strong>DeleteOrder</strong> 组下你将发现所有的代码都在处理关于删除订单的事务。如果你看到一个由其他开发者创建的新的 <strong>ViewOrderHistory</strong> 组，你就已经能预计到这是做什么的。<br>这种结构能够告诉你相比以往使用的 Model, View, Controller 分组来说的更多信息。长此以往，你累计了 15 个 models, 27 个 view controllers，和 17 个 views。它们是做什么的？在一一查看这些文件前，你大概会什么都不清楚。</p>
+<p>也许你会问，那些被 <strong>CreateOrder</strong>, <strong>DeleteOrder</strong> 以及 <strong>ViewOrderHistory</strong> 所共用的类和协议该怎么办？实际上你可以将他们放到一个单独的组中，并取名为 <strong>Common -&gt; Order</strong>。为什么不简单明了一些呢？</p>
+<p>回到我们的用例。</p>
+<p>在 <strong>CreateOrder group</strong> 下面，我们将创建符合 Clean Swift 架构的组件。当我们继续完成用例时，我们将在这些组件的输入输出协议中添加方法，然后实现他们。</p>
+<p>##VIP 循环<br><img src="images/cleanSwift/vipCycle.png" alt="Markdown preferences pane"><br>ViewController（视图控制器），interactor（交互器）和 presenter （展示器）是 Clean Swift 中的三个主要组件。他们彼此互相作为其他组件的输入和输出，正如下面的图表所展示：<br>视图控制器的输出连接着交互器的输入，交互器的输出连接着展示器的输入，展示器的输出连接着视图控制器的输入。我们将创建特定的对象来在这些组件的边界间传递数据。这能使我们把底层数据结构从组件中解耦。这些特定的对象仅由原始类型组成，如 Int, Double 和 String。我们可以创建结构体、类和枚举来重新表达数据，但在这些实体的内部应该仅包含原始类型。</p>
+<p>这一点非常重要。因为一旦业务逻辑改变，底层的数据模型也需要改变。我们不需要去更新全部的代码。Components （组件）在 Clean Swift 中充当插件的角色。这就意味着我们可以将不同的组件交换使用，只要他们能够遵循 Input （输入）和 Output （输出）协议，应用仍然可以按照我们的预期正常工作。</p>
+<p>一种典型的情况是这样的：用户点击了应用界面中的一个按钮，Tap Gesture 点击手势通过 IBActions 进入 ViewController 视图控制器，View Controller 构造一个请求对象并将其发送给 Interactor 交互器。Interactor 接受这个请求对象去执行一些任务，然后将执行结果放入 Response 响应对象中并将其发送给 Presenter 展示者。Presenter 将接收 Response 响应对象并格式化结果，然后将格式化的结果放到一个 ViewModel 视图模型对象中，并将其发回给 ViewController。最后，由 ViewController 将结果展示给用户。</p>
+<p>##1.View Controller<br>一个 ViewController 视图控制器应当在 iOS App 中承担着怎样的角色？基类 UITableViewController 应当可以给我们一些启示。我们想要使用代码来控制 UITableView 和 UIView 的子类，但这里的的控制代码应当是什么样？怎样的代码能有资格被称作控制代码而怎样的代码不能呢？</p>
+<p>让我们深入来看。 </p>
+<pre><code class="swift">
+<span class="keyword">import</span> UIKit
+
+<span class="class"><span class="keyword">protocol</span> <span class="title">CreateOrderViewControllerInput</span>
+</span>{
+  <span class="function"><span class="keyword">func</span> <span class="title">displaySomething</span><span class="params">(viewModel: CreateOrderViewModel)</span></span>
+}
+
+<span class="class"><span class="keyword">protocol</span> <span class="title">CreateOrderViewControllerOutput</span>
+</span>{
+  <span class="function"><span class="keyword">func</span> <span class="title">doSomething</span><span class="params">(request: CreateOrderRequest)</span></span>
+}
+
+<span class="class"><span class="keyword">class</span> <span class="title">CreateOrderViewController</span>: <span class="title">UITableViewController</span>, <span class="title">CreateOrderViewControllerInput</span>
+</span>{
+  <span class="keyword">var</span> output: <span class="type">CreateOrderViewControllerOutput</span>!
+  <span class="keyword">var</span> router: <span class="type">CreateOrderRouter</span>!
+
+  <span class="comment">// MARK: Object lifecycle</span>
+
+  <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">awakeFromNib</span><span class="params">()</span></span>
+  {
+    <span class="keyword">super</span>.awakeFromNib()
+    <span class="type">CreateOrderConfigurator</span>.sharedInstance.configure(<span class="keyword">self</span>)
+  }
+
+  <span class="comment">// MARK: View lifecycle</span>
+
+  <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span>
+  {
+    <span class="keyword">super</span>.viewDidLoad()
+    doSomethingOnLoad()
+  }
+
+  <span class="comment">// MARK: Event handling</span>
+
+  <span class="function"><span class="keyword">func</span> <span class="title">doSomethingOnLoad</span><span class="params">()</span></span>
+  {
+    <span class="comment">// <span class="doctag">NOTE:</span> Ask the Interactor to do some work</span>
+
+    <span class="keyword">let</span> request = <span class="type">CreateOrderRequest</span>()
+    output.doSomething(request)
+  }
+
+  <span class="comment">// MARK: Display logic</span>
+
+  <span class="function"><span class="keyword">func</span> <span class="title">displaySomething</span><span class="params">(viewModel: CreateOrderViewModel)</span></span>
+  {
+    <span class="comment">// <span class="doctag">NOTE:</span> Display the result from the Presenter</span>
+
+    <span class="comment">// nameTextField.text = viewModel.name</span>
+  }
+}
+</code></pre>
+<p>##CreateOrderViewControllerInput 和 CreateOrderViewControllerOutput 协议</p>
+<p><code>CreateOrderViewControllerInput</code> 协议指明了 <code>CreateOrderViewController</code> 组件（它遵循这个协议）的输入。<code>CreateOrderViewControllerOutput</code> 协议指明了输出。稍后你将在 interactor 和 presenter 上看到相同的模式。</p>
+<p>在 output 协议中有一个方法叫做 <code>doSomething()</code> ，如果有另一个组件想要成为 <code>CreateOrderViewController</code> 的输出，则需要在它的输入中支持 <code>doSomething()</code> 方法。</p>
+<p>从之前你看到的 VIP 循环中，我们知道这个 output 是 interactor。但请注意在 <code>CreateOrderViewController.swift</code> 中，没有提及到 <code>CreateOrderInteratcor</code>，这就意味着我们可以将另一个组件替换成为 <code>CreateOrderViewController</code> 的输出，只要这个组件在他的 input 协议中支持 <code>doSomething()</code> 。<br><code>doSomething()</code> 方法中的参数是一个由 view controller 传递到 interactor 的请求对象。这个请求对象是一个 <code>CreateOrderRequest</code> 结构体。它由原始类型构成，而不是之前我们确定的全部的订单数据。这意味着我们可以将底层订单数据模型从 view controller 和 interactor 中解耦出来。所以当我们将来要对订单数据模型做修改的时候（例如在其中增加一个“订单 ID” 的字段），我们不需要去更新 Clean Swift 组件中任何其他的内容。</p>
+<p>稍后我们完成了 VIP 循环之后，我们会再回到输出协议中的 displaySomething() 方法。</p>
+<p>##output 和 router 变量<br>输出变量是个遵循 <code>CreateOrderViewControllerOutput</code> 协议的对象。虽然我们已经知道在这里它实际上是 interatcor，但也可以不是（因为可以将它替换成其他组件）。</p>
+<p>router 变量是一个对 <code>CreateOrderRouter</code> 的引用，它被用来导航到不同的场景。</p>
+<p>##configure() 方法<br>我们将在 <code>awakeFromNid()</code> 方法中调用 <code>CreateOrderConfigurator.sharedInstance.configure(self)</code> 去让 configurator 来配置好 VIP 链。在 Uncle Bob 的 Clean 架构或者 VIPER（他将所有的配置工作放在 AppDelegate 中）里没有 configurator （配置器）的存在。由于我真的不想让这些无关的配置代码打乱我们的 VIP 代码，所以我将其提取出来放入到了 configurator 中。稍后我们会来看一下 configurator。</p>
+<p>##控制流<br>在 <code>viewDidLoad()</code> 中，我们需要去运行一些业务逻辑，所以调用 <code>doSomethingOnLoad()</code>。在 <code>doSomethingOnLoad()</code> 中，我们创建一个 <code>CreateOrderRequest()</code> 对象并在 output（the interactor）上调用 <code>doSomething()</code>。就是这样啦。我们要求 output 来执行我们的业务逻辑，view controller 不用也不应该关心谁来做，以及它如何完成。</p>
+<p>##See you in the next</p>
+<p>第一篇先翻译到这里，下次我们再接着 Interactor 继续。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      Roc Zhang
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://www.roczhang.com/翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （一）.html" title="翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （一）">http://www.roczhang.com/翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （一）.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/跨越大三.html" rel="next" title="跨越大三">
+                <i class="fa fa-chevron-left"></i> 跨越大三
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Roc Zhang" />
+          <p class="site-author-name" itemprop="name">Roc Zhang</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Roc Zhang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://roczhang.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://www.roczhang.com/翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （一）.html';
+          this.page.identifier = '翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （一）.html';
+          this.page.title = '翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （一）';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://roczhang.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "a79c1aa145ae437d8c58e9e10aa1c84a",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
