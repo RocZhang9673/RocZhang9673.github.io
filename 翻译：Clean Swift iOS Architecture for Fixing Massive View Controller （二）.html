@@ -1,0 +1,800 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="roczhang" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Roc Zhang's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="节选翻译来自 Clean Swift iOS Architecture for Fixing Massive View Controller 系列第二篇。原作者：Raymond翻译者：Roc Zhang">
+<meta property="og:type" content="article">
+<meta property="og:title" content="翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （一）">
+<meta property="og:url" content="http://www.roczhang.com/翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （二）.html">
+<meta property="og:site_name" content="Roc Zhang's Blog">
+<meta property="og:description" content="节选翻译来自 Clean Swift iOS Architecture for Fixing Massive View Controller 系列第二篇。原作者：Raymond翻译者：Roc Zhang">
+<meta property="og:updated_time" content="2017-12-17T16:41:02.779Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （一）">
+<meta name="twitter:description" content="节选翻译来自 Clean Swift iOS Architecture for Fixing Massive View Controller 系列第二篇。原作者：Raymond翻译者：Roc Zhang">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.roczhang.com/翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （二）.html"/>
+
+
+
+
+
+  <title> 翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （一） | Roc Zhang's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Roc Zhang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-me">
+          <a href="/me" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.roczhang.com/翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （二）.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roc Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roc Zhang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （一）
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-17T19:37:25+08:00">
+                2017-12-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Code/" itemprop="url" rel="index">
+                    <span itemprop="name">Code</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （二）.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （二）.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>节选翻译来自 Clean Swift iOS Architecture for Fixing Massive View Controller 系列第二篇。<br>原作者：Raymond<br>翻译者：Roc Zhang<br><a id="more"></a><br>第一次尝试翻译，如有任何问题还请留言指出。  </p>
+<p>E-mail: roczhang9673@gmail.com<br>Weibo: @张鹏roczhang<br>Twitter: @Lighters9673</p>
+<hr>
+<p>本文接<a href="http://www.roczhang.com/%E7%BF%BB%E8%AF%91%EF%BC%9AClean%20Swift%20iOS%20Architecture%20for%20Fixing%20Massive%20View%20Controller%20%EF%BC%88%E4%B8%80%EF%BC%89.html">Clean Swift iOS Architecture for Fixing Massive View Controller 翻译系列第一篇</a>继续。</p>
+<h2 id="2-Interactor"><a href="#2-Interactor" class="headerlink" title="2.Interactor"></a>2.Interactor</h2><p>Interactor 包括了你 App 中的业务逻辑。用户在 UI 上点击与滑动是为了和你的 App 进行交互。ViewController 从用户界面中收集用户的输入并将其传给 interactor，然后检索一些模型并要求一些 workers 来完成工作。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> UIKit</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">CreateOrderInteractorInput</span></span></div><div class="line">&#123;</div><div class="line">  <span class="function"><span class="keyword">func</span> <span class="title">doSomething</span><span class="params">(request: CreateOrderRequest)</span></span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">CreateOrderInteractorOutput</span></span></div><div class="line">&#123;</div><div class="line">  <span class="function"><span class="keyword">func</span> <span class="title">presentSomething</span><span class="params">(response: CreateOrderResponse)</span></span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CreateOrderInteractor</span>: <span class="title">CreateOrderInteractorInput</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">var</span> output: <span class="type">CreateOrderInteractorOutput</span>!</div><div class="line">  <span class="keyword">var</span> worker: <span class="type">CreateOrderWorker</span>!</div><div class="line"></div><div class="line">  <span class="comment">// MARK: Business logic</span></div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">func</span> <span class="title">doSomething</span><span class="params">(request: CreateOrderRequest)</span></span></div><div class="line">  &#123;</div><div class="line">    <span class="comment">// <span class="doctag">NOTE:</span> Create some Worker to do the work</span></div><div class="line"></div><div class="line">    worker = <span class="type">CreateOrderWorker</span>()</div><div class="line">    worker.doSomeWork()</div><div class="line"></div><div class="line">    <span class="comment">// <span class="doctag">NOTE:</span> Pass the result to the Presenter</span></div><div class="line"></div><div class="line">    <span class="keyword">let</span> response = <span class="type">CreateOrderResponse</span>()</div><div class="line">    output.presentSomething(response)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="CreateOrderInteractorInput-和-CreateOrderInteractorOutput-协议"><a href="#CreateOrderInteractorInput-和-CreateOrderInteractorOutput-协议" class="headerlink" title="CreateOrderInteractorInput 和 CreateOrderInteractorOutput 协议"></a>CreateOrderInteractorInput 和 CreateOrderInteractorOutput 协议</h3><p><strong>CreateOrderInteractorInput</strong> 协议指定了 <strong>CreateOrderInteractor</strong> 组件的输入（它遵循这个协议），<strong>CreateOrderInteractorOutput</strong> 协议则指明了输出。</p>
+<p>我们在 <strong>CreateOrderInteractorInput</strong> 协议中看到了与在 <strong>CreateOrderViewControllerOutput</strong> 协议中相同的 <code>doSomething()</code> 方法。<strong>CreateOrderViewController</strong> 的输出连接着 <strong>CreateOrderInteractor</strong> 的输入。</p>
+<p><strong>CreateOrderInteractorOutput</strong> 协议包含一个 <code>presentSomething()</code> 方法，<strong>CreateOrderInteractor</strong> 的输出需要支持 <code>presentSomething()</code> 。提示：此处的 output 将是 <strong>VIP Cycle</strong> 中的 <strong>P</strong>。</p>
+<p>这里另一件要注意的事情则是 <code>doSomething()</code> 方法的参数是 <strong>CreateOrderRequest</strong> 类型的请求对象，这和 <strong>CreateOrderViewControllerOutput</strong> 协议中的方法签名相同。Interactor 将在这个请求对象中检索出必要的数据来完成工作。<br>同样，<code>presentSomething()</code> 的参数是一个 <code>CreateOrderResponse</code> 类型的响应对象。</p>
+<h3 id="output-与-worker-变量"><a href="#output-与-worker-变量" class="headerlink" title="output 与 worker 变量"></a>output 与 worker 变量</h3><p>output 变量是一个遵循 <strong>CreateOrderInteractorOutput</strong> 协议的对象，虽然我们知道这这里它将会成为 presenter，但同样，这也不是必须的。</p>
+<p><strong>CreateOrderWorker</strong> 类型的 worker 变量是一个用于创建新订单的特定对象。由于创建订单可能会涉及到 Core Data 的持久化工作以及进行网络请求，这些工作如果全部由 interactor 来完成的话它所要做的任务就太多了。要记住，interactor 还需要去验证订单，这也同样可以被提取出来，成为 interactor 的 worker 来完成。</p>
+<p>控制流</p>
+<p>当 <strong>CreateOrderInteractor</strong> 的输入 (即 CreateOrderViewController) 调用 <code>doSomething()</code> 时，它将首先创建 worker 对象并通过调用 <code>doSomeWork()</code> 来要求 worker 去做一些工作。然后它将构造一个响应对象并调用输出的 <code>presentSomething()</code> 。</p>
+<p>下面我们来快速的了解一下 worker。</p>
+<h2 id="3-worker"><a href="#3-worker" class="headerlink" title="3.worker"></a>3.worker</h2><p>一个 Profile View 可能需要从 Core Data 中获取用户，下载照片，允许用户点赞与关注等。你不想让 interactor 陷入这些任务中不知所措，相反，我们可以将其拆解成许多的 workers，每个 worker 完成一件事，之后你还可以在其他地方复用 worker。</p>
+<p><strong>CreateOrderWorker</strong> 非常简单，它仅仅提供了一个接口，并实现它可以对 interactor 完成的工作。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> UIKit</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CreateOrderWorker</span></span></div><div class="line">&#123;</div><div class="line">  <span class="comment">// MARK: Business Logic</span></div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">func</span> <span class="title">doSomeWork</span><span class="params">()</span></span></div><div class="line">  &#123;</div><div class="line">    <span class="comment">// <span class="doctag">NOTE:</span> Do the work</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="4-Presenter"><a href="#4-Presenter" class="headerlink" title="4. Presenter"></a>4. Presenter</h2><p>在 interactor 产生出一些结果之后，它会将其传给 presenter，presenter 会将其组织成适合展示的 view model，然后将 view model 传回给 view controll 以展示给用户。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> UIKit</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">CreateOrderPresenterInput</span></span></div><div class="line">&#123;</div><div class="line">  <span class="function"><span class="keyword">func</span> <span class="title">presentSomething</span><span class="params">(response: CreateOrderResponse)</span></span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">CreateOrderPresenterOutput</span>: <span class="title">class</span></span></div><div class="line">&#123;</div><div class="line">  <span class="function"><span class="keyword">func</span> <span class="title">displaySomething</span><span class="params">(viewModel: CreateOrderViewModel)</span></span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CreateOrderPresenter</span>: <span class="title">CreateOrderPresenterInput</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">weak</span> <span class="keyword">var</span> output: <span class="type">CreateOrderPresenterOutput</span>!</div><div class="line"></div><div class="line">  <span class="comment">// MARK: Presentation logic</span></div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">func</span> <span class="title">presentSomething</span><span class="params">(response: CreateOrderResponse)</span></span></div><div class="line">  &#123;</div><div class="line">    <span class="comment">// <span class="doctag">NOTE:</span> Format the response from the Interactor and pass the result back to the View Controller</span></div><div class="line"></div><div class="line">    <span class="keyword">let</span> viewModel = <span class="type">CreateOrderViewModel</span>()</div><div class="line">    output.displaySomething(viewModel)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="CreateOrderPresenterInput-与-CreateOrderPresenterOutput-协议"><a href="#CreateOrderPresenterInput-与-CreateOrderPresenterOutput-协议" class="headerlink" title="CreateOrderPresenterInput 与 CreateOrderPresenterOutput 协议"></a>CreateOrderPresenterInput 与 CreateOrderPresenterOutput 协议</h3><p><strong>CreateOrderPresenterInput</strong> 协议指定了 <strong>CreateOrderPresenter</strong> 组件的输入，<strong>CreateOrderPresenterOutput</strong> 则指明输出。</p>
+<p>现在，<code>presentSometing()</code> 和 <code>displaySomething()</code> 方法不再需要说明了。<strong>CreateOrderResponse</strong> 参数在 interactor 和 presenter 间的边界中传递，<strong>CreateOrderViewModel</strong> 在 presenter 和 view controller 间的边界中传递，VIP 环完成了。</p>
+<h3 id="output-变量"><a href="#output-变量" class="headerlink" title="output 变量"></a>output 变量</h3><p>output 变量是一个遵循 <strong>CreateOrderPresenterOutput</strong> 协议的对象，尽管我们已经知道这里它就是 view controller，但同样它也可以不是。在这里一点细微的差别是，我们需要让 output 作为一个 weak 变量，当 <strong>CreateOrder</strong> 场景不被需要它的组件都要被 deallocate 的时候来避免循环引用。</p>
+<h3 id="控制流"><a href="#控制流" class="headerlink" title="控制流"></a>控制流</h3><p>当 <strong>CreateOrderInteractor</strong> 的输出被连接到 <strong>CreateOrderPresenter</strong> 的输入时，<code>presentSomthing()</code> 方法将在 interact 完成它的任务时被调用。它会构造 view model 对象，并在 output 上调用 <code>displaySomething()</code>。</p>
+<p>之前我们说过会回过头来继续 view controller 中的 <code>displaySomething()</code> 方法，这是 VIP 环中的最后一步。它会将 view model 中任意的数据展示给用户。例如，我们也许想要在文本框中显示客户的姓名：<code>nameTextField.text = viewModel.name</code>。</p>
+<p>恭喜！你刚刚学到了 Clean Swift 中的精华，你现在应该能够将业务与展示逻辑从你的用户界面代码中提取出来了。别担心，在介绍例子前我们不会就这样结束，但让我们先来说完 Clean Swift 中的其他组件。</p>
+<h2 id="5-Router"><a href="#5-Router" class="headerlink" title="5. Router"></a>5. Router</h2><p>当用户点击 next 按钮导航到 storyboard 中的下一个场景时，一个 segue 将会被触发，一个新的 view controller 会被展示出来。Router 的作用就是将导航逻辑从 view controller 中提取出来，它同样是将数据传给下一个场景的最佳位置。最终的结果就是，view controller 中仅仅剩下控制各类视图的工作。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> UIKit</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">CreateOrderRouterInput</span></span></div><div class="line">&#123;</div><div class="line">  <span class="function"><span class="keyword">func</span> <span class="title">navigateToSomewhere</span><span class="params">()</span></span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CreateOrderRouter</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">weak</span> <span class="keyword">var</span> viewController: <span class="type">CreateOrderViewController</span>!</div><div class="line"></div><div class="line">  <span class="comment">// MARK: Navigation</span></div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">func</span> <span class="title">navigateToSomewhere</span><span class="params">()</span></span></div><div class="line">  &#123;</div><div class="line">    <span class="comment">// <span class="doctag">NOTE:</span> Teach the router how to navigate to another scene. Some examples follow:</span></div><div class="line"></div><div class="line">    <span class="comment">// 1. Trigger a storyboard segue</span></div><div class="line">    <span class="comment">// viewController.performSegueWithIdentifier("ShowSomewhereScene", sender: nil)</span></div><div class="line"></div><div class="line">    <span class="comment">// 2. Present another view controller programmatically</span></div><div class="line">    <span class="comment">// viewController.presentViewController(someWhereViewController, animated: true, completion: nil)</span></div><div class="line"></div><div class="line">    <span class="comment">// 3. Ask the navigation controller to push another view controller onto the stack</span></div><div class="line">    <span class="comment">// viewController.navigationController?.pushViewController(someWhereViewController, animated: true)</span></div><div class="line"></div><div class="line">    <span class="comment">// 4. Present a view controller from a different storyboard</span></div><div class="line">    <span class="comment">// let storyboard = UIStoryboard(name: "OtherThanMain", bundle: nil)</span></div><div class="line">    <span class="comment">// let someWhereViewController = storyboard.instantiateInitialViewController() as! SomeWhereViewController</span></div><div class="line">    <span class="comment">// viewController.navigationController?.pushViewController(someWhereViewController, animated: true)</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// MARK: Communication</span></div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">func</span> <span class="title">passDataToNextScene</span><span class="params">(segue: UIStoryboardSegue)</span></span></div><div class="line">  &#123;</div><div class="line">    <span class="comment">// <span class="doctag">NOTE:</span> Teach the router which scenes it can communicate with</span></div><div class="line"></div><div class="line">    <span class="keyword">if</span> segue.identifier == <span class="string">"ShowSomewhereScene"</span> &#123;</div><div class="line">      passDataToSomewhereScene(segue)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">func</span> <span class="title">passDataToSomewhereScene</span><span class="params">(segue: UIStoryboardSegue)</span></span></div><div class="line">  &#123;</div><div class="line">    <span class="comment">// <span class="doctag">NOTE:</span> Teach the router how to pass data to the next scene</span></div><div class="line"></div><div class="line">    <span class="comment">// let someWhereViewController = segue.destinationViewController as! SomeWhereViewController</span></div><div class="line">    <span class="comment">// someWhereViewController.output.name = viewController.output.name</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="CreateOrderRouterInput-协议"><a href="#CreateOrderRouterInput-协议" class="headerlink" title="CreateOrderRouterInput 协议"></a>CreateOrderRouterInput 协议</h3><p>CreateOrderRouterInput协议指明了它的各类路由：场景可以导航到的 view controller。<code>navigateToSomewhere()</code> 方法告诉了 view controller: 如果你把我当作你的 router，我得知道该如何导航到一个叫做 somewhere 的场景。</p>
+<p>正如你在 <code>navigateToSomewhere()</code> 方法中的注释中看到的那样，router 在它可以导航的场景数量上非常灵活。我将会在另一篇文章中关于 router 的全部。</p>
+<h3 id="viewController-变量"><a href="#viewController-变量" class="headerlink" title="viewController 变量"></a>viewController 变量</h3><p>viewController 变量仅仅只是一个指向使用此 router 的 viewController 的引用。它是一个 weak 变量来避免循环引用问题，它被一个 configurator 配置好（稍后你就会看到）。Apple 在 segue 间转场的方式是将所有的 present 和 push 方法都放到了 UIViewController 类中。所以在这里我们需要 view controller 引用以让我们能够在 router 中调用这些方法。</p>
+<h3 id="passDataToNextScene-与-passDataToSomewhereScene"><a href="#passDataToNextScene-与-passDataToSomewhereScene" class="headerlink" title="passDataToNextScene() 与 passDataToSomewhereScene()"></a>passDataToNextScene() 与 passDataToSomewhereScene()</h3><p><code>passDataToNextScene()</code> 和 <code>passDataToSomewhereScene()</code> 方法提供了一种传递数据到下一个场景中去的方式。通常你会把同样的代码放到 <code>prepareForSegue()</code> 中。<code>passDataToNextScene()</code> 将试图匹配 segue ID 以分发到更具体的会传递实际的数据的 <code>passDataToSomewhereScene()</code> 方法。</p>
+<h2 id="See-you-in-the-next"><a href="#See-you-in-the-next" class="headerlink" title="See you in the next"></a>See you in the next</h2><p>第二篇先翻译到这里，坚持每周翻译一部分吧😂，下周我们再接着 configurator 继续。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      Roc Zhang
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://www.roczhang.com/翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （二）.html" title="翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （一）">http://www.roczhang.com/翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （二）.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （一）.html" rel="next" title="翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （一）">
+                <i class="fa fa-chevron-left"></i> 翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （一）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Roc Zhang" />
+          <p class="site-author-name" itemprop="name">Roc Zhang</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Interactor"><span class="nav-number">1.</span> <span class="nav-text">2.Interactor</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CreateOrderInteractorInput-和-CreateOrderInteractorOutput-协议"><span class="nav-number">1.1.</span> <span class="nav-text">CreateOrderInteractorInput 和 CreateOrderInteractorOutput 协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#output-与-worker-变量"><span class="nav-number">1.2.</span> <span class="nav-text">output 与 worker 变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-worker"><span class="nav-number">2.</span> <span class="nav-text">3.worker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Presenter"><span class="nav-number">3.</span> <span class="nav-text">4. Presenter</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CreateOrderPresenterInput-与-CreateOrderPresenterOutput-协议"><span class="nav-number">3.1.</span> <span class="nav-text">CreateOrderPresenterInput 与 CreateOrderPresenterOutput 协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#output-变量"><span class="nav-number">3.2.</span> <span class="nav-text">output 变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制流"><span class="nav-number">3.3.</span> <span class="nav-text">控制流</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Router"><span class="nav-number">4.</span> <span class="nav-text">5. Router</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CreateOrderRouterInput-协议"><span class="nav-number">4.1.</span> <span class="nav-text">CreateOrderRouterInput 协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#viewController-变量"><span class="nav-number">4.2.</span> <span class="nav-text">viewController 变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#passDataToNextScene-与-passDataToSomewhereScene"><span class="nav-number">4.3.</span> <span class="nav-text">passDataToNextScene() 与 passDataToSomewhereScene()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#See-you-in-the-next"><span class="nav-number">5.</span> <span class="nav-text">See you in the next</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Roc Zhang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://roczhang.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://www.roczhang.com/翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （二）.html';
+          this.page.identifier = '翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （二）.html';
+          this.page.title = '翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （一）';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://roczhang.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "a79c1aa145ae437d8c58e9e10aa1c84a",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
