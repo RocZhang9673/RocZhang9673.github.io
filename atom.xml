@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.roczhang.com/"/>
-  <updated>2017-12-17T16:41:02.779Z</updated>
+  <updated>2017-12-17T16:45:03.646Z</updated>
   <id>http://www.roczhang.com/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （一）</title>
+    <title>翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （二）</title>
     <link href="http://www.roczhang.com/%E7%BF%BB%E8%AF%91%EF%BC%9AClean%20Swift%20iOS%20Architecture%20for%20Fixing%20Massive%20View%20Controller%20%EF%BC%88%E4%BA%8C%EF%BC%89.html"/>
     <id>http://www.roczhang.com/翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （二）.html</id>
     <published>2017-12-17T11:37:25.000Z</published>
-    <updated>2017-12-17T16:41:02.779Z</updated>
+    <updated>2017-12-17T16:45:03.646Z</updated>
     
     <content type="html"><![CDATA[<p>节选翻译来自 Clean Swift iOS Architecture for Fixing Massive View Controller 系列第二篇。<br>原作者：Raymond<br>翻译者：Roc Zhang<br><a id="more"></a><br>第一次尝试翻译，如有任何问题还请留言指出。  </p>
 <p>E-mail: roczhang9673@gmail.com<br>Weibo: @张鹏roczhang<br>Twitter: @Lighters9673</p>
