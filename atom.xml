@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.roczhang.com/"/>
-  <updated>2018-03-03T02:57:03.335Z</updated>
+  <updated>2018-04-18T13:54:03.000Z</updated>
   <id>http://www.roczhang.com/</id>
   
   <author>
@@ -14,6 +14,47 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2018.04.18</title>
+    <link href="http://www.roczhang.com/20180418.html"/>
+    <id>http://www.roczhang.com/20180418.html</id>
+    <published>2018-04-18T13:05:15.000Z</published>
+    <updated>2018-04-18T13:54:03.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://www.roczhang.com/images/20180418/01.jpg" alt="Markdown preferences pane"></p>
+<p>临近毕业了。一期一会，世当珍惜。 </p>
+<a id="more"></a>
+<p>‘I thought of all of the time passing by.’ - No One But You</p>
+<iframe src="https://open.spotify.com/embed/track/4ae9ASpdH2cpz3aX1TJvsA" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
+
+<h3 id="Updates"><a href="#Updates" class="headerlink" title="Updates"></a>Updates</h3><p>上周匆匆忙忙完成了毕业设计和论文，写的是一个最简单的 TensorFlow 模型训练然后应用到 iOS 的 App 里。周五回了学校，答辩还算顺利，后续应该只用提交二次查重再打印成册就完成了。但还有一篇双学位的论文没有写，有些头疼。六月领毕业证，所以理论上还剩最后两个月的学生身份。 </p>
+<p>4 月初提交了 Swift Playground 申请 WWDC Scholarship。实际上今年比去年还没有信心，但毕竟这是最后一次机会了，不再试一次总感觉自己以后会后悔。今年总是感觉比去年穷很多，实习工资加上卖 App 的收入基本每个月还是没有结余。如果 Scholarship 没抽中，公司有一个去 WWDC 的机会，但由于目前自己依然是实习生的身份所以不能完全报销。自己是非常想去，然而 3 万块对我现在都是 unaffordable 的状态，实在是有点纠结和伤感了。 </p>
+<p>从去年 10 月来流利说到现在不知不觉就已经半年过去了。公司两周一版本的迭代节奏还是挺快的，但和同事相处的都挺愉快，自己的个人生活节奏也比去年稳定了很多。回顾自己技术有进步，但日常工作外的整理和输出还是太少了。</p>
+<p>买了 Spotify Premium 之后发现自己近期听歌的口味有变化，居然开始喜欢 Stayin’ Alive 这类复古的 Disco 了… 最近看了黑豹和头号玩家，黑豹除了感觉衣服挺骚气没觉得很好看。但头号玩家看了第一遍之后没忍住又去看了一遍 IMAX 版本。看完之后总会有一种从盛大的梦境中醒来的感觉，上一次看你的名字时也有这种感觉。如果说只有少年才是有梦的那这种梦就是想象力吧。Silicon Valley S5 开播了，E4 里借 Jian Yang 黑中国互联网加上最后的 BGM 实在是黑的太妙了。</p>
+<h3 id="Apps"><a href="#Apps" class="headerlink" title="Apps"></a>Apps</h3><p><a href="https://itunes.apple.com/cn/app/adonis/id1281626299?l=en&amp;mt=8" target="_blank" rel="external">Adonis</a> 上架到现在大概卖了几千份，并不算好。我也看到了 Adonis 上存在的一些问题，只能逐渐演进。 </p>
+<p><a href="https://itunes.apple.com/cn/app/mr-weather/id1198461086?l=en&amp;mt=8" target="_blank" rel="external">Mr.Weather</a> 去年 5 月份上架，到现在已经有几万的用户，而且虽然很久没有更新，每天还是有挺稳定的增长。我觉得 Mr.Weather 上还有一些想做但没实现的，所以几个月前开始设计 Mr.Weather 2，开发进度比较慢，但争取在今年 5 月 Mr.Weather 上架一周年的时候发布新版本。想了想可能会使用年订阅的方式。剧透一下 Mr.Weather 2: </p>
+<p><img src="http://www.roczhang.com/images/20180418/01.jpg" alt="Markdown preferences pane"></p>
+<p><a href="https://itunes.apple.com/cn/app/year-timer/id1359786804?l=en&amp;mt=8" target="_blank" rel="external">Year Timer</a> 属于写着好玩的类型吧，本身只花了半天的开发时间，上架之后也没有做任何宣传什么，只是满足个人的一个小需求。</p>
+<p>至此就有三个已经上架的个人 App 了。之前建了一个 <a href="https://join.slack.com/t/roczhang/shared_invite/enQtMjgwMDQ5NjM5NDg4LWIxMTQzNmU1NmZkZmUxMDY0Y2ZhYjE4ZDI5M2ZiYTkxMjVmM2E5ZTkyYWNhMTVmMTg2ZjFhNzU0MTY4YzRhZjA" target="_blank" rel="external">Slack Group</a>，三个 app 在 group 里都有独立的 channel。我无法肯定这些 App 本身的价值，但这是我个人想法的延伸与表达的方式。所以我觉得那些抄袭别人作品的实在没有任何意义，抄袭别人的自我表达反而代表着自己没有任何想法。</p>
+<h3 id="Thoughts"><a href="#Thoughts" class="headerlink" title="Thoughts"></a>Thoughts</h3><p>回学校的时候和同学与朋友聊了挺多，基本是交换自己的现状，对离开学校有不舍和感伤。我当然也是有一些，但再次去往几处之前去过的地方，便发现自己怀念的并不是单纯的地点或人，只是怀念自己之前的这一段经历罢了。也发现对之前发生的让自己曾感到不爽的事情没有那么在意了，并没有什么必要去感到伤感或愤怒，关注自己收获到了什么就好。但还是提醒自己珍惜每一段经历，虽然有“要珍惜”这种念头本身就影响了全身心投入，而不算是纯粹的珍惜了。</p>
+<p>感觉自己是一个挺矛盾的人。看不清未来的时候会很焦虑，看到未来可能没有变化的时候也会很焦虑。平常很少有可以倾诉个人想法的对象，因此独处会是自己绝大多数的处境。虽然这在大多数情况下不会是什么问题，但总会有想要倾诉分享的时候。所以只能观察自己，反思自己在矛盾中的选择。 </p>
+<p>发现自己还有一个 Telegram 的 Channel，之前是为了 Mr.Weather 建立的，但显然当时还没有了解 Telegram Channel 的运作方式，所以后来 Mr.Weather 就迁移到 Group 和 Slack 上去了。但 Channel 这种只能广播无法回复的方式确实挺好的，所以把 Channel 改了名，会不定期分享自己的开发和境遇。欢迎关注：<a href="https://t.me/roczhangchannel" target="_blank" rel="external">https://t.me/roczhangchannel</a> 。</p>
+<p>今天看到 Kevin 的博客，离开了多点去了青岛，实在非常钦佩。Kevin 哥很多时候给我了精神上的鼓舞，祝福 Kevin！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://www.roczhang.com/images/20180418/01.jpg&quot; alt=&quot;Markdown preferences pane&quot;&gt;&lt;/p&gt;
+&lt;p&gt;临近毕业了。一期一会，世当珍惜。 &lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Life" scheme="http://www.roczhang.com/categories/Life/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>翻译：iOS Code Signing (一)、（二）</title>
