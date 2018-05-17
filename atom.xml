@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.roczhang.com/"/>
-  <updated>2018-05-03T12:47:18.495Z</updated>
+  <updated>2018-05-17T16:21:52.451Z</updated>
   <id>http://www.roczhang.com/</id>
   
   <author>
@@ -14,6 +14,57 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Go For WWDC18 - 1</title>
+    <link href="http://www.roczhang.com/go-for-wwdc18-1.html"/>
+    <id>http://www.roczhang.com/go-for-wwdc18-1.html</id>
+    <published>2018-05-17T14:35:15.000Z</published>
+    <updated>2018-05-17T16:21:52.451Z</updated>
+    
+    <content type="html"><![CDATA[<p>准备篇：签证与行程</p>
+<a id="more"></a>
+<p><img src="http://www.roczhang.com/images/go-for-wwdc18-1/1.jpg" alt="Markdown preferences pane"></p>
+<h3 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h3><p>四月还在学校完成毕业答辩时接到公司电话，得知有可以去 WWDC 的机会。而后面非常幸运的，我的 scholarship 没有中。一番纠结之后还是决定 – 去吧！</p>
+<p>今年 WWDC 的时间在 6 月 4 日 ～ 8 日，离程序上最后毕业的时间也不远。所以也可以把第一次参加 WWDC 当作自己的毕业旅行，后面想起来应该会很有趣。</p>
+<h3 id="签证"><a href="#签证" class="headerlink" title="签证"></a>签证</h3><p>决定之后就开始准备办理各类手续。由于之前已经办好了护照，所以当务之急就是办理签证。办签证前后需要准备的手续还是挺多的，最重要的应该就是填写 DS-160 表了。填表需要上传白底彩色特定大小的照片，因此没有的话需要去照相并索取电子档。表中的要填的内容很多，并且很多时候填表网站的速度不是很稳定，所以填写完成需要挺长一段时间。完成提交之后便需要交办理签证的费用，使用中信银行在线缴费即可。缴费完成之后便可以预约去大使馆面签的时间，一般似乎可以预约到 1～2 周之后的时间。在这段时间里就可以准备各类面签用的文件。网站说明指出面签时需要携带护照/DS-160 确认页/缴费预约确认单，以及其他支持性文件。  </p>
+<p>由于之前在群里看到拒签似乎并不是少见的事，所以自己准备了很多材料。先后找 Apple 申请 VISA LETTER 的 HARD COPY，让家里帮忙复印了一些证件与证明，又摆脱了学校的好友找学校老师开具了在读证明、成绩单等证明，之后找公司开了实习证明、介绍信、三方、Offer 纸质版，最后又准备了机票确认单，英文简历，去招行打印了半年的流水。我的面试约在了两周后，Apple 的 VISA LETTER 大概在申请的一周后寄到了手上。之后便带着厚厚的一沓文件去面签了。 </p>
+<p>由于之前了解到面签不能带电子设备等等，而自己又不想去寄存包裹，于是当天中午我就把手机之类都留在了公司，带着文件袋直接坐到南京西路站。本非常自信的以为出了站一定能够马上通过排队的人群找到地点，但事实是完全找不到。虽然距离地铁站不远，但只是摸到梅陇镇广场就先后问了几次路人，最后又绕了一圈才找到排队的地方。中午外面排队的人并不多，所以直接看了预约确认领了牌，就直接上了8楼。楼上在等待办理的人还是很多，采集了指纹之后排队等了很久。采集指纹和面谈的办公人员都是外国人。排队时正看到前面在面试的人先后出示了很多文件，最后还是被退回护照的场景。 </p>
+<p>我的面试对话大概如下：</p>
+<ul>
+<li>VO: 去美国的目的？</li>
+<li>ME: 参加 WWDC 开发者大会。</li>
+<li>VO: 有邀请函吗？</li>
+<li>ME: 有的。（递上邀请函）</li>
+<li>VO: 为什么要去？</li>
+<li>ME: 了解最新的技术，和其他开发者交流。</li>
+<li>VO: ZHENG HAO TIAN 是谁？</li>
+<li>ME: 我的同行人，他也是开发者。</li>
+<li>VO: What will they have in this conference?（突然变成英文）</li>
+<li>ME: They will have some sessions about the latest iOS, macOS technologies.</li>
+<li>VO: OK. (沉默打字了一小段时间)</li>
+<li>VO: Have a nice trip.</li>
+<li>ME: (不确定)我通过了吗？</li>
+<li>VO: Yeah, Yeah, 通过了。</li>
+</ul>
+<p>面试全程大概五分钟。 </p>
+<p>虽然自己并没有被要求查看其他的材料，但并不后悔准备这些材料，因为一旦需要某些材料没有准备，往往还要花费比准备材料更多的精力弥补。 </p>
+<p>面试完成之后查询了签证的状态，一开始是 Administrative Processing。在网上搜索了一下再次被吓到，各种条目说 AP 代表行政审查，可能会花费数周甚至数月的时间进行审核。后来才知道似乎所有的签证面签后都会经历 AP 的过程，代表正常的行程处理流程，只有 AP 时间非常长时才有可能是遇到了额外审核。状态变更到 issued 之后大概两天就拿到了寄过来的护照。之后还需要的一步便是在 EVUS 上进行登记。</p>
+<h3 id="行程"><a href="#行程" class="headerlink" title="行程"></a>行程</h3><p>原本准备租用 WiFi 的我们考虑到在当地游览时应该会经常使用 Uber 所以可能需要接听司机电话，还是决定买电话卡。稍微查看了一下（<a href="https://www.whistleout.com/CellPhones/Guides/Best-Cell-Phone-Plans-and-Carriers-in-San-Jose" target="_blank" rel="external">比如这篇文章</a>)，在 San Jose 应该 AT&amp;T 的信号比较好，于是决定购买短期 AT&amp;T 无限制电话卡。行程上定了 6 月 2 号从上海飞到 Los Angeles，再由 Los Angeles 到 San Jose 的航班。住所也提前在 Airbnb 上做好了预定。除去还需要兑换少量现金应该也不用在其他方面做特别准备了。 </p>
+<p>想起这个去年 WWDC 时和各位一起讨论的 Telegram Group：<a href="https://t.me/joinchat/CVYFGkPXZUzr3MkgoFbMOg" target="_blank" rel="external">Mr.Weather Friends</a>，希望今年还可以和大家一起聊天！ </p>
+<p>离出发还剩 15 天！非常期待第一次 WWDC 之旅了！ </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;准备篇：签证与行程&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Life" scheme="http://www.roczhang.com/categories/Life/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>2018.04.18</title>
