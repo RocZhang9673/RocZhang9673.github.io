@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.roczhang.com/"/>
-  <updated>2018-05-17T16:21:52.451Z</updated>
+  <updated>2018-05-20T15:15:35.549Z</updated>
   <id>http://www.roczhang.com/</id>
   
   <author>
@@ -14,6 +14,102 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>App Architecture 笔记 - 1</title>
+    <link href="http://www.roczhang.com/app-architecture-notes-1.html"/>
+    <id>http://www.roczhang.com/app-architecture-notes-1.html</id>
+    <published>2018-05-20T03:21:35.000Z</published>
+    <updated>2018-05-20T15:15:35.549Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.objc.io/books/app-architecture/" target="_blank" rel="external">App Architecture</a> 读书笔记<br>第一章 Introduction<br><a id="more"></a></p>
+<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><ul>
+<li>此书会讨论五种设计模式:<ol>
+<li>MVC: Model-View-Controller </li>
+<li>MVVM-C: Model-View-ViewModel-Coordinator</li>
+<li>MVC+VS: Model-View-Controller-ViewState</li>
+<li>MAVB: ModelAdapter-ViewBinder</li>
+<li>TEA: The Elm Architecture</li>
+</ol>
+</li>
+<li>此书的 Demo 是一个 Recording App，在 GitHub 上。</li>
+</ul>
+<h2 id="Application-Architecture"><a href="#Application-Architecture" class="headerlink" title="Application Architecture"></a>Application Architecture</h2><ul>
+<li>Application architecture 关注的方面包含：<ol>
+<li>组件如何被构建；</li>
+<li>事件流如何在层级中传递；</li>
+<li>组件间是否应有编译期或运行期的相互引用；</li>
+<li>不同的组件中数据应如何被读取或变更；</li>
+<li>状态变更后应在整个应用结构中用怎样的路径来处理。</li>
+</ol>
+</li>
+</ul>
+<h2 id="Model-and-View"><a href="#Model-and-View" class="headerlink" title="Model and View"></a>Model and View</h2><ul>
+<li>分类层 Categories Layer:<ol>
+<li>应用架构在最高层上看，是把不同的应用组件分离到不同的分类层中;</li>
+<li>一个分类层便是一个包含代码和接口的集合，他们都能够遵循一定的规则并且职责相似;</li>
+<li>最常见的分类层就是模型层与视图层。</li>
+</ol>
+</li>
+<li>模型层 Model Layer:<ol>
+<li>对应用内容的抽象；</li>
+<li>不依赖于任何应用框架；</li>
+<li>通常包含模型对象对协调对象。</li>
+</ol>
+</li>
+<li>视图层 View Layer:<ol>
+<li>依赖于应用框架；</li>
+<li>将模型层可视化，可交互化；</li>
+<li>通常直接使用 UIKit（也可能使用 SceneKit / OpenGL 等）。</li>
+</ol>
+</li>
+<li>Why Are the Categories of Model and View Considered So Fundamental?<ol>
+<li>保持模型层整洁，及不受应用框架底层实现的影响；</li>
+<li>方便讲模型层运用到当前应用之外，如运行测试、用不同的框架重写视图层、移植到其他系统平台等。</li>
+</ol>
+</li>
+</ul>
+<h2 id="Applications-Are-a-Feedback-Loop"><a href="#Applications-Are-a-Feedback-Loop" class="headerlink" title="Applications Are a Feedback Loop"></a>Applications Are a Feedback Loop</h2><ul>
+<li>应用设计模式的挑战在于如何处理如试图层与模型层之间的通信、依赖与转换。</li>
+<li>View Action: 由视图触发，用于响应用户驱动的事件。发送给 Model Layer 时，View Action 可能会被转换成 Model Action，这种转换被叫做 Interaction Logic。</li>
+<li>Model Update: 模型对象更新后通常会产生一个通知，此通知将触发视图层的更新。通知可以使用多种形式，如 Foundation Notification、Delegates、Callback 等。这种由 Model Notification 转换到视图的变化被称为 Presentation Logic。</li>
+<li>当所有状态都放在模型层中，并且所有变化都遵循上述的完整反馈路径环时，被称为单向数据流。</li>
+</ul>
+<h2 id="Architectural-Technologies"><a href="#Architectural-Technologies" class="headerlink" title="Architectural Technologies"></a>Architectural Technologies</h2><ul>
+<li>实现架构的工具技术:<ol>
+<li>Notification 广播：单个源的变化 -&gt; 0到多个监听者；</li>
+<li>KVO：将一个对象上属性的变化告知给另一个对象；</li>
+<li>响应式：重点在于关注从源到目标间的转换，允许将逻辑运用到转换中。</li>
+</ol>
+</li>
+<li>双向绑定:<ol>
+<li>Cocoa Bindings 是双向绑定。被观察者同时也是观察者，会建立反向连接；</li>
+<li>本书仅讨论单向绑定。</li>
+</ol>
+</li>
+</ul>
+<h2 id="Application-Tasks"><a href="#Application-Tasks" class="headerlink" title="Application Tasks"></a>Application Tasks</h2><ul>
+<li>五类任务：<ol>
+<li>构建：谁来构建模型与视图，谁来连接；</li>
+<li>更新：如何处理 View Actions；</li>
+<li>改变视图：如何将模型数据应用到视图上；</li>
+<li>视图状态：如何处理 Navigation 与其他非模型状态；</li>
+<li>测试：使用怎样的测试策略来达到合理的测试覆盖率。</li>
+</ol>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://www.objc.io/books/app-architecture/&quot;&gt;App Architecture&lt;/a&gt; 读书笔记&lt;br&gt;第一章 Introduction&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Code" scheme="http://www.roczhang.com/categories/Code/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Go For WWDC18 - 1</title>

@@ -89,22 +89,16 @@
 
 
 
-<meta name="description" content="今天可能时运不济，一次碰到了两个小坑，趁着现在 pod repo update 的时候记一下。">
+<meta name="description" content="App Architecture 读书笔记第一章 Introduction">
 <meta property="og:type" content="article">
-<meta property="og:title" content="遇到的 XC 8 中的两个小坑">
-<meta property="og:url" content="http://www.roczhang.com/遇到的 XC 8 中的两个小坑.html">
+<meta property="og:title" content="App Architecture 笔记 - 1">
+<meta property="og:url" content="http://www.roczhang.com/app-architecture-notes-1.html">
 <meta property="og:site_name" content="Roc Zhang's Blog">
-<meta property="og:description" content="今天可能时运不济，一次碰到了两个小坑，趁着现在 pod repo update 的时候记一下。">
-<meta property="og:image" content="http://p1.bpimg.com/4851/100d68e61bc45fa2.png">
-<meta property="og:image" content="http://p1.bpimg.com/4851/544f7a16ca99aeee.png">
-<meta property="og:image" content="http://p1.bpimg.com/4851/6cef865f9bef302d.png">
-<meta property="og:image" content="http://p1.bpimg.com/4851/960c9bffa8db51e8.png">
-<meta property="og:image" content="http://p1.bpimg.com/4851/313c960e725367c2.png">
-<meta property="og:updated_time" content="2016-11-28T17:54:56.000Z">
+<meta property="og:description" content="App Architecture 读书笔记第一章 Introduction">
+<meta property="og:updated_time" content="2018-05-20T15:15:35.549Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="遇到的 XC 8 中的两个小坑">
-<meta name="twitter:description" content="今天可能时运不济，一次碰到了两个小坑，趁着现在 pod repo update 的时候记一下。">
-<meta name="twitter:image" content="http://p1.bpimg.com/4851/100d68e61bc45fa2.png">
+<meta name="twitter:title" content="App Architecture 笔记 - 1">
+<meta name="twitter:description" content="App Architecture 读书笔记第一章 Introduction">
 
 
 
@@ -132,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://www.roczhang.com/遇到的 XC 8 中的两个小坑.html"/>
+  <link rel="canonical" href="http://www.roczhang.com/app-architecture-notes-1.html"/>
 
 
 
 
 
-  <title> 遇到的 XC 8 中的两个小坑 | Roc Zhang's Blog </title>
+  <title> App Architecture 笔记 - 1 | Roc Zhang's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -277,7 +271,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://www.roczhang.com/遇到的 XC 8 中的两个小坑.html">
+    <link itemprop="mainEntityOfPage" href="http://www.roczhang.com/app-architecture-notes-1.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Roc Zhang">
@@ -298,7 +292,7 @@
             
             
               
-                遇到的 XC 8 中的两个小坑
+                App Architecture 笔记 - 1
               
             
           </h2>
@@ -313,8 +307,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-29T00:23:12+08:00">
-                2016-11-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-20T11:21:35+08:00">
+                2018-05-20
               </time>
             
 
@@ -354,9 +348,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/遇到的 XC 8 中的两个小坑.html#comments" itemprop="discussionUrl">
+                <a href="/app-architecture-notes-1.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="遇到的 XC 8 中的两个小坑.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="app-architecture-notes-1.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -382,25 +376,82 @@
       
 
       
-        <p>今天可能时运不济，一次碰到了两个小坑，趁着现在 pod repo update 的时候记一下。<br><a id="more"></a></p>
-<h2 id="Background-Fetch"><a href="#Background-Fetch" class="headerlink" title="Background Fetch"></a>Background Fetch</h2><p>今天在一开始在写和 Background Fetch 相关的代码。把 performFetchWithCompletionHandler 写好，然后其他的配置做好之后，连上手机准备测试。因为一般 Background Fetch 发生都需要时间，而且这个调用的时间间隔是系统定的，即使设定了 setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum) 可能也要蛮久一段时间系统才会调用。所以一般都会点 Xcode -&gt; Debug -&gt; Simulate Background Fetch 让 Background Fetch 能立即执行来方便调试。</p>
-<p>所以我当然也是要点的。<br>结果我期待的结果并没有和以前一样发生，程序居然奔溃退出了，就像这样。</p>
-<p><img src="http://p1.bpimg.com/4851/100d68e61bc45fa2.png" alt="Markdown preferences pane"></p>
-<p>我开始以为是自己代码有问题，于是调试了一会儿，最后发现即使我在方法里什么都不做调用的时候还是会奔溃。有点懵。然后我在模拟器上试了一发，结果发现并没有任何问题！调用是成功的！</p>
-<p>Google 了一发，在 Apple Developer Forums 里看到了一篇贴 ( <a href="https://forums.developer.apple.com/thread/51361" target="_blank" rel="external">https://forums.developer.apple.com/thread/51361</a> )，也有人在 Xcode 8 上遇到了一样的情况：</p>
-<p><img src="http://p1.bpimg.com/4851/544f7a16ca99aeee.png" alt="Markdown preferences pane"></p>
-<p>然而最后是怎么解决的呢？当然不是等20分钟让他自然发生调用。你会发现在真机上点击后的奔溃是 Xcode 自己断开的，然后你再轻轻的点一下继续执行按钮，它就把我的 Background Fetch 执行好了。</p>
-<p><img src="http://p1.bpimg.com/4851/6cef865f9bef302d.png" alt="Markdown preferences pane"></p>
-<p>Fun.</p>
-<h2 id="UNNotificationSound"><a href="#UNNotificationSound" class="headerlink" title="UNNotificationSound"></a>UNNotificationSound</h2><p>还有就是关于 UNNotificationSound 的问题。</p>
-<p>我在尝试用 iOS 10 新的 UserNotification 来创建通知，一个本地通知，其他的一切都没有问题，然而自定义的提醒通知的声音就是无法播放。并且以前创建通知写法的代码是没有问题可以播放的。</p>
-<p><img src="http://p1.bpimg.com/4851/960c9bffa8db51e8.png" alt="Markdown preferences pane"></p>
-<p>从苹果的文档 ( <a href="https://developer.apple.com/reference/usernotifications/unnotificationsound" target="_blank" rel="external">https://developer.apple.com/reference/usernotifications/unnotificationsound</a> ) 看到 UNNotificationSound 支持由 Linear PCM ／ MA4 (IMA/ADPCM)／ µLaw ／ aLaw 封装成的 aiff, wav, caf 几种格式的文件。我也转换了几种格式都试了下想确定是不是格式的问题，而无论怎么测试，系统始终播放的是默认的三连音：哒哒哒。</p>
-<p>然后我又遇到了一样处境的人（这次的人比较多），还是在 Apple Developer Forums 里的帖子（ <a href="https://forums.developer.apple.com/thread/49512" target="_blank" rel="external">https://forums.developer.apple.com/thread/49512</a> ）。</p>
-<p>有人好像找到了暂时解决的方法：重启 iOS 设备，卸载 App ，然后重新安装，自定义的铃声就可以生效了。但是有人说这种方法在你使用 Xcode 再装 App 的时候又会失效了。</p>
-<p><img src="http://p1.bpimg.com/4851/313c960e725367c2.png" alt="Markdown preferences pane"></p>
-<p>但是无论如何，我的自定义铃声一直没有播出来。<br>Magic.</p>
-<h3 id="？？？"><a href="#？？？" class="headerlink" title="？？？"></a>？？？</h3><p>天冷了，Macbook 的散热变好了。</p>
+        <p><a href="https://www.objc.io/books/app-architecture/" target="_blank" rel="external">App Architecture</a> 读书笔记<br>第一章 Introduction<br><a id="more"></a></p>
+<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><ul>
+<li>此书会讨论五种设计模式:<ol>
+<li>MVC: Model-View-Controller </li>
+<li>MVVM-C: Model-View-ViewModel-Coordinator</li>
+<li>MVC+VS: Model-View-Controller-ViewState</li>
+<li>MAVB: ModelAdapter-ViewBinder</li>
+<li>TEA: The Elm Architecture</li>
+</ol>
+</li>
+<li>此书的 Demo 是一个 Recording App，在 GitHub 上。</li>
+</ul>
+<h2 id="Application-Architecture"><a href="#Application-Architecture" class="headerlink" title="Application Architecture"></a>Application Architecture</h2><ul>
+<li>Application architecture 关注的方面包含：<ol>
+<li>组件如何被构建；</li>
+<li>事件流如何在层级中传递；</li>
+<li>组件间是否应有编译期或运行期的相互引用；</li>
+<li>不同的组件中数据应如何被读取或变更；</li>
+<li>状态变更后应在整个应用结构中用怎样的路径来处理。</li>
+</ol>
+</li>
+</ul>
+<h2 id="Model-and-View"><a href="#Model-and-View" class="headerlink" title="Model and View"></a>Model and View</h2><ul>
+<li>分类层 Categories Layer:<ol>
+<li>应用架构在最高层上看，是把不同的应用组件分离到不同的分类层中;</li>
+<li>一个分类层便是一个包含代码和接口的集合，他们都能够遵循一定的规则并且职责相似;</li>
+<li>最常见的分类层就是模型层与视图层。</li>
+</ol>
+</li>
+<li>模型层 Model Layer:<ol>
+<li>对应用内容的抽象；</li>
+<li>不依赖于任何应用框架；</li>
+<li>通常包含模型对象对协调对象。</li>
+</ol>
+</li>
+<li>视图层 View Layer:<ol>
+<li>依赖于应用框架；</li>
+<li>将模型层可视化，可交互化；</li>
+<li>通常直接使用 UIKit（也可能使用 SceneKit / OpenGL 等）。</li>
+</ol>
+</li>
+<li>Why Are the Categories of Model and View Considered So Fundamental?<ol>
+<li>保持模型层整洁，及不受应用框架底层实现的影响；</li>
+<li>方便讲模型层运用到当前应用之外，如运行测试、用不同的框架重写视图层、移植到其他系统平台等。</li>
+</ol>
+</li>
+</ul>
+<h2 id="Applications-Are-a-Feedback-Loop"><a href="#Applications-Are-a-Feedback-Loop" class="headerlink" title="Applications Are a Feedback Loop"></a>Applications Are a Feedback Loop</h2><ul>
+<li>应用设计模式的挑战在于如何处理如试图层与模型层之间的通信、依赖与转换。</li>
+<li>View Action: 由视图触发，用于响应用户驱动的事件。发送给 Model Layer 时，View Action 可能会被转换成 Model Action，这种转换被叫做 Interaction Logic。</li>
+<li>Model Update: 模型对象更新后通常会产生一个通知，此通知将触发视图层的更新。通知可以使用多种形式，如 Foundation Notification、Delegates、Callback 等。这种由 Model Notification 转换到视图的变化被称为 Presentation Logic。</li>
+<li>当所有状态都放在模型层中，并且所有变化都遵循上述的完整反馈路径环时，被称为单向数据流。</li>
+</ul>
+<h2 id="Architectural-Technologies"><a href="#Architectural-Technologies" class="headerlink" title="Architectural Technologies"></a>Architectural Technologies</h2><ul>
+<li>实现架构的工具技术:<ol>
+<li>Notification 广播：单个源的变化 -&gt; 0到多个监听者；</li>
+<li>KVO：将一个对象上属性的变化告知给另一个对象；</li>
+<li>响应式：重点在于关注从源到目标间的转换，允许将逻辑运用到转换中。</li>
+</ol>
+</li>
+<li>双向绑定:<ol>
+<li>Cocoa Bindings 是双向绑定。被观察者同时也是观察者，会建立反向连接；</li>
+<li>本书仅讨论单向绑定。</li>
+</ol>
+</li>
+</ul>
+<h2 id="Application-Tasks"><a href="#Application-Tasks" class="headerlink" title="Application Tasks"></a>Application Tasks</h2><ul>
+<li>五类任务：<ol>
+<li>构建：谁来构建模型与视图，谁来连接；</li>
+<li>更新：如何处理 View Actions；</li>
+<li>改变视图：如何将模型数据应用到视图上；</li>
+<li>视图状态：如何处理 Navigation 与其他非模型状态；</li>
+<li>测试：使用怎样的测试策略来达到合理的测试覆盖率。</li>
+</ol>
+</li>
+</ul>
 
       
     </div>
@@ -429,7 +480,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://www.roczhang.com/遇到的 XC 8 中的两个小坑.html" title="遇到的 XC 8 中的两个小坑">http://www.roczhang.com/遇到的 XC 8 中的两个小坑.html</a>
+      <a href="http://www.roczhang.com/app-architecture-notes-1.html" title="App Architecture 笔记 - 1">http://www.roczhang.com/app-architecture-notes-1.html</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -452,8 +503,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/我的设计学习之旅.html" rel="next" title="我的设计学习之旅">
-                <i class="fa fa-chevron-left"></i> 我的设计学习之旅
+              <a href="/go-for-wwdc18-1.html" rel="next" title="Go For WWDC18 - 1">
+                <i class="fa fa-chevron-left"></i> Go For WWDC18 - 1
               </a>
             
           </div>
@@ -461,10 +512,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/3D-Touch-for-iOS-10-适配指南.html" rel="prev" title="3D Touch for iOS 10 适配指南">
-                3D Touch for iOS 10 适配指南 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -618,7 +665,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Background-Fetch"><span class="nav-number">1.</span> <span class="nav-text">Background Fetch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UNNotificationSound"><span class="nav-number">2.</span> <span class="nav-text">UNNotificationSound</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#？？？"><span class="nav-number">2.1.</span> <span class="nav-text">？？？</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#About"><span class="nav-number">1.</span> <span class="nav-text">About</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Application-Architecture"><span class="nav-number">2.</span> <span class="nav-text">Application Architecture</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model-and-View"><span class="nav-number">3.</span> <span class="nav-text">Model and View</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Applications-Are-a-Feedback-Loop"><span class="nav-number">4.</span> <span class="nav-text">Applications Are a Feedback Loop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Architectural-Technologies"><span class="nav-number">5.</span> <span class="nav-text">Architectural Technologies</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Application-Tasks"><span class="nav-number">6.</span> <span class="nav-text">Application Tasks</span></a></li></ol></div>
             
 
           </div>
@@ -755,9 +802,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://www.roczhang.com/遇到的 XC 8 中的两个小坑.html';
-          this.page.identifier = '遇到的 XC 8 中的两个小坑.html';
-          this.page.title = '遇到的 XC 8 中的两个小坑';
+          this.page.url = 'http://www.roczhang.com/app-architecture-notes-1.html';
+          this.page.identifier = 'app-architecture-notes-1.html';
+          this.page.title = 'App Architecture 笔记 - 1';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://roczhang.disqus.com/embed.js';
