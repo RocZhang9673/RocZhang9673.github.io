@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.roczhang.com/"/>
-  <updated>2018-05-20T15:15:35.549Z</updated>
+  <updated>2018-05-30T12:11:38.768Z</updated>
   <id>http://www.roczhang.com/</id>
   
   <author>
@@ -14,6 +14,129 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>App Architecture 笔记 - 2</title>
+    <link href="http://www.roczhang.com/app-architecture-notes-2.html"/>
+    <id>http://www.roczhang.com/app-architecture-notes-2.html</id>
+    <published>2018-05-30T12:10:41.000Z</published>
+    <updated>2018-05-30T12:11:38.768Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.objc.io/books/app-architecture/" target="_blank" rel="external">App Architecture</a> 读书笔记<br>第二章 Overview of Application Design Patterns<br><a id="more"></a></p>
+<p>第一篇：<a href="https://www.roczhang.com/app-architecture-notes-1.html">App Architecture 笔记 - 1 Introduction</a><br>第二篇：<a href="https://www.roczhang.com/app-architecture-notes-2.html">App Architecture 笔记 - 2 Overview, MVC/MVVM-C</a></p>
+<h2 id="Model-View-Controller"><a href="#Model-View-Controller" class="headerlink" title="Model-View-Controller"></a>Model-View-Controller</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><ul>
+<li>少数的 controller 对象负责处理所有 model 层与 view 层之外的任务，包括：<ol>
+<li>收集所有 view actions</li>
+<li>处理所有交互逻辑</li>
+<li>分发 model actions</li>
+<li>收集所有 model notifications</li>
+<li>准备所有用于展示的数据</li>
+<li>将变更应用到视图 </li>
+</ol>
+</li>
+<li>依赖：<ol>
+<li>view / model 不在代码中直接引用 controller</li>
+<li>controller 实例知道 view / model 的接口以及连接对象</li>
+</ol>
+</li>
+</ul>
+<h3 id="5-Tasks"><a href="#5-Tasks" class="headerlink" title="5 Tasks"></a>5 Tasks</h3><ul>
+<li>Construction:<ol>
+<li>构建顶层 view controllers -&gt; 加载与配置 view，及要展示的 model 数据</li>
+<li>controllers 创建并持有模型层，或使用懒加载的单例访问模型</li>
+<li>与视图有关的模型对象缓存在控制器中 </li>
+</ol>
+</li>
+<li>Updating the Model:<ol>
+<li>MVC 中 controller 通常使用 target/action、delegate 等方式来接收 view events</li>
+<li>当 view events 到来时，控制器改变期内部的状态、更改模型或直接改变视图层级结构 </li>
+</ol>
+</li>
+<li>Chaning the View:<ol>
+<li>控制器订阅 model notifications，当 model notifications 到达时，controller 去改变视图层级结构，以使数据能够单向流动 </li>
+</ol>
+</li>
+<li>View State:<ol>
+<li>View State 按需被存在 view 或 controller 中</li>
+<li>影响 view 或 contrller 状态的 view action 不要求通过 model 传递 </li>
+</ol>
+</li>
+<li>Testing:<ol>
+<li>MVC 中，由于 controllers 与其他组件间需紧密结合，缺乏边界，导致很难编写单元/接口测试</li>
+<li>集成测试可行。在测试中构建 view/model/controller 间的连接部分，测试逻辑与组件间的连接 </li>
+</ol>
+</li>
+</ul>
+<h3 id="Importance-of-Model-View-Controller"><a href="#Importance-of-Model-View-Controller" class="headerlink" title="Importance of Model-View-Controller"></a>Importance of Model-View-Controller</h3><ul>
+<li>系统中默认的设计模式</li>
+<li>MVC 的相对自由是的多种变体模式都能被整合进其中</li>
+<li>历史：<ol>
+<li>MVC 首次被用在 1979 年，Smalltalk-76 中。</li>
+<li>原始公式中，视图直接被附给 model 对象，控制器仅用于捕获事件与转发给对象</li>
+<li>原始 Smalltalk 对 MVC 实现中，持续下来的理念是 view 层与 model 层应当分离  </li>
+</ol>
+</li>
+</ul>
+<p><br></p>
+<h2 id="Model-View-ViewModel-Coordinator"><a href="#Model-View-ViewModel-Coordinator" class="headerlink" title="Model-View-ViewModel+Coordinator"></a>Model-View-ViewModel+Coordinator</h2><h3 id="Overview-1"><a href="#Overview-1" class="headerlink" title="Overview"></a>Overview</h3><ul>
+<li>与 MVC 相同，都围绕一个 scene（视图层级结构中的一个子视图场景）来构建</li>
+<li>每个 scene 使用一个 view-model 来描述场景中展示与交互的逻辑用于描述 view 上要展示值的属性，这些值从底层模型中经过一系列转化得来，可被直接用于视图</li>
+<li>通过绑定确保发生变化后视图可及时展示</li>
+<li>响应式是用于表达这种类型与转换的工具，天然适合 MVVM</li>
+<li>对 view 层级没有直接引用使得 view-model能脱离框架方便测试</li>
+<li>MVVM-C 中，使用 coordinator 协调器来负责场景间转换的逻辑。coordinator 持有对模型层的引用，并了解视图控制器树，因此它可为每个场景提供其所需要的 model 对象与 view-model</li>
+<li>与 MVC 不同，MVVM-C 中试图控制器间不直接引用其他控制器，而是通知 coordinator 有关的 view actions，让 coordinator 来展示新 VC 与设置模型数据，相当于用 coordinator 来管理 tree</li>
+<li>View Controller 不再有内部的 view state，而将其移动到 view-model 中，使得 VC 原始的双重身份（A，作为视图层级结构的一部分 / B，调解 view 与 model 间交互）减少到单层（单纯作为视图层级结构一部分），同时，coordinator 负责了 VC 的另一个工作，展示出其他 VC</li>
+</ul>
+<h3 id="5-Tasks-1"><a href="#5-Tasks-1" class="headerlink" title="5 Tasks"></a>5 Tasks</h3><ul>
+<li>Construction:<ol>
+<li>单独的模型对象，交由 view-model 持有而不再是 view controllers</li>
+<li>与 MVC 不同，VC 不再直接获取或准备数据，而是在构建时创建 view-model，并将 view 绑定到 view-model 暴露出的相关属性上</li>
+</ol>
+</li>
+<li>Updating the Model:<ol>
+<li>与 MVC 不同，当 view event 到达后，VC 不改变其内部状态，而是调用 view-model 上的方法，由 view-model 改变其内部状态或模型</li>
+</ol>
+</li>
+<li>Chaning the View:<ol>
+<li>与 MVC 不同为，VC 不观察模型，view-model 观察模型，并将 model notifications 进行转化</li>
+<li>VC 观察 view-model（通常通过响应式），当 view-model 事件到来，VC 改变其视图层级结构</li>
+</ol>
+</li>
+<li>View State:<ol>
+<li>视图状态在 view 中或 view-model 中</li>
+<li>与 MVC 不同，VC 中不含任何 view state，controller 观察 view-model 的 view state 变化 </li>
+</ol>
+</li>
+<li>Testing:<ol>
+<li>由于 view-model 与 view 层和 controller 层解耦，view-model 可进行接口测试而不是 MVC 中的集成测试</li>
+<li>为使接口测试尽可能多的覆盖，VC 需要尽量保持简洁</li>
+</ol>
+</li>
+</ul>
+<h3 id="Importance-of-Model-View-Controller-1"><a href="#Importance-of-Model-View-Controller-1" class="headerlink" title="Importance of Model-View-Controller"></a>Importance of Model-View-Controller</h3><ul>
+<li>MVVM 与 MVC 最大区别在于使用响应式将 view-model 中的状态表达成一系列转换和依赖关系，清晰地描述出模型与要展示值之间的关系，可以让人更好的理解 app 中的依赖关系</li>
+<li>使用 coordinator 来管理 VC 层级的概念非常重要。coordinator 不与 MVVM 直接绑定，因此也可以用在 MVC 等其他模式中</li>
+<li>历史:<ol>
+<li>MVVM 由 Ken Cooper 和 Ted Peters 指定（他们在微软参与开发 WPF）</li>
+<li>WPF 中使用一种叫做 XAML 的基于 XML 的声明式语言来描述视图绑定到 view-model 上的属性</li>
+<li>Cocoa 中没有 XAML，所以需要使用如 RxSwift 之类的框架来执行 view-model 与 view 间的绑定</li>
+<li>iOS 中的 coordinator 概念由 Soroush Khanlou 2015 年在其网站上提出</li>
+</ol>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://www.objc.io/books/app-architecture/&quot;&gt;App Architecture&lt;/a&gt; 读书笔记&lt;br&gt;第二章 Overview of Application Design Patterns&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Code" scheme="http://www.roczhang.com/categories/Code/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>App Architecture 笔记 - 1</title>
