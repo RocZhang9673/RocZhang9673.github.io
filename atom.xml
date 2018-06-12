@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.roczhang.com/"/>
-  <updated>2018-05-30T12:11:38.768Z</updated>
+  <updated>2018-06-12T04:25:24.858Z</updated>
   <id>http://www.roczhang.com/</id>
   
   <author>
@@ -14,6 +14,71 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WWDC18 Notes - What&#39;s New in Cocoa Touch</title>
+    <link href="http://www.roczhang.com/wwdc18-notes-what-is-new-in-cocoa-touch.html"/>
+    <id>http://www.roczhang.com/wwdc18-notes-what-is-new-in-cocoa-touch.html</id>
+    <published>2018-06-11T23:30:13.000Z</published>
+    <updated>2018-06-12T04:25:24.858Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://developer.apple.com/videos/play/wwdc2018/202/" target="_blank" rel="external">WWDC18 - Session 202</a> 笔记<br><a id="more"></a></p>
+<p>在 iOS 12 中，Apple 进一步增强了 Cocoa Touch 框架，着重提高了应用的性能表现，同时也带来了不少新功能。在 What’s New in Cocoa Touch 中，对性能上的最佳实践、安全改进、多尺寸与形状屏幕的适配工具、用于 iMessage Apps 的新 API、Siri Shortcuts 以及 Swift 优化等方面进行了概括介绍。</p>
+<h2 id="Framework-Updates"><a href="#Framework-Updates" class="headerlink" title="Framework Updates"></a>Framework Updates</h2><h3 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h3><p>此 Session 中主要通过 Scrolling、Memory 以及 Auto Layout 三个方面介绍了 iOS 12 中的性能改进。</p>
+<h4 id="Scrolling"><a href="#Scrolling" class="headerlink" title="Scrolling"></a>Scrolling</h4><p>首先通过 UITableView 举例，介绍 UIKit 中滑动加载的常见流程：</p>
+<ul>
+<li>在 <code>UITableViewDataSource</code> <code>cellForRowAt</code> 方法中，重用或新初始一个 cell。</li>
+<li>使用模型数据中的内容来填充此 cell 。</li>
+<li>系统在 cell 上调用 <code>layoutSubviews</code> 方法，对 cell 中的内容进行布局。</li>
+<li>系统在 cell 上调用 <code>draw</code> 方法。</li>
+</ul>
+<p>以上所有这些事务都必须在一次刷新间隔中完成，才能够保证流畅的滚动不掉帧。在 120 Hz 的 iPad Pro 上，间隔时间更短，所以需要尽可能快速的完成这些工作。在 iOS 10 中，UIKit 引入了 <code>UITableViewDataSourcePrefetching Protocol</code> 预加载，实现 <code>prefetchRowsAt</code> 方法之后，就能够提前在后台进行数据准备工作以提升性能表现，但加载当前 cell与预加载将来要显示的数据会同时发生。而在 iOS 12 中，将预加载工作放在了加载 cell 完成之后进行，如下图所示。<br><img src="https://www.roczhang.com/images/wwdc18-notes-what-is-new-in-cocoa-touch/1.png" alt="Markdown preferences pane"><br>同时，在先前的版本中，从简单开销小的内容滑动到复杂开销大的内容时，由于 CPU 性能调度器进行调度需要时间，因此可能会造成卡顿。而在 iOS 12 中，会更加智能的进行 CPU 调度，由上层 UIKit 通知 CPU 准备调度，预先估算在 deadline 之前需要多少 CPU 性能来满足需求，进一步提升滑动流畅度。这些改进都无需开发者做额外的适配工作即可获得性能提升，但开发者仍应尽可能控制并减少开销时间。 </p>
+<h4 id="Memory"><a href="#Memory" class="headerlink" title="Memory"></a>Memory</h4><p>关注内存的原因在于 Memory Is Performance。当应用发出较大的内存请求而处于 Free 状态的内存不够时，系统就需要从其他 App 与系统使用的内存中挪出部分试图满足需求。但腾出其他 App 占用的内存并不代表对自己的 App 没有影响，内核需要做很多工作花费 CPU 时间来准备出需要的内存，因此需要花费时间进行等待。减少内存占用有很多方法，但 iOS 12 中带来了一项新技术 - Automatic Backing Store。根据图像中的信息自动减少色彩位深度以减少内存占用。<br><img src="https://www.roczhang.com/images/wwdc18-notes-what-is-new-in-cocoa-touch/2.png" alt="Markdown preferences pane"><br>在 iOS 12 中，<code>UIView.draw()</code>、<code>UIGraphicsImageRenderer</code>以及<code>UIGraphicsImageRendererFormat.Range</code>会默认启用。在 <a href="https://developer.apple.com/videos/play/wwdc2018/219/" target="_blank" rel="external">Session 219 - Image and Graphics Best Practices</a> 中，Apple 详细介绍了 Automatic Backing Store 的内容。</p>
+<h4 id="Auto-Layout"><a href="#Auto-Layout" class="headerlink" title="Auto Layout"></a>Auto Layout</h4><p>在 iOS 12 中，Auto Layout 有了巨大的变化，在默认情况下都会变得更快。在处理较基础的独立同层视图布局约束时，在原先随视图数量计算耗时线性增长的基础上进一步减小了耗时。而在计算相互依赖的同层视图布局约束、嵌套的视图布局约束时，iOS 12 将原先随视图数量计算耗时指数级增长优化至了线性增长。如下图所示：<br><img src="https://www.roczhang.com/images/wwdc18-notes-what-is-new-in-cocoa-touch/3.png" alt="Markdown preferences pane"><br>在 <a href="https://developer.apple.com/videos/play/wwdc2018/220/" target="_blank" rel="external">Session 220 - High Performance Auto Layout</a> 中对此做了更详细的介绍。</p>
+<h3 id="Swiftification"><a href="#Swiftification" class="headerlink" title="Swiftification"></a>Swiftification</h3><p>在 Swift 4.2 中，让 UIKit 进一步 Swift 化，通过嵌套 Types/Constants/Functions，让 Swift 味更浓，用起来感觉更自然。如下：  </p>
+<ul>
+<li>Nested Constants:<ol>
+<li>将 <code>enum UIApplicationState</code> 嵌套至了 <code>class UIApplication</code> 中。</li>
+<li>将 <code>enum UITabBarItemPositioning</code> 嵌套至了 <code>class UITabBar</code> 中。</li>
+</ol>
+</li>
+<li>Nested Constants:<ol>
+<li>将 <code>NSNotification/Name/didChangeStatusBarOrientation</code>、全局常量 <code>UIApplicationStatusBarOrientationUserInfoKey</code> 移至了 <code>class UIApplication</code> 中。</li>
+<li>将 <code>UIFloatRangeZero</code>、<code>UIFloatRangeInfinite</code> 移至了 <code>struct UIFloatRange</code> 中。</li>
+</ol>
+</li>
+<li>Nested Functions:<ol>
+<li><code>UIEdgeInsetsInsetRect(originalRect, insets)</code> -&gt; <code>originalRect.insetBy(insets)</code>。</li>
+<li><code>UIImagePNGRepresentation(image)</code> -&gt; <code>image.pngData()</code>。</li>
+<li>Codable Type 支持: <code>NSStringFrom[CGPoint, CGRect, CGSize, CGVector, CGAffineTransform, UIEdgeInsets, UIOffset] / [CGPoint, CGRect, CGSize, CGVector, CGAffineTransform, UIEdgeInsets, UIOffset]FromString</code> -&gt; <code>JSONEncoder().encode(CGPoint(x: 0, y: 0)) / JSONDecoder().decode(CGPoint.self, from: encoded) / NSCoder.string(for: CGPoint(x: 0, y: 0)) / NSCoder.cgPoint(for: encoded)</code>。</li>
+</ol>
+</li>
+</ul>
+<h3 id="NSSecureCoding"><a href="#NSSecureCoding" class="headerlink" title="NSSecureCoding"></a>NSSecureCoding</h3><p>新增默认安全编码与解码，老的 API 现在为 <code>deprecated</code>。<br>关于此部分，详细可见 <a href="https://developer.apple.com/videos/play/wwdc2018/222/" target="_blank" rel="external">Session 222 - Data You Can Trust</a>。</p>
+<h2 id="API-Enhancements"><a href="#API-Enhancements" class="headerlink" title="API Enhancements"></a>API Enhancements</h2><h3 id="Notifications"><a href="#Notifications" class="headerlink" title="Notifications"></a>Notifications</h3><p>iOS 12 中对消息通知也做出了较大的改进，主要体现在以下三方面：</p>
+<ul>
+<li>Interaction<br>自定义的通知界面中，允许添加使用自定义的交互，而不在限定于预先定义的动作。</li>
+<li>Grouping<br>分组通知。默认即会使用分组通知，将同一个 App 的通知集合到一个组中。同时也可以设定自己 App 通知消息分组的规则。</li>
+<li>Settings<br>在 iOS 12 中，可以在通知页让用户设置是否开启或关闭消息推送。<br>关于通知部分的详情，可见 <a href="https://developer.apple.com/videos/play/wwdc2018/710/" target="_blank" rel="external">Session 710 - What’s New in User Notifications</a> 与 <a href="https://developer.apple.com/videos/play/wwdc2018/711/" target="_blank" rel="external">Session 711 - Using Grouped Notifications</a>。</li>
+</ul>
+<h3 id="Messages"><a href="#Messages" class="headerlink" title="Messages"></a>Messages</h3><p>在 iOS 12 中，可以将 Message 贴纸置入到 Camera 中。在 Info.plist 中可添加新的 key：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;key&gt;<span class="type">MSSupportedPresentationContexts</span>&lt;/key&gt;</div><div class="line">&lt;array&gt;</div><div class="line">&lt;string&gt;<span class="type">MSMessagesAppPresentationContextMessages</span>&lt;/string&gt;</div><div class="line">&lt;string&gt;<span class="type">MSMessagesAppPresentationContextMedia</span>&lt;/string&gt;</div><div class="line">&lt;/array&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="Automatic-Passwords-and-Security-Code-AutoFill"><a href="#Automatic-Passwords-and-Security-Code-AutoFill" class="headerlink" title="Automatic Passwords and Security Code AutoFill"></a>Automatic Passwords and Security Code AutoFill</h3><p>在 iOS 11 中，引入了自动输入密码功能，可以在 App 内快速输入已在 iCloud Keychain 中存储的密码。在 iOS 12 中，此功能做了进一步的改进，可以在 App 内保存密码到 iCloud Keychain，同时也可以在 App 给使用自动生成强密码功能。并且，如果应用后端对密码的格式有要求，也可以指定这些要求从而保证自动生成的密码符合规则。同时，iOS 12 中也带来了自动从信息中提取验证码，一键输入的功能。<br>关于自动密码与验证码输入详情，可见 <a href="https://developer.apple.com/videos/play/wwdc2018/204/" target="_blank" rel="external">Session 204 - Automatic Strong Passwords and Security Code AutoFill</a>。</p>
+<h3 id="Safe-Area"><a href="#Safe-Area" class="headerlink" title="Safe Area"></a>Safe Area</h3><p>通过适配 SafeAreaInsets 来适配不同形状、大小与内容布局格式的界面。主讲人呼吁开发者尽快适配 SafeArea。详细可见 <a href="https://developer.apple.com/videos/play/wwdc2018/235/" target="_blank" rel="external">Session 235 - UIKit: Apps for Every Size and Shape</a>。</p>
+<h2 id="Siri-shortcuts"><a href="#Siri-shortcuts" class="headerlink" title="Siri shortcuts"></a>Siri shortcuts</h2><p>Siri shortcuts 是 iOS 12 中带来的新功能。给 App 提供了在 Siri Suggestion 中展示信息、在 Apple Watch Siri 表盘中展示信息，定义出发 Siri shortcuts 语言关键词等能力。可以通过以下 API 来适配 Siri shortcut。</p>
+<h3 id="NSUserActivity"><a href="#NSUserActivity" class="headerlink" title="NSUserActivity"></a>NSUserActivity</h3><p>与 Handoff 和 Spotlight 通用的 API。适合要在 App 中打开某些具体内容的情况。为 UserActivity 设置 <code>eligibleForPrediction = true</code>。</p>
+<h3 id="Intents"><a href="#Intents" class="headerlink" title="Intents"></a>Intents</h3><p>提供最佳 shortcut 体验需要适配 intents，可以提供无需启动 app 即可运行、提供自定义的语音响应、自定义用户界面、定义预测场景等能力。<br>关于 Siri Shortcut 详情可见 <a href="https://developer.apple.com/videos/play/wwdc2018/211/" target="_blank" rel="external">Session 211 - Introduction to Siri Shortcuts</a> / <a href="https://developer.apple.com/videos/play/wwdc2018/214/" target="_blank" rel="external">Session 214 - Building for Voice with Siri Shortcuts</a> / <a href="https://developer.apple.com/videos/play/wwdc2018/217/" target="_blank" rel="external">Session 217 - Siri Shortcuts on the Siri Watch Face</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://developer.apple.com/videos/play/wwdc2018/202/&quot;&gt;WWDC18 - Session 202&lt;/a&gt; 笔记&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Code" scheme="http://www.roczhang.com/categories/Code/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>App Architecture 笔记 - 2</title>
