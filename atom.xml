@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.roczhang.com/"/>
-  <updated>2018-06-12T04:25:24.858Z</updated>
+  <updated>2018-06-13T23:05:18.810Z</updated>
   <id>http://www.roczhang.com/</id>
   
   <author>
@@ -14,6 +14,125 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WWDC18 Notes - Automatic Strong Passwords and Security Code AutoFill</title>
+    <link href="http://www.roczhang.com/wwdc18-notes-automatic-strong-passwords.html"/>
+    <id>http://www.roczhang.com/wwdc18-notes-automatic-strong-passwords.html</id>
+    <published>2018-06-13T21:28:15.000Z</published>
+    <updated>2018-06-13T23:05:18.810Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://developer.apple.com/videos/play/wwdc2018/204/" target="_blank" rel="external">WWDC18 - Session 204</a> 笔记 </p>
+<p>在 iOS 12 中，Apple 将自动建议与使用强唯一密码的功能带入了 App 内，通过 QuickType bar 大幅简化了用户设置账户与登陆的繁琐操作。本 session 介绍了如何优化应用如何适配密码、安全码和其他自动填充功能，带给用户更安全与无缝的体验。</p>
+<p><img src="https://www.roczhang.com/images/wwdc18-notes-automatic-strong-passwords/1.png" alt="cover"></p>
+<a id="more"></a>
+<h2 id="Password-AutoFill-自动密码填充"><a href="#Password-AutoFill-自动密码填充" class="headerlink" title="Password AutoFill 自动密码填充"></a>Password AutoFill 自动密码填充</h2><p>在 iOS 11 中，Apple 引入了自动填充密码。此功能可以让用户通过点击键盘上方的 QuickType bar 快速完成用户名与密码输入过程。首先是对此功能的概要重述，重点包括：</p>
+<ol>
+<li>设置 Associated domains 关联域。iCloud Keychain Password Manager 中的密码是基于 Web 上的 domain 域（如 apple.com）来存储的。因此，就需要将 App 与 Web 上的域关联起来。关于 Password AutoFill 的详细功能，可见 <a href="https://developer.apple.com/videos/play/wwdc2017/206/" target="_blank" rel="external">WWDC 17 - Session 206 - Introducing Password AutoFill for Apps</a>。 </li>
+<li>标记好 Content types。在 iOS 11 中，<code>UITextContentType</code> 中添加了新类型：<code>username</code> 及 <code>password</code>。只要给输入框设定好正确的 <code>textContentType</code> 即可。如：<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// For user name text field</span></div><div class="line"><span class="keyword">let</span> userTextField = <span class="type">UITextField</span>()</div><div class="line">userTextField.textContentType = .username</div><div class="line"></div><div class="line"><span class="comment">// For password text field</span></div><div class="line"><span class="keyword">let</span> passwordTextField = <span class="type">UITextField</span>() </div><div class="line">passwordTextField.textContentType = .password</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h3><ol>
+<li>在 iOS 11.3 中，WKWebView 支持了自动填入密码，如果登录界面使用 Web 技术实现会很有帮助。</li>
+<li>在 iOS 12 中，从 App Store 中下载的其他密码管理应用也可以提供信息实现自动输入功能。只要开发者适配了 iCloud Keychain Password Manager 的 AutoFill，其他第三方密码管理应用也同样能够得到支持。如果你在开发密码管理应用，可以浏览 <a href="https://developer.apple.com/videos/play/wwdc2018/721/" target="_blank" rel="external">WWDC 18 - Session 721 - Implementing AutoFill Credential Provider Extensions</a>。</li>
+</ol>
+<h3 id="Password-Saving-密码保存"><a href="#Password-Saving-密码保存" class="headerlink" title="Password Saving 密码保存"></a>Password Saving 密码保存</h3><p>在 iOS 12 中，Apple 提供了在 App 内新账户登录时保存密码凭证的功能。从而使得用户在所有设备上都能通过 iCloud Keychain 登录你的 App 或网站。保存密码的工作原理是：</p>
+<ol>
+<li>推断登陆场景；</li>
+<li>基于关联 domain 检查资质；</li>
+<li>查找用户名和密码字段；</li>
+<li>检测登陆操作；</li>
+<li>提示用户保存或更新密码。</li>
+</ol>
+<p>为确保兼容此功能，我们需要检查的事件有:</p>
+<ol>
+<li>为相关的输入框标记好 content type 内容类型；</li>
+<li>当登录事件发生时，将用户名与密码输入框从 view hierarchy 中移除。这样 Autofill 便能够检测到登录事件正在进行。可以通过 dismiss 掉登录场景的 View Controller 实现；</li>
+<li>确保值在上述移除工作完成之后再清除登录输入框中的内容，这样 Autofill 才能读到数据并将其保存；</li>
+<li>检查 Autofill 保存的密码关联的是否为正确的 domain。可以通过保存后在设置界面中查看保存结果，如不正确，可通过 Web credentials associated domain service 覆盖其保存的位置。</li>
+<li>如果之前手动通过 <code>SecAddSharedWebCredential()</code> 保存，现在可能不在需要使用它了.</li>
+</ol>
+<p>总结关键点在于：</p>
+<ol>
+<li>将 app 关联 domain；</li>
+<li>为输入域做好标记；</li>
+<li>确保登陆检测。</li>
+</ol>
+<h2 id="Automatic-Strong-Passwords-自动强密码"><a href="#Automatic-Strong-Passwords-自动强密码" class="headerlink" title="Automatic Strong Passwords 自动强密码"></a>Automatic Strong Passwords 自动强密码</h2><p>Automatic String Passwords 提供生成建议用户名、密码与保存功能，通过几次点击便可以完成注册，将注册过程变得更加容易与安全。<br><img src="https://www.roczhang.com/images/wwdc18-notes-automatic-strong-passwords/3.png" alt="automaticStrongPasswords"></p>
+<p>Automatic Strong Passwords 的工作原理与上述的 Password Saving 工作原理大致相似：</p>
+<ol>
+<li>推断 View Controller 类型；</li>
+<li>基于关联的 domians 检查资质；</li>
+<li>检测相关的注册表单元素，如用户名输入框与密码输入框；</li>
+<li>提供建议用户名；</li>
+<li>键入强密码；</li>
+<li>用户注册后保存。</li>
+</ol>
+<p>对此功能的兼容性检查表也与上述的 Password Saving 类似。<br>为配合此功能，在 iOS 12 中，<code>UITextContentType</code> 新增了 <code>.newPassword</code> 类型，我们需要标记好自己 App 中的新密码输入框与密码确认输入框为 .newPassword。</p>
+<h3 id="对修改密码表单的注意事项："><a href="#对修改密码表单的注意事项：" class="headerlink" title="对修改密码表单的注意事项："></a>对修改密码表单的注意事项：</h3><ol>
+<li>用户名与新密码文本框应该在同一屏上；</li>
+<li>用户名文本框可以是只读的；</li>
+<li>在注册中的最佳实践同样适用于此。</li>
+</ol>
+<h3 id="默认生成密码的格式"><a href="#默认生成密码的格式" class="headerlink" title="默认生成密码的格式"></a>默认生成密码的格式</h3><ol>
+<li>长度为20个字符；</li>
+<li>包括大字母、小写字幕、数字与连字符；</li>
+<li>超过 71 位的熵；</li>
+<li>设计上旨在与大多数服务兼容。</li>
+</ol>
+<p>自动生成的密码例子：<code>funrus-Hommez-kajzp7</code>。</p>
+<p>当然，考虑到不同的后端规则，也可以自定义自动生成强密码的格式。可以通过密码规则语言来定义规则，如：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> newPasswordTextField = <span class="type">UITextField</span>()</div><div class="line">...</div><div class="line"><span class="keyword">let</span> rulesDescriptor = <span class="string">"allowed: upper, lower, digit; required: [$];"</span> newPasswordTextField.passwordRules = <span class="type">UITextInputPasswordRules</span>(descriptor: rulesDescriptor)</div></pre></td></tr></table></figure></p>
+<p>还可以使用新的密码规则验证工具 - <a href="https://developer.apple.com/password-rules/" target="_blank" rel="external">Password Rules Validation Tool</a>。</p>
+<h2 id="Security-Code-AutoFill-验证码自动填充"><a href="#Security-Code-AutoFill-验证码自动填充" class="headerlink" title="Security Code AutoFill 验证码自动填充"></a>Security Code AutoFill 验证码自动填充</h2><p>对于 iOS 12 之前用户来说，收到短信验证码都需要人肉记忆，再手动输入到文本框中。iOS 12 与 macOS Mojave 中终于带来了自动输入验证码功能。同样在 <code>UITextContentType</code> 中新增了一种 <code>.oneTimeCode</code> 的类型。但由于依赖系统键盘 QuickType 输入，所以对于哪些取代系统键盘使用自定义界面输入验证码的场景无法使用。同时，在所以已支持的语言环境中都可用。验证码自动填充功能同样能够在 Safari Web 页面中使用。非常棒的一点是如果用户尝试在 Mac 上通过 Safari 登录，iPhone 上收到的验证码信息将会被自动安全的传递到 Mac 上，以实现在 Mac 上同样能够轻点一下自动填充验证码。</p>
+<p>此次自动输入的功能在 Safari 中同样有效，具体属性符对应如下： </p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>iOS 12 (UITextContentType)</th>
+<th>Safari (input autocomplete=”value”)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UserName</td>
+<td>.username</td>
+<td>username</td>
+</tr>
+<tr>
+<td>Existing Password</td>
+<td>.password</td>
+<td>current-password</td>
+</tr>
+<tr>
+<td>New Password (for Automatic Strong Passwords)</td>
+<td>.newPassword</td>
+<td>new-password</td>
+</tr>
+<tr>
+<td>One Time Code (for Security Code AutoFill)</td>
+<td>.oneTimeCode</td>
+<td>one-time-code</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Federated-authentication-联合身份验证"><a href="#Federated-authentication-联合身份验证" class="headerlink" title="Federated authentication 联合身份验证"></a>Federated authentication 联合身份验证</h2><p>对于要支持使用第三方服务（如社交媒体账号）登录的情况，iOS 12 中引入了新的 API: <code>ASWebAuthenticationSession</code>。联合身份验证过程如下图所示：<br><img src="https://www.roczhang.com/images/wwdc18-notes-automatic-strong-passwords/2.png" alt="federatedAuthentication"><br>使用 ASWebAuthenticationSession 的好处在于：更快的登陆流程、支持密码自动输入与验证码自动输入以及简单明了的基于 block 形式的 API。具体用法如下所示：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> AuthenticationServices</div><div class="line"><span class="keyword">guard</span> <span class="keyword">let</span> oauthURL = <span class="type">URL</span>(string: <span class="string">"https://www.example.com/oauth/..."</span>) <span class="keyword">else</span> &#123;</div><div class="line"><span class="keyword">return</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">self</span>.authenticationSession = <span class="type">ASWebAuthenticationSession</span>(url: oauthURL, callbackURLScheme:</div><div class="line"><span class="literal">nil</span>) &#123; (callbackURL, error) <span class="keyword">in</span></div><div class="line"><span class="keyword">guard</span> error == <span class="literal">nil</span>, <span class="keyword">let</span> callbackURL = callbackURL <span class="keyword">else</span> &#123;</div><div class="line">&#125;</div><div class="line"><span class="comment">// Process error.</span></div><div class="line"><span class="keyword">return</span></div><div class="line"><span class="comment">// Process token.</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">self</span>.authenticationSession.start()</div></pre></td></tr></table></figure></p>
+<h2 id="New-password-management-features-密码管理新功能"><a href="#New-password-management-features-密码管理新功能" class="headerlink" title="New password management features 密码管理新功能"></a>New password management features 密码管理新功能</h2><p>iCloud Keychain Password Manager 中带了了一些与密码管理有关的新功能。如：通过询问 Siri 密码自动跳转到密码查看页以快速查看、密码内容支持通过 AirDrop 分享给他人、iOS 12 与 macOS Mojave 中的密码查看列表界面也经过了重新的设计、以及对在多个网站中使用相同密码的情况给予用户警告、tvOS 应用可以通过附近的 iOS 设备完成自动密码输入。</p>
+<h2 id="Summary-总结"><a href="#Summary-总结" class="headerlink" title="Summary 总结"></a>Summary 总结</h2><p>在 iOS 12 与 macOS Mojave 中提供的这些密码相关功能非常强大，尽管许多功能可能能够自动适配工作，我们仍需要测试自己的 app 来保证良好兼容。<br>同时，联想到近两天再次频繁爆出的国内大网站被脱裤的消息，开发者对安全问题都应该更加重视。适配 Automatic Strong Passwords 相比其他 feature 来说适配工作量并不会非常多，但能够非常明显的提升用户操作的连贯体验与安全性。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://developer.apple.com/videos/play/wwdc2018/204/&quot;&gt;WWDC18 - Session 204&lt;/a&gt; 笔记 &lt;/p&gt;
+&lt;p&gt;在 iOS 12 中，Apple 将自动建议与使用强唯一密码的功能带入了 App 内，通过 QuickType bar 大幅简化了用户设置账户与登陆的繁琐操作。本 session 介绍了如何优化应用如何适配密码、安全码和其他自动填充功能，带给用户更安全与无缝的体验。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.roczhang.com/images/wwdc18-notes-automatic-strong-passwords/1.png&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Code" scheme="http://www.roczhang.com/categories/Code/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>WWDC18 Notes - What&#39;s New in Cocoa Touch</title>
