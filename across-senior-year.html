@@ -89,16 +89,16 @@
 
 
 
-<meta name="description" content="App Architecture 读书笔记第一章 Introduction">
+<meta name="description" content="昨天早上学校的毕业典礼结束之后，我想自己终于算是程序上完全毕业了。也终于到了可以写跨越大学最后一篇的时候，只是我对毕业这件事好像已经基本没剩什么感觉了。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="App Architecture 笔记 - 1">
-<meta property="og:url" content="http://www.roczhang.com/app-architecture-notes-1.html">
+<meta property="og:title" content="跨越大四">
+<meta property="og:url" content="http://www.roczhang.com/across-senior-year.html">
 <meta property="og:site_name" content="Roc Zhang's Blog">
-<meta property="og:description" content="App Architecture 读书笔记第一章 Introduction">
-<meta property="og:updated_time" content="2018-06-05T22:02:18.146Z">
+<meta property="og:description" content="昨天早上学校的毕业典礼结束之后，我想自己终于算是程序上完全毕业了。也终于到了可以写跨越大学最后一篇的时候，只是我对毕业这件事好像已经基本没剩什么感觉了。">
+<meta property="og:updated_time" content="2018-06-23T17:48:24.225Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="App Architecture 笔记 - 1">
-<meta name="twitter:description" content="App Architecture 读书笔记第一章 Introduction">
+<meta name="twitter:title" content="跨越大四">
+<meta name="twitter:description" content="昨天早上学校的毕业典礼结束之后，我想自己终于算是程序上完全毕业了。也终于到了可以写跨越大学最后一篇的时候，只是我对毕业这件事好像已经基本没剩什么感觉了。">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://www.roczhang.com/app-architecture-notes-1.html"/>
+  <link rel="canonical" href="http://www.roczhang.com/across-senior-year.html"/>
 
 
 
 
 
-  <title> App Architecture 笔记 - 1 | Roc Zhang's Blog </title>
+  <title> 跨越大四 | Roc Zhang's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -271,7 +271,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://www.roczhang.com/app-architecture-notes-1.html">
+    <link itemprop="mainEntityOfPage" href="http://www.roczhang.com/across-senior-year.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Roc Zhang">
@@ -292,7 +292,7 @@
             
             
               
-                App Architecture 笔记 - 1
+                跨越大四
               
             
           </h2>
@@ -307,8 +307,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-20T11:21:35+08:00">
-                2018-05-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-23T23:39:39+08:00">
+                2018-06-23
               </time>
             
 
@@ -330,8 +330,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Code/" itemprop="url" rel="index">
-                    <span itemprop="name">Code</span>
+                  <a href="/categories/Life/" itemprop="url" rel="index">
+                    <span itemprop="name">Life</span>
                   </a>
                 </span>
 
@@ -348,9 +348,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/app-architecture-notes-1.html#comments" itemprop="discussionUrl">
+                <a href="/across-senior-year.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="app-architecture-notes-1.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="across-senior-year.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -376,82 +376,13 @@
       
 
       
-        <p><a href="https://www.objc.io/books/app-architecture/" target="_blank" rel="external">App Architecture</a> 读书笔记<br>第一章 Introduction<br><a id="more"></a></p>
-<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><ul>
-<li>此书会讨论五种设计模式:<ol>
-<li>MVC: Model-View-Controller </li>
-<li>MVVM-C: Model-View-ViewModel-Coordinator</li>
-<li>MVC+VS: Model-View-Controller-ViewState</li>
-<li>MAVB: ModelAdapter-ViewBinder</li>
-<li>TEA: The Elm Architecture</li>
-</ol>
-</li>
-<li>此书的 Demo 是一个 Recording App，在 GitHub 上。</li>
-</ul>
-<h2 id="Application-Architecture"><a href="#Application-Architecture" class="headerlink" title="Application Architecture"></a>Application Architecture</h2><ul>
-<li>Application architecture 关注的方面包含：<ol>
-<li>组件如何被构建；</li>
-<li>事件流如何在层级中传递；</li>
-<li>组件间是否应有编译期或运行期的相互引用；</li>
-<li>不同的组件中数据应如何被读取或变更；</li>
-<li>状态变更后应在整个应用结构中用怎样的路径来处理。</li>
-</ol>
-</li>
-</ul>
-<h2 id="Model-and-View"><a href="#Model-and-View" class="headerlink" title="Model and View"></a>Model and View</h2><ul>
-<li>分类层 Categories Layer:<ol>
-<li>应用架构在最高层上看，是把不同的应用组件分离到不同的分类层中;</li>
-<li>一个分类层便是一个包含代码和接口的集合，他们都能够遵循一定的规则并且职责相似;</li>
-<li>最常见的分类层就是模型层与视图层。</li>
-</ol>
-</li>
-<li>模型层 Model Layer:<ol>
-<li>对应用内容的抽象；</li>
-<li>不依赖于任何应用框架；</li>
-<li>通常包含模型对象对协调对象。</li>
-</ol>
-</li>
-<li>视图层 View Layer:<ol>
-<li>依赖于应用框架；</li>
-<li>将模型层可视化，可交互化；</li>
-<li>通常直接使用 UIKit（也可能使用 SceneKit / OpenGL 等）。</li>
-</ol>
-</li>
-<li>Why Are the Categories of Model and View Considered So Fundamental?<ol>
-<li>保持模型层整洁，及不受应用框架底层实现的影响；</li>
-<li>方便讲模型层运用到当前应用之外，如运行测试、用不同的框架重写视图层、移植到其他系统平台等。</li>
-</ol>
-</li>
-</ul>
-<h2 id="Applications-Are-a-Feedback-Loop"><a href="#Applications-Are-a-Feedback-Loop" class="headerlink" title="Applications Are a Feedback Loop"></a>Applications Are a Feedback Loop</h2><ul>
-<li>应用设计模式的挑战在于如何处理如试图层与模型层之间的通信、依赖与转换。</li>
-<li>View Action: 由视图触发，用于响应用户驱动的事件。发送给 Model Layer 时，View Action 可能会被转换成 Model Action，这种转换被叫做 Interaction Logic。</li>
-<li>Model Update: 模型对象更新后通常会产生一个通知，此通知将触发视图层的更新。通知可以使用多种形式，如 Foundation Notification、Delegates、Callback 等。这种由 Model Notification 转换到视图的变化被称为 Presentation Logic。</li>
-<li>当所有状态都放在模型层中，并且所有变化都遵循上述的完整反馈路径环时，被称为单向数据流。</li>
-</ul>
-<h2 id="Architectural-Technologies"><a href="#Architectural-Technologies" class="headerlink" title="Architectural Technologies"></a>Architectural Technologies</h2><ul>
-<li>实现架构的工具技术:<ol>
-<li>Notification 广播：单个源的变化 -&gt; 0到多个监听者；</li>
-<li>KVO：将一个对象上属性的变化告知给另一个对象；</li>
-<li>响应式：重点在于关注从源到目标间的转换，允许将逻辑运用到转换中。</li>
-</ol>
-</li>
-<li>双向绑定:<ol>
-<li>Cocoa Bindings 是双向绑定。被观察者同时也是观察者，会建立反向连接；</li>
-<li>本书仅讨论单向绑定。</li>
-</ol>
-</li>
-</ul>
-<h2 id="Application-Tasks"><a href="#Application-Tasks" class="headerlink" title="Application Tasks"></a>Application Tasks</h2><ul>
-<li>五类任务：<ol>
-<li>构建：谁来构建模型与视图，谁来连接；</li>
-<li>更新：如何处理 View Actions；</li>
-<li>改变视图：如何将模型数据应用到视图上；</li>
-<li>视图状态：如何处理 Navigation 与其他非模型状态；</li>
-<li>测试：使用怎样的测试策略来达到合理的测试覆盖率。</li>
-</ol>
-</li>
-</ul>
+        <p>昨天早上学校的毕业典礼结束之后，我想自己终于算是程序上完全毕业了。<br>也终于到了可以写跨越大学最后一篇的时候，只是我对毕业这件事好像已经基本没剩什么感觉了。</p>
+<a id="more"></a>
+<p>去年六月离校，十月开始实习，四月完成论文返校答辩，上周完成双学位论文，到这周学校毕业典礼发毕业证学位证，只是因为自己还有很多事要做所以暂时还没法回学校。空间和身份上的转换对我而言似乎没有太大变化，唯一经历的不适感是因为个人可自由支配时间突然变少造成的不安。</p>
+<p>还在学校的时候，有很多事情没曾想过也有很多事情没想明白。当时驱动自己的东西也很简单，或是真的喜爱，或是试图想要证明自己得到别人的认可与夸赞。离开学校之后虽也是一个人居住，但环境上开始时的生疏给了自己更多的时间能够把自己隔离开来了解和追问自己，从小问题到大问题。就如为什么要做每件事，为什么自己总在感到不安，我的能力有提升吗，为什么会经常对自己感到不满和自卑，什么对我来说才真的重要，我想追求的到底是什么。这些大大小小的问题关系着自己处理每一件事做每一个决定，还有晚上能否睡的着。技艺上的精进能够让我收获很单纯的开心，比如编程技术、设计水平或者是弹吉他，但这只是经历付出之后收到正向反馈的短期成就感，放到更短的时间长度之内可能和一盘游戏也并无差异，只是依然没有办法持久的缓解我对自己更长时间段上的焦虑。</p>
+<p>幸运的是遇到了很多方面值得自己学习和引发自己思考的人（师傅），加之自己身边发生的事让我感受到之前觉得还离自己很远的事可能距离也没那么远。虽然很多问题的答案依然是想不明白，但有些问题阶段性的答案的的确确变得更清楚了，我也能感受到自己的心态在产生变化。见到了更多人的选择和生活方式，虽然不会再像以前一样啧啧称奇，但让我越发想去了解更多的人，看到更多的可能。</p>
+<p>实习到现在已经八个月了，没有意外的话周一就会签入职合同正式入职了。回想起自己最近几年的生活依然会觉得非常神奇，总让我会想要感激每一次幸运的偶然，但也相信每一件事绝非只是偶然。站在以前的时间节点上我想不到现在的自己，这挺好也挺不好，但让我期待在以后的某一天，假想今天的我朝后面的我看过去，会更强烈的惊叹，这一切都太神奇了。</p>
+<p>2018.06.22 - Ordinary graduation day, fantastic 4 years.</p>
 
       
     </div>
@@ -480,7 +411,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://www.roczhang.com/app-architecture-notes-1.html" title="App Architecture 笔记 - 1">http://www.roczhang.com/app-architecture-notes-1.html</a>
+      <a href="http://www.roczhang.com/across-senior-year.html" title="跨越大四">http://www.roczhang.com/across-senior-year.html</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -503,8 +434,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/go-for-wwdc18-1.html" rel="next" title="Go For WWDC18 - 1">
-                <i class="fa fa-chevron-left"></i> Go For WWDC18 - 1
+              <a href="/wwdc18-notes-automatic-strong-passwords.html" rel="next" title="WWDC18 Notes - Automatic Strong Passwords and Security Code AutoFill">
+                <i class="fa fa-chevron-left"></i> WWDC18 Notes - Automatic Strong Passwords and Security Code AutoFill
               </a>
             
           </div>
@@ -512,10 +443,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/app-architecture-notes-2.html" rel="prev" title="App Architecture 笔记 - 2">
-                App Architecture 笔记 - 2 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -569,17 +496,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -659,22 +577,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#About"><span class="nav-number">1.</span> <span class="nav-text">About</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Application-Architecture"><span class="nav-number">2.</span> <span class="nav-text">Application Architecture</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model-and-View"><span class="nav-number">3.</span> <span class="nav-text">Model and View</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Applications-Are-a-Feedback-Loop"><span class="nav-number">4.</span> <span class="nav-text">Applications Are a Feedback Loop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Architectural-Technologies"><span class="nav-number">5.</span> <span class="nav-text">Architectural Technologies</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Application-Tasks"><span class="nav-number">6.</span> <span class="nav-text">Application Tasks</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -806,9 +708,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://www.roczhang.com/app-architecture-notes-1.html';
-          this.page.identifier = 'app-architecture-notes-1.html';
-          this.page.title = 'App Architecture 笔记 - 1';
+          this.page.url = 'http://www.roczhang.com/across-senior-year.html';
+          this.page.identifier = 'across-senior-year.html';
+          this.page.title = '跨越大四';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://roczhang.disqus.com/embed.js';

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.roczhang.com/"/>
-  <updated>2018-06-13T23:05:18.810Z</updated>
+  <updated>2018-06-23T17:48:24.225Z</updated>
   <id>http://www.roczhang.com/</id>
   
   <author>
@@ -16,15 +16,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>跨越大四</title>
+    <link href="http://www.roczhang.com/across-senior-year.html"/>
+    <id>http://www.roczhang.com/across-senior-year.html</id>
+    <published>2018-06-23T15:39:39.000Z</published>
+    <updated>2018-06-23T17:48:24.225Z</updated>
+    
+    <content type="html"><![CDATA[<p>昨天早上学校的毕业典礼结束之后，我想自己终于算是程序上完全毕业了。<br>也终于到了可以写跨越大学最后一篇的时候，只是我对毕业这件事好像已经基本没剩什么感觉了。</p>
+<a id="more"></a>
+<p>去年六月离校，十月开始实习，四月完成论文返校答辩，上周完成双学位论文，到这周学校毕业典礼发毕业证学位证，只是因为自己还有很多事要做所以暂时还没法回学校。空间和身份上的转换对我而言似乎没有太大变化，唯一经历的不适感是因为个人可自由支配时间突然变少造成的不安。</p>
+<p>还在学校的时候，有很多事情没曾想过也有很多事情没想明白。当时驱动自己的东西也很简单，或是真的喜爱，或是试图想要证明自己得到别人的认可与夸赞。离开学校之后虽也是一个人居住，但环境上开始时的生疏给了自己更多的时间能够把自己隔离开来了解和追问自己，从小问题到大问题。就如为什么要做每件事，为什么自己总在感到不安，我的能力有提升吗，为什么会经常对自己感到不满和自卑，什么对我来说才真的重要，我想追求的到底是什么。这些大大小小的问题关系着自己处理每一件事做每一个决定，还有晚上能否睡的着。技艺上的精进能够让我收获很单纯的开心，比如编程技术、设计水平或者是弹吉他，但这只是经历付出之后收到正向反馈的短期成就感，放到更短的时间长度之内可能和一盘游戏也并无差异，只是依然没有办法持久的缓解我对自己更长时间段上的焦虑。</p>
+<p>幸运的是遇到了很多方面值得自己学习和引发自己思考的人（师傅），加之自己身边发生的事让我感受到之前觉得还离自己很远的事可能距离也没那么远。虽然很多问题的答案依然是想不明白，但有些问题阶段性的答案的的确确变得更清楚了，我也能感受到自己的心态在产生变化。见到了更多人的选择和生活方式，虽然不会再像以前一样啧啧称奇，但让我越发想去了解更多的人，看到更多的可能。</p>
+<p>实习到现在已经八个月了，没有意外的话周一就会签入职合同正式入职了。回想起自己最近几年的生活依然会觉得非常神奇，总让我会想要感激每一次幸运的偶然，但也相信每一件事绝非只是偶然。站在以前的时间节点上我想不到现在的自己，这挺好也挺不好，但让我期待在以后的某一天，假想今天的我朝后面的我看过去，会更强烈的惊叹，这一切都太神奇了。</p>
+<p>2018.06.22 - Ordinary graduation day, fantastic 4 years.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;昨天早上学校的毕业典礼结束之后，我想自己终于算是程序上完全毕业了。&lt;br&gt;也终于到了可以写跨越大学最后一篇的时候，只是我对毕业这件事好像已经基本没剩什么感觉了。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Life" scheme="http://www.roczhang.com/categories/Life/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>WWDC18 Notes - Automatic Strong Passwords and Security Code AutoFill</title>
     <link href="http://www.roczhang.com/wwdc18-notes-automatic-strong-passwords.html"/>
     <id>http://www.roczhang.com/wwdc18-notes-automatic-strong-passwords.html</id>
     <published>2018-06-13T21:28:15.000Z</published>
-    <updated>2018-06-13T23:05:18.810Z</updated>
+    <updated>2018-06-13T23:17:52.369Z</updated>
     
     <content type="html"><![CDATA[<p><a href="https://developer.apple.com/videos/play/wwdc2018/204/" target="_blank" rel="external">WWDC18 - Session 204</a> 笔记 </p>
 <p>在 iOS 12 中，Apple 将自动建议与使用强唯一密码的功能带入了 App 内，通过 QuickType bar 大幅简化了用户设置账户与登陆的繁琐操作。本 session 介绍了如何优化应用如何适配密码、安全码和其他自动填充功能，带给用户更安全与无缝的体验。</p>
-<p><img src="https://www.roczhang.com/images/wwdc18-notes-automatic-strong-passwords/1.png" alt="cover"></p>
+<p><img src="https://www.roczhang.com/images/wwdc18-notes-automatic-strong-passwords/1.png" alt="cover"> </p>
 <a id="more"></a>
 <h2 id="Password-AutoFill-自动密码填充"><a href="#Password-AutoFill-自动密码填充" class="headerlink" title="Password AutoFill 自动密码填充"></a>Password AutoFill 自动密码填充</h2><p>在 iOS 11 中，Apple 引入了自动填充密码。此功能可以让用户通过点击键盘上方的 QuickType bar 快速完成用户名与密码输入过程。首先是对此功能的概要重述，重点包括：</p>
 <ol>
@@ -125,7 +152,7 @@
     
       &lt;p&gt;&lt;a href=&quot;https://developer.apple.com/videos/play/wwdc2018/204/&quot;&gt;WWDC18 - Session 204&lt;/a&gt; 笔记 &lt;/p&gt;
 &lt;p&gt;在 iOS 12 中，Apple 将自动建议与使用强唯一密码的功能带入了 App 内，通过 QuickType bar 大幅简化了用户设置账户与登陆的繁琐操作。本 session 介绍了如何优化应用如何适配密码、安全码和其他自动填充功能，带给用户更安全与无缝的体验。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://www.roczhang.com/images/wwdc18-notes-automatic-strong-passwords/1.png&quot; alt=&quot;cover&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://www.roczhang.com/images/wwdc18-notes-automatic-strong-passwords/1.png&quot; alt=&quot;cover&quot;&gt; &lt;/p&gt;
     
     </summary>
     
@@ -139,7 +166,7 @@
     <link href="http://www.roczhang.com/wwdc18-notes-what-is-new-in-cocoa-touch.html"/>
     <id>http://www.roczhang.com/wwdc18-notes-what-is-new-in-cocoa-touch.html</id>
     <published>2018-06-11T23:30:13.000Z</published>
-    <updated>2018-06-12T04:25:24.858Z</updated>
+    <updated>2018-06-13T21:43:36.388Z</updated>
     
     <content type="html"><![CDATA[<p><a href="https://developer.apple.com/videos/play/wwdc2018/202/" target="_blank" rel="external">WWDC18 - Session 202</a> 笔记<br><a id="more"></a></p>
 <p>在 iOS 12 中，Apple 进一步增强了 Cocoa Touch 框架，着重提高了应用的性能表现，同时也带来了不少新功能。在 What’s New in Cocoa Touch 中，对性能上的最佳实践、安全改进、多尺寸与形状屏幕的适配工具、用于 iMessage Apps 的新 API、Siri Shortcuts 以及 Swift 优化等方面进行了概括介绍。</p>
@@ -204,7 +231,7 @@
     <link href="http://www.roczhang.com/app-architecture-notes-2.html"/>
     <id>http://www.roczhang.com/app-architecture-notes-2.html</id>
     <published>2018-05-30T12:10:41.000Z</published>
-    <updated>2018-05-30T12:11:38.768Z</updated>
+    <updated>2018-06-05T22:02:18.147Z</updated>
     
     <content type="html"><![CDATA[<p><a href="https://www.objc.io/books/app-architecture/" target="_blank" rel="external">App Architecture</a> 读书笔记<br>第二章 Overview of Application Design Patterns<br><a id="more"></a></p>
 <p>第一篇：<a href="https://www.roczhang.com/app-architecture-notes-1.html">App Architecture 笔记 - 1 Introduction</a><br>第二篇：<a href="https://www.roczhang.com/app-architecture-notes-2.html">App Architecture 笔记 - 2 Overview, MVC/MVVM-C</a></p>
@@ -327,7 +354,7 @@
     <link href="http://www.roczhang.com/app-architecture-notes-1.html"/>
     <id>http://www.roczhang.com/app-architecture-notes-1.html</id>
     <published>2018-05-20T03:21:35.000Z</published>
-    <updated>2018-05-20T15:15:35.549Z</updated>
+    <updated>2018-06-05T22:02:18.146Z</updated>
     
     <content type="html"><![CDATA[<p><a href="https://www.objc.io/books/app-architecture/" target="_blank" rel="external">App Architecture</a> 读书笔记<br>第一章 Introduction<br><a id="more"></a></p>
 <h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><ul>
@@ -423,7 +450,7 @@
     <link href="http://www.roczhang.com/go-for-wwdc18-1.html"/>
     <id>http://www.roczhang.com/go-for-wwdc18-1.html</id>
     <published>2018-05-17T14:35:15.000Z</published>
-    <updated>2018-05-17T16:21:52.451Z</updated>
+    <updated>2018-06-05T22:02:18.147Z</updated>
     
     <content type="html"><![CDATA[<p>准备篇：签证与行程</p>
 <a id="more"></a>
@@ -474,7 +501,7 @@
     <link href="http://www.roczhang.com/20180418.html"/>
     <id>http://www.roczhang.com/20180418.html</id>
     <published>2018-04-18T13:05:15.000Z</published>
-    <updated>2018-05-03T12:47:18.495Z</updated>
+    <updated>2018-06-05T22:02:18.145Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://www.roczhang.com/images/20180418/01.jpg" alt="Markdown preferences pane"></p>
 <p>临近毕业了。一期一会，世当珍惜。 </p>
@@ -515,7 +542,7 @@
     <link href="http://www.roczhang.com/%E7%BF%BB%E8%AF%91%EF%BC%9AiOS%20Code%20Signing%20(%E4%B8%80)%E3%80%81%EF%BC%88%E4%BA%8C%EF%BC%89.html"/>
     <id>http://www.roczhang.com/翻译：iOS Code Signing (一)、（二）.html</id>
     <published>2018-03-03T02:16:03.000Z</published>
-    <updated>2018-03-03T02:57:03.335Z</updated>
+    <updated>2018-06-05T22:02:18.149Z</updated>
     
     <content type="html"><![CDATA[<p>翻译来自 iOS Code Signing 系列第一、二篇。<br>原作者：SHASHIKANT JAGTAP<br>翻译者：Roc Zhang<br><a id="more"></a><br>如有任何问题还请留言指出。  </p>
 <p>E-mail: roczhang9673@gmail.com<br>Weibo: @张鹏roczhang<br>Twitter: @Lighters9673</p>
@@ -609,7 +636,7 @@
     <link href="http://www.roczhang.com/%E7%BF%BB%E8%AF%91%EF%BC%9AClean%20Swift%20iOS%20Architecture%20for%20Fixing%20Massive%20View%20Controller%20%EF%BC%88%E4%BA%8C%EF%BC%89.html"/>
     <id>http://www.roczhang.com/翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （二）.html</id>
     <published>2017-12-17T11:37:25.000Z</published>
-    <updated>2017-12-17T16:45:03.646Z</updated>
+    <updated>2018-06-05T22:02:18.149Z</updated>
     
     <content type="html"><![CDATA[<p>节选翻译来自 Clean Swift iOS Architecture for Fixing Massive View Controller 系列第二篇。<br>原作者：Raymond<br>翻译者：Roc Zhang<br><a id="more"></a><br>第一次尝试翻译，如有任何问题还请留言指出。  </p>
 <p>E-mail: roczhang9673@gmail.com<br>Weibo: @张鹏roczhang<br>Twitter: @Lighters9673</p>
@@ -661,7 +688,7 @@
     <link href="http://www.roczhang.com/%E7%BF%BB%E8%AF%91%EF%BC%9AClean%20Swift%20iOS%20Architecture%20for%20Fixing%20Massive%20View%20Controller%20%EF%BC%88%E4%B8%80%EF%BC%89.html"/>
     <id>http://www.roczhang.com/翻译：Clean Swift iOS Architecture for Fixing Massive View Controller （一）.html</id>
     <published>2017-12-09T06:49:05.000Z</published>
-    <updated>2017-12-09T07:38:07.292Z</updated>
+    <updated>2018-06-05T22:02:18.148Z</updated>
     
     <content type="html"><![CDATA[<p>节选翻译来自 Clean Swift iOS Architecture for Fixing Massive View Controller 系列第一篇。<br>原作者：Raymond<br>翻译者：Roc Zhang<br><a id="more"></a><br>第一次尝试翻译，如有任何问题还请留言指出。  </p>
 <p>E-mail: roczhang9673@gmail.com<br>Weibo: @张鹏roczhang<br>Twitter: @Lighters9673</p>
@@ -713,7 +740,7 @@
     <link href="http://www.roczhang.com/%E8%B7%A8%E8%B6%8A%E5%A4%A7%E4%B8%89.html"/>
     <id>http://www.roczhang.com/跨越大三.html</id>
     <published>2017-11-25T16:37:26.000Z</published>
-    <updated>2017-11-25T19:39:52.252Z</updated>
+    <updated>2018-06-05T22:02:18.149Z</updated>
     
     <content type="html"><![CDATA[<p>大三早已结束了。对于名义上大四却已经实习了一个多月的我来说，大学生活好像真的已然过去了。</p>
 <a id="more"></a>
@@ -749,7 +776,7 @@
     <link href="http://www.roczhang.com/Mr.Weather%20%E7%9A%84%E6%95%85%E4%BA%8B.html"/>
     <id>http://www.roczhang.com/Mr.Weather 的故事.html</id>
     <published>2017-05-30T07:47:32.000Z</published>
-    <updated>2017-06-03T08:54:27.000Z</updated>
+    <updated>2018-06-05T22:02:18.146Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://www.roczhang.com/images/mrWeatherStory/banner.png" alt="Markdown preferences pane"></p>
 <p>Mr.Weather 是第一个从 0 到 1 完全由我自己完成的 App，因此我也在这个过程中体验到了产品、设计、开发甚至是客服等各个角色。从构建 Mr.Weather 首版雏形至今已经超过一年，我想不如就从这几个身份来聊聊 Mr.Weather 的故事。</p>
@@ -788,7 +815,7 @@
     <link href="http://www.roczhang.com/in-Swift.html"/>
     <id>http://www.roczhang.com/in-Swift.html</id>
     <published>2017-03-28T14:21:43.000Z</published>
-    <updated>2017-03-28T15:12:04.000Z</updated>
+    <updated>2018-06-05T22:02:18.148Z</updated>
     
     <content type="html"><![CDATA[<p>一篇简短的小记。<br><a id="more"></a></p>
 <h1 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h1><p>由于最近比较多的用了 IGListKit 来写新的模块和重构旧的模块，其中 IGListKit 要求模型遵遁 IGListDiffable 协议，其中需要你实现一个函数：</p>
@@ -836,7 +863,7 @@
     <link href="http://www.roczhang.com/3D-Touch-for-iOS-10-%E9%80%82%E9%85%8D%E6%8C%87%E5%8D%97.html"/>
     <id>http://www.roczhang.com/3D-Touch-for-iOS-10-适配指南.html</id>
     <published>2017-03-26T02:31:03.000Z</published>
-    <updated>2017-03-26T16:11:52.000Z</updated>
+    <updated>2018-06-05T22:02:18.146Z</updated>
     
     <content type="html"><![CDATA[<p>好不容易起个大早的居然就突然停电了，翻看到好久之前的 WWDC 学习笔记，想起来之前好像打算稍稍整理一下 3D Touch 相关内容的，趁着 MacBook 还有电顺手写一下。<br><a id="more"></a></p>
 <p>对应的是 WWDC 16 - Session 228。先记录 Session 上的相关内容。</p>
@@ -900,7 +927,7 @@
     <link href="http://www.roczhang.com/%E9%81%87%E5%88%B0%E7%9A%84%20XC%208%20%E4%B8%AD%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%B0%8F%E5%9D%91.html"/>
     <id>http://www.roczhang.com/遇到的 XC 8 中的两个小坑.html</id>
     <published>2016-11-28T16:23:12.000Z</published>
-    <updated>2016-11-28T17:54:56.000Z</updated>
+    <updated>2018-06-05T22:02:18.150Z</updated>
     
     <content type="html"><![CDATA[<p>今天可能时运不济，一次碰到了两个小坑，趁着现在 pod repo update 的时候记一下。<br><a id="more"></a></p>
 <h2 id="Background-Fetch"><a href="#Background-Fetch" class="headerlink" title="Background Fetch"></a>Background Fetch</h2><p>今天在一开始在写和 Background Fetch 相关的代码。把 performFetchWithCompletionHandler 写好，然后其他的配置做好之后，连上手机准备测试。因为一般 Background Fetch 发生都需要时间，而且这个调用的时间间隔是系统定的，即使设定了 setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum) 可能也要蛮久一段时间系统才会调用。所以一般都会点 Xcode -&gt; Debug -&gt; Simulate Background Fetch 让 Background Fetch 能立即执行来方便调试。</p>
@@ -939,7 +966,7 @@
     <link href="http://www.roczhang.com/%E6%88%91%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85.html"/>
     <id>http://www.roczhang.com/我的设计学习之旅.html</id>
     <published>2016-10-28T21:03:38.000Z</published>
-    <updated>2017-05-29T16:16:44.000Z</updated>
+    <updated>2018-06-05T22:02:18.148Z</updated>
     
     <content type="html"><![CDATA[<p>今晚逛 Dribbble 的时候突然又点开看了自己悲剧的 Debuts ，于是突然想到理理这个，正好可以也当作自己博客 Design 系列第一篇。<br><a id="more"></a></p>
 <h2 id="大学前"><a href="#大学前" class="headerlink" title="大学前"></a>大学前</h2><p>大学前基本应该不懂啥是设计（现在应该也不懂）。</p>
@@ -980,7 +1007,7 @@
     <link href="http://www.roczhang.com/iOS%20%E4%B8%AD%E7%9A%84%20Delegate%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.html"/>
     <id>http://www.roczhang.com/iOS 中的 Delegate 设计模式.html</id>
     <published>2016-10-24T15:32:31.000Z</published>
-    <updated>2016-11-28T17:40:56.000Z</updated>
+    <updated>2018-06-05T22:02:18.147Z</updated>
     
     <content type="html"><![CDATA[<p>最近写的 iOS/Swift 代码比较多，很久没动笔又没怎么写过技术类的文章。所以决定从小小的总结一下 Delegate 模式开始写一写，因此这也是一篇入门文章。<br><a id="more"></a></p>
 <h2 id="What-is-Delegate"><a href="#What-is-Delegate" class="headerlink" title="What is Delegate ?"></a>What is Delegate ?</h2><p>我想很多同学第一次遇见 Delegate 这个词是在写 tableView 的时候。那时候我也只是每每需要用的时候就照着这种模式写上 tableView.delegate = self, tableView.dataSource = self 也并不理解究竟是什么意思。</p>
@@ -1027,7 +1054,7 @@
     <link href="http://www.roczhang.com/%E8%B7%A8%E8%B6%8A%E5%A4%A7%E4%BA%8C%E4%B8%8B%EF%BC%9A%EF%BC%88%E4%B8%80%EF%BC%89.html"/>
     <id>http://www.roczhang.com/跨越大二下：（一）.html</id>
     <published>2016-08-14T15:49:38.000Z</published>
-    <updated>2016-11-28T17:41:05.000Z</updated>
+    <updated>2018-06-05T22:02:18.149Z</updated>
     
     <content type="html"><![CDATA[<p>北京时间2016年8月14日23点49分。</p>
 <p>日子真的过的好快，就这样到了8月中旬。来帝都已经两周多了，实习的日子应该也只剩下两周，之后紧接着又要开学。一直想把从上学期到现在蛮久一段时间的事情理一理，却又一直没能真正坐下来动笔。呼～就今天开始吧。</p>
