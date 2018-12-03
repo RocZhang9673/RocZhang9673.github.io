@@ -32,20 +32,22 @@ body > div {
 
 .intro {
   width: 100%;
-  height: 500px;
+  height: 400px;
   text-align: center;
 }
 
 .intro .title {
   font-size: 45px;
-  margin: 30px;
+  margin: 20px;
   color: #FFFFFF;
+  font-weight: 700;
 }
 
 .intro pre.subtitle {
-  font-size: 18px;
+  font-size: 23px;
   color: #ffffffc5;
-  line-height: 20px;
+  line-height: 28px;
+  font-weight: 500;
 }
 
 .intro .button {
