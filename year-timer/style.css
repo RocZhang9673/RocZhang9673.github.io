@@ -10,8 +10,8 @@
 
 html, body {
   width: 100%;
-  color: black; 
-  background: linear-gradient(#00C7CD, #018DCB);
+  color: balck; 
+  background: linear-gradient(#EEF9FF, #C4EAFD);
 }
 
 body > div {
@@ -39,13 +39,13 @@ body > div {
 .intro .title {
   font-size: 45px;
   margin: 20px;
-  color: #FFFFFF;
+  color: rgb(19, 190, 252);
   font-weight: 700;
 }
 
 .intro pre.subtitle {
   font-size: 23px;
-  color: #ffffffc5;
+  color: #46CDFFc5;
   line-height: 28px;
   font-weight: 500;
 }
