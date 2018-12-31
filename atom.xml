@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.roczhang.com/"/>
-  <updated>2018-09-09T16:50:31.714Z</updated>
+  <updated>2018-12-31T17:52:49.827Z</updated>
   <id>http://www.roczhang.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Year In Review - 2018</title>
+    <link href="http://www.roczhang.com/2018-year-in-review.html"/>
+    <id>http://www.roczhang.com/2018-year-in-review.html</id>
+    <published>2018-12-31T14:03:13.000Z</published>
+    <updated>2018-12-31T17:52:49.827Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://www.roczhang.com/images/2018-year-in-review-cover.png" alt=""></p><p>今天是 12 月的最后一天，2018 年很快就要结束了。我之前一直没有要在某个特定的时间节点写总结的习惯，只会在有些东西想要输出的时候才会记录下来。但在今年也经历了很多变化，虽然因此想到还是通过年度总结的方式简单复盘一下，帮助自己准备好去迎接新的阶段。</p><a id="more"></a><h3 id="时刻"><a href="#时刻" class="headerlink" title="时刻"></a>时刻</h3><ul><li>2018.01.05，湖北安徽大雪，被困在武汉一夜，在同学家借住。</li><li>2018.01.11，Adonis 发布 2.0。</li><li>2018.03.22，Year Timer 发布 1.1。</li><li>2018.04.14，回校，完成毕业论文答辩。</li><li>2018.04.28，和谭昊在上海见面，聊了一些关于考研与读书的事情。</li><li>2018.05.17，达尔文上架 AppStore 发布 0.10。</li><li>2018.06.02，第一次去美国。</li><li>2018.06.05，第一次参加 WWDC。</li><li>2018.06.22，正式毕业。</li><li>2018.07.13，22 岁。</li><li>2018.07.14，和 Simon 在杭州见面，聊了两天各种毕业后的事情与打算。</li><li>2018.08.02，在 T 沙龙，第一次在外做技术分享。</li><li>2018.08.24，第一次拳击课。</li><li>2018.09.27，流利说上市了，达尔文上线了 1.0。</li><li>2018.10.23，Sam Smith: The Thrill of It All World Tour Shanghai，第一次去听一个人的演唱会。</li><li>2018.11.24，和 61 还有 Alen 在上海见面，与 Jony 还有 sol 一起聊了很多独立开发相关的事情。</li><li>2018.12.20，LLS Hackathon 2018，拿到了二等奖。</li><li>2018.12.22，加入 SwiftGG。</li></ul><h3 id="变化"><a href="#变化" class="headerlink" title="变化"></a>变化</h3><h4 id="身份"><a href="#身份" class="headerlink" title="身份"></a>身份</h4><ul><li>学生 -&gt; Full-time Employee<br>最大的变化莫过于自己彻底不再是学生了。虽然后面一直都是在做全职实习，自己从学校到工作的转变中间也有一段远程实习做过度，一切发生的都很自然，但心态上还是有不少的转变。包括不断地对工作的责任，对环境中各类人与事的处理方式，以及对自己未来规划的思考。很感谢能遇到在很多事情上帮我分析，给我指导与建议的前辈和朋友。</li><li>Member of SwiftGG<br>在 2018 的最后一个月，成为了 SwiftGG 翻译组的一员，并翻了自己在翻译组的第一篇文章。进入这个自己大学时期就在看的翻译组然后开始贡献翻译感觉非常奇妙，就像是给开源社区回馈代码一样。</li><li>Member of Montage Apps<br>一个今年成立的神秘组织，期待它 2019 能造出动静来。</li></ul><h4 id="技术与学习"><a href="#技术与学习" class="headerlink" title="技术与学习"></a>技术与学习</h4><ul><li>Swift &amp; iOS<br>作为现在工作之后每天必然会打交道且打交道时间最长的语言和平台，更是一定要不断学习进步。受到个人心态的变化、公司环境以及同事的影响，今年在 Swift &amp; iOS 方向上，对应用架构、编写测试以及函数式编程上有了更深入的理解。此外在处理各种业务场景的过程中，对系统、各种框架和修复 crash 上有了更多的储备与经验。</li><li>macOS Application<br>今年由完成 AirLogs 为驱动学习了开发 macOS 应用的相关技能。AppKit 作为一个会让 iOS 开发者既熟悉又陌生的神奇平台，写起来也是非常有趣。在后来 Hackathon 的时候又学到了 Cocoa Plugin 的写法。</li><li>Game &amp; AR<br>开始学习游戏相关的起因是完成业余需求的过程中对 SpriteKit 的探索，后来找了一些游戏相关的书看起来，学习的范围也逐渐从 SpriteKit 扩展到了 SceneKit，最后开始学习起 ARKit。</li><li>Machine Learning<br>由于毕业论文定的主题是和机器学习相关，因此也在此完成论文的期间学习了一些机器学习相关的内容。学习了不少概念，同时也在不断动手尝试去解决更多问题。</li><li>LLVM<br>也不知道为什么今年决定学起 LLVM 来了，可能是大学期间没有用心好好学编译原理心有愧疚。后面还加入了一些 LLVM 学习相关的群和组织，但基本没有活跃。这块进度不太多，果然还是有明显的驱动力或者详细的计划能有助学习。</li></ul><h4 id="生活与健康"><a href="#生活与健康" class="headerlink" title="生活与健康"></a>生活与健康</h4><ul><li>拳击<br>今年下半年开始决定学习拳击，这是一项自己早想挑战但一直没迈出行动的运动。今年 8 月底的时候终于决定去学了，也是完成了一项自己一直想做没去做的事情。持续到 12 月基本上维持着每周 1～3 次训练的频率没怎么间断。拳击迷人之处就在于很多事情需要你反下意识的去做，自己也在这个过程中有所进步和感悟。</li><li>减肥<br>自己亲身感受到的工作后久坐造成的身体不适，以及身边发生的或近或远的一些故事，都在不断提醒我注意自己身体健康的重要。除去拳击之外，今年也开始跟着两位好友一起学健身。同时，在 Netflix 上看了一部叫做 Ask The Doctor(医生话你知) 的纪录片，更新了一些我的旧有观念，开始改变自己的生活习惯。尤其是意识到减肥不是一次性就能完成的工作，而是一项 Lifetime 的态度与方式的转变。到 12 月份，自己的体重已经减掉了 30 多斤。自己现在应该依然还是偏胖吧，但这种身体上的变化确实给自己带来了很多好处，尤其是能有更充足的精神。</li></ul><h4 id="使用设备"><a href="#使用设备" class="headerlink" title="使用设备"></a>使用设备</h4><ul><li>(+) MacBook Pro 15’ 2018</li><li>(+) Nokia X6</li><li>(+) DJI OSMO Mobile 2</li><li>(+) HomePod</li><li>(+) iPhone XS Max</li></ul><h4 id="使用服务"><a href="#使用服务" class="headerlink" title="使用服务"></a>使用服务</h4><ul><li>Apple Music -&gt; Spotify</li><li>Bear -&gt; Notion</li><li>GitHub Student Package -&gt; GitHub Developer Plan</li><li>iCloud Drive 50G -&gt; 200G</li><li>(+) Netflix</li></ul><h4 id="2019"><a href="#2019" class="headerlink" title="2019"></a>2019</h4><p>2019 作为自己毕业后的第一年，还是有不少对自己的期望。</p><ul><li>技术上的进步应该是工程师必须不断保持的必完成事项了。年末的时候和同事发起了 <code>Swift Algorithm Challenge</code>，希望 19 年能不断深入学习，提升自己在算法和更底层知识上的储备吧。另一方面则是通过不断思考问题和解决问题，来提升自己架构设计方面的能力了。</li><li>两个未完成的 Project，能在 2019 至少完成 1.0。</li><li>保持健康的态度与生活方式。</li></ul><p>感谢各位陪伴。<br>On My 2018. </p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://www.roczhang.com/images/2018-year-in-review-cover.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;今天是 12 月的最后一天，2018 年很快就要结束了。我之前一直没有要在某个特定的时间节点写总结的习惯，只会在有些东西想要输出的时候才会记录下来。但在今年也经历了很多变化，虽然因此想到还是通过年度总结的方式简单复盘一下，帮助自己准备好去迎接新的阶段。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Life" scheme="http://www.roczhang.com/categories/Life/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>2018.09.09</title>
@@ -398,26 +419,6 @@
     </summary>
     
       <category term="Code" scheme="http://www.roczhang.com/categories/Code/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>我的设计学习之旅</title>
-    <link href="http://www.roczhang.com/%E6%88%91%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85.html"/>
-    <id>http://www.roczhang.com/我的设计学习之旅.html</id>
-    <published>2016-10-28T21:03:38.000Z</published>
-    <updated>2018-06-05T22:02:18.148Z</updated>
-    
-    <content type="html"><![CDATA[<p>今晚逛 Dribbble 的时候突然又点开看了自己悲剧的 Debuts ，于是突然想到理理这个，正好可以也当作自己博客 Design 系列第一篇。<br><a id="more"></a></p><h2 id="大学前"><a href="#大学前" class="headerlink" title="大学前"></a>大学前</h2><p>大学前基本应该不懂啥是设计（现在应该也不懂）。</p><p>初中的时候机缘巧合参加了网页制作的比赛，那时候第一次开始用 Photoshop，做一些素材，修改排版。当时觉得来回折腾调整，或者这种在“制作／创作”的感觉非常有意思。而初高中时期除了偶尔帮班主任做一些班会的 PPT 也就没什么时间和机会做东西了。那会儿能算的上接触的设计作品也就算是各种主题了。</p><h2 id="大学后"><a href="#大学后" class="headerlink" title="大学后"></a>大学后</h2><h3 id="大一"><a href="#大一" class="headerlink" title="大一"></a>大一</h3><p>大一刚进大学那会儿除了日常写程序结果是做各种 PPT，居然还被班上同学嘲笑为 “PPT 小王子”。其实是根本没啥特别的，只不过我没有用 Office 艺术字而已。附上一个那会儿给一个小活动做的 Keynote。</p><p><img src="images/myDesignsStudyTour/1.jpeg" alt="Markdown preferences pane"></p><p>然后就开始算的上设计了第一个作品了– 真选！那时候还不是会做真正的 App 开发，就在 Photoshop 里面画设计稿。那时候完全不了解 App 设计的准则规范之类，完全凭借着自己的感觉来。从自己觉得丑到爆炸到后来慢慢改成觉得还行之间，也是改了很多个版本。</p><p>一开始几个版本是这样的，其实都挺辣眼睛的：<br><img src="images/myDesignsStudyTour/2.png" alt="Markdown preferences pane"></p><p>最后做成这样了：<br><img src="images/myDesignsStudyTour/3.png" alt="Markdown preferences pane"></p><p>还若有其事的做了一个 MockUp 当 Cover ：<br><img src="images/myDesignsStudyTour/4.PNG" alt="Markdown preferences pane"></p><p>后来非常幸运的认识了 Martin Waters ， 神奇的白开水兄。大一暑假的时候还和白开水见了面，一起继续做了真选参加了一小比赛。一开始是在一个编程开发的群认识了白开水，后来发现白开水设计的东西都惊人的漂亮。我那时会将我设计的一些不堪入目的东西交给白开水，他总是会画腐朽为神奇一般的 redesign 的非常棒。而且他总是会向我介绍一些非常神奇的工具，比如我第一次了解 Sketch 就是白开水介绍给我的，嗯，真是如同打开了新世界的大门。</p><p>当年暑假白开水兄画下的一些 Icon ：<br><img src="images/myDesignsStudyTour/5.png" alt="Markdown preferences pane"></p><h3 id="大二"><a href="#大二" class="headerlink" title="大二"></a>大二</h3><p>寒假的时候读了 About Face 和 设计心理学全系列的四册，算是第一次开始看设计类的书籍。后来开学之后大多数时间都在学习写 App，所以就在有了新 App 想法的时候会画上一些:</p><p>Roc Daily<br><img src="images/myDesignsStudyTour/6.png" alt="Markdown preferences pane"></p><p>教务助手<br><img src="images/myDesignsStudyTour/7.png" alt="Markdown preferences pane"></p><p>期间还画过一些小东西，比如图标还有小组件之类的：<br><img src="images/myDesignsStudyTour/8.png" alt="Markdown preferences pane"><br><img src="images/myDesignsStudyTour/9.PNG" alt="Markdown preferences pane"></p><p>实习的时候见到了之前仰慕已久大神们，在一旁观察他们做设计时的章法、理念、创意，还有和我们把 App 用程序写出来之后和设计稿仔细的比对调整，像素级的双眼和对细节的追求。嗯，我在钦佩的同时又开始感概道阻且长啦。</p><p>之后还得到了自己心心念念的 Dribbble 邀请码（我要再次再次感谢敬爱的马老师），本打算也画一波 Hello Dribbble 的我尝试了几稿后还是决定在原来的设计稿上修改一个提交，于是这就是我的 Debuts 了:</p><p><img src="images/myDesignsStudyTour/10.png" alt="Markdown preferences pane"></p><p>Dribbble 上的地址是：<a href="https://dribbble.com/shots/2969219-Hello-Dribbble" target="_blank" rel="external">https://dribbble.com/shots/2969219-Hello-Dribbble</a></p><p>现在感觉确实画的不好后悔把这个当 Debuts 啦。</p><h3 id="尾巴"><a href="#尾巴" class="headerlink" title="尾巴"></a>尾巴</h3><p>想起来刚开始练习做设计的时候还怀疑过不写代码自己是不是跑偏了，后来觉得如果是自己想要做一个产品的话，设计和开发都是实现好产品的一种方式，本质是相同的。我想过做设计的目的是什么，嗯，应该是悦心，从设计产品的 look 到 work，好的设计总能让人感到愉悦。这太值得了。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;今晚逛 Dribbble 的时候突然又点开看了自己悲剧的 Debuts ，于是突然想到理理这个，正好可以也当作自己博客 Design 系列第一篇。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Design" scheme="http://www.roczhang.com/categories/Design/"/>
     
     
   </entry>
