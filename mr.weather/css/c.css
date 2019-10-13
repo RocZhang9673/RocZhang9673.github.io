@@ -15,29 +15,30 @@
     h1,
     h2 {
         font-family: 'lota-Bold';
+        font-weight: normal;
     }
 
     h1 {
-        padding-top: 58px;
+        padding-top: 25px;
         color: #343434;
     }
 
     h2 {
         padding-top: 40px;
-        font-size: 25px;
+        font-size: 20px;
         color: #343434;
     }
 
     p {
-        font-size: 20px;
+        font-size: 18px;
         font-family: 'lota-Regular';
-        line-height: 30px;
+        line-height: 28px;
         color: #343434;
         opacity: 0.95;
     }
 
     .head {
-        background-color: #151617;
+        background-color: #2E2F30;
         width: 100%;
         height: 135px;
         opacity: 0.95;
@@ -48,9 +49,11 @@
     }
 
     .content {
-        background: linear-gradient(#DDDDDD, #C8BCBE);
+        background: linear-gradient(#E9EAEB, #B7B9BE);
         width: 100%;
         height: 100%;
+        padding-top: 35px;
+        min-height: calc(100vh - 235px);
     }
 
     .foot {
@@ -71,14 +74,10 @@
         font-family: "lota-Bold";
     }
 
-    .r-20 {
-        font-size: 20px;
+    .r-18 {
+        font-size: 18px;
         font-family: "lota-Regular";
         line-height: 30px;
-    }
-
-    .f-30 {
-        font-size: 30px;
     }
 
     .m-t-0 {
@@ -114,9 +113,10 @@
     }
 
     .font_footnote {
-        font-size: 16px;
+        font-size: 15px;
         font-family: "lota-Regular";
-        line-height: 24px;
+        line-height: 25px;
+        opacity: 0.9;
     }
 
     .font_g {
@@ -127,7 +127,7 @@
     /* 最大为 1024 */
     @media screen and (max-width: 1024px) {
         .full {
-            margin-left: 35px;
+            margin-left: 25px;
             margin-right: 25px;
         }
     }
@@ -135,7 +135,7 @@
     /* 最小为 1024 */
     @media screen and (min-width: 1024px) {
         .full {
-            width: 914px;
+            width: 974px;
             margin-left: auto;
             margin-right: auto;
         }
