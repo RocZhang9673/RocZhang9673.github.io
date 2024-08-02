@@ -180,16 +180,16 @@ th {
   padding: 0;
 }
 ::selection {
-  background: #262a30;
-  color: #fff;
+  background: #3bc4ff;
+  color: #000;
 }
 body {
   position: relative;
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Lato', "SF Pro Display", "Microsoft YaHei", sans-serif;
   font-size: 14px;
   line-height: 2;
-  color: #555;
-  background: #fff;
+  color: rgba(230,230,232,0.95);
+  background: #000;
 }
 @media (max-width: 767px) {
   body {
@@ -216,7 +216,7 @@ h6 {
   padding: 0;
   font-weight: bold;
   line-height: 1.5;
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Lato', "SF Pro Display", "Microsoft YaHei", sans-serif;
 }
 h2,
 h3,
@@ -277,14 +277,14 @@ p {
   margin: 0 0 25px 0;
 }
 a {
-  color: #555;
+  color: rgba(230,230,232,0.95);
   text-decoration: none;
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid rgba(185,185,187,0.9);
   word-wrap: break-word;
 }
 a:hover {
-  color: #222;
-  border-bottom-color: #222;
+  color: #fdfdff;
+  border-bottom-color: #fdfdff;
 }
 blockquote {
   margin: 0;
@@ -300,13 +300,13 @@ hr {
   margin: 40px 0;
   height: 3px;
   border: none;
-  background-color: #ddd;
+  background-color: rgba(35,35,37,0.9);
   background-image: repeating-linear-gradient(-45deg, #fff, #fff 4px, transparent 4px, transparent 8px);
 }
 blockquote {
   padding: 0 15px;
-  color: #666;
-  border-left: 4px solid #ddd;
+  color: rgba(205,205,207,0.9);
+  border-left: 4px solid rgba(35,35,37,0.9);
 }
 blockquote cite::before {
   content: "-";
@@ -375,7 +375,7 @@ dd {
 .translation {
   margin-top: -20px;
   font-size: 14px;
-  color: #999;
+  color: rgba(185,185,187,0.9);
 }
 .scrollbar-measure {
   width: 100px;
@@ -392,7 +392,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
-  border: 1px solid #ddd;
+  border: 1px solid rgba(35,35,37,0.9);
   font-size: 14px;
   table-layout: fixed;
   word-wrap: break-all;
@@ -401,7 +401,7 @@ table>tbody>tr:nth-of-type(odd) {
   background-color: #f9f9f9;
 }
 table>tbody>tr:hover {
-  background-color: #f5f5f5;
+  background-color: rgba(27,27,29,0.95);
 }
 caption,
 th,
@@ -413,8 +413,8 @@ td {
 }
 th,
 td {
-  border-bottom: 3px solid #ddd;
-  border-right: 1px solid #eee;
+  border-bottom: 3px solid rgba(35,35,37,0.9);
+  border-right: 1px solid #0c0c0e;
 }
 th {
   padding-bottom: 10px;
@@ -482,13 +482,13 @@ pre,
 }
 pre,
 code {
-  font-family: consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace;
+  font-family: consolas, Menlo, "SF Pro Display", "Microsoft YaHei", monospace;
 }
 code {
   padding: 2px 4px;
   word-wrap: break-word;
-  color: #555;
-  background: #eee;
+  color: rgba(230,230,232,0.95);
+  background: #0c0c0e;
   border-radius: 3px;
   font-size: 13px;
 }
@@ -672,14 +672,14 @@ pre .javascript .function {
 .page-post-detail .post-type-quote blockquote::before {
   top: -20px;
   background-image: url("../images/quote-l.svg");
-  border-top: 1px solid #ccc;
+  border-top: 1px solid rgba(55,55,57,0.9);
 }
 .blockquote-center::after,
 .page-home .post-type-quote blockquote::after,
 .page-post-detail .post-type-quote blockquote::after {
   bottom: -20px;
   background-image: url("../images/quote-r.svg");
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid rgba(55,55,57,0.9);
   background-position: 100% 8px;
 }
 .blockquote-center p,
@@ -815,8 +815,8 @@ pre .javascript .function {
   padding: 0 20px;
   font-size: 14px;
   color: #fff;
-  background: #222;
-  border: 2px solid #222;
+  background: #fdfdff;
+  border: 2px solid #fdfdff;
   text-decoration: none;
   border-radius: 0;
   transition-property: background-color;
@@ -826,15 +826,15 @@ pre .javascript .function {
 }
 .btn:hover,
 .post-button .btn:hover {
-  border-color: #222;
-  color: #222;
+  border-color: #fdfdff;
+  color: #fdfdff;
   background: #fff;
 }
 .btn-bar {
   display: block;
   width: 22px;
   height: 2px;
-  background: #555;
+  background: rgba(230,230,232,0.95);
   border-radius: 1px;
 }
 .btn-bar+.btn-bar {
@@ -843,7 +843,7 @@ pre .javascript .function {
 .pagination {
   margin: 120px 0 40px;
   text-align: center;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #0c0c0e;
 }
 .page-number-basic,
 .pagination .prev,
@@ -870,7 +870,7 @@ pre .javascript .function {
 .pagination .next,
 .pagination .page-number {
   border-bottom: 0;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #0c0c0e;
   transition-property: border-color;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
@@ -879,7 +879,7 @@ pre .javascript .function {
 .pagination .prev:hover,
 .pagination .next:hover,
 .pagination .page-number:hover {
-  border-top-color: #222;
+  border-top-color: #fdfdff;
 }
 .pagination .space {
   padding: 0;
@@ -893,8 +893,8 @@ pre .javascript .function {
 }
 .pagination .page-number.current {
   color: #fff;
-  background: #ccc;
-  border-top-color: #ccc;
+  background: rgba(55,55,57,0.9);
+  border-top-color: rgba(55,55,57,0.9);
 }
 @media (max-width: 767px) {
   .pagination {
@@ -905,12 +905,12 @@ pre .javascript .function {
   .pagination .page-number {
     margin-bottom: 10px;
     border-top: 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #0c0c0e;
   }
   .pagination .prev:hover,
   .pagination .next:hover,
   .pagination .page-number:hover {
-    border-bottom-color: #222;
+    border-bottom-color: #fdfdff;
   }
 }
 .comments {
@@ -931,7 +931,7 @@ pre .javascript .function {
   z-index: 1050;
   padding: 0 6px;
   width: 24px;
-  background: #222;
+  background: $gray-light;
   font-size: 12px;
   opacity: 1;
   color: #fff;
@@ -964,7 +964,7 @@ pre .javascript .function {
 }
 .headband {
   height: 3px;
-  background: #222;
+  background: #fdfdff;
 }
 .site-meta {
   margin: 0;
@@ -979,12 +979,12 @@ pre .javascript .function {
   position: relative;
   display: inline-block;
   padding: 0 40px;
-  color: #222;
-  background: #222;
+  color: #fdfdff;
+  background: #fdfdff;
   border-bottom: none;
 }
 .brand:hover {
-  color: #222;
+  color: #fdfdff;
 }
 .logo {
   display: inline-block;
@@ -998,12 +998,12 @@ pre .javascript .function {
   line-height: 36px;
   font-size: 20px;
   font-weight: normal;
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Lato', "SF Pro Display", "Microsoft YaHei", sans-serif;
 }
 .site-subtitle {
   margin-top: 10px;
   font-size: 13px;
-  color: #999;
+  color: rgba(185,185,187,0.9);
 }
 .use-motion .brand {
   opacity: 0;
@@ -1038,7 +1038,7 @@ pre .javascript .function {
     margin: 0 -10px;
     padding: 0 10px;
     clear: both;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid rgba(35,35,37,0.9);
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -1077,7 +1077,7 @@ pre .javascript .function {
   transition-delay: 0s;
 }
 .menu .menu-item a:hover {
-  border-bottom-color: #222;
+  border-bottom-color: #fdfdff;
 }
 .menu .menu-item .fa {
   margin-right: 5px;
@@ -1086,7 +1086,7 @@ pre .javascript .function {
   opacity: 0;
 }
 .post-body {
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Lato', "SF Pro Display", "Microsoft YaHei", sans-serif;
 }
 @media (max-width: 767px) {
   .post-body {
@@ -1105,7 +1105,7 @@ pre .javascript .function {
   margin: 10px auto 15px;
   text-align: center;
   font-size: 14px;
-  color: #999;
+  color: rgba(185,185,187,0.9);
   font-weight: bold;
   line-height: 1;
 }
@@ -1154,7 +1154,7 @@ pre .javascript .function {
 .posts-expand .post-body h6 .header-anchor {
   float: right;
   margin-left: 10px;
-  color: #ccc;
+  color: rgba(55,55,57,0.9);
   border-bottom-style: none;
   visibility: hidden;
 }
@@ -1179,7 +1179,7 @@ pre .javascript .function {
   box-sizing: border-box;
   margin: auto;
   padding: 3px;
-  border: 1px solid #ddd;
+  border: 1px solid rgba(35,35,37,0.9);
 }
 .posts-expand .fancybox img {
   margin: 0 auto;
@@ -1208,7 +1208,7 @@ pre .javascript .function {
   margin-left: -2px;
   width: 4px;
   height: 100%;
-  background: #f5f5f5;
+  background: rgba(27,27,29,0.95);
   z-index: -1;
 }
 @media (max-width: 767px) {
@@ -1224,7 +1224,7 @@ pre .javascript .function {
   margin-left: 20px;
 }
 .posts-collapse .collection-title small {
-  color: #bbb;
+  color: rgba(75,75,77,0.9);
 }
 .posts-collapse .collection-title::before {
   content: " ";
@@ -1235,7 +1235,7 @@ pre .javascript .function {
   margin-top: -4px;
   width: 8px;
   height: 8px;
-  background: #bbb;
+  background: rgba(75,75,77,0.9);
   border-radius: 50%;
 }
 .posts-collapse .post {
@@ -1247,7 +1247,7 @@ pre .javascript .function {
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
   transition-property: border;
-  border-bottom: 1px dashed #ccc;
+  border-bottom: 1px dashed rgba(55,55,57,0.9);
 }
 .posts-collapse .post-header::before {
   content: " ";
@@ -1257,7 +1257,7 @@ pre .javascript .function {
   width: 6px;
   height: 6px;
   margin-left: -4px;
-  background: #bbb;
+  background: rgba(75,75,77,0.9);
   border-radius: 50%;
   border: 1px solid #fff;
   transition-duration: 0.2s;
@@ -1266,10 +1266,10 @@ pre .javascript .function {
   transition-property: background;
 }
 .posts-collapse .post-header:hover {
-  border-bottom-color: #666;
+  border-bottom-color: rgba(205,205,207,0.9);
 }
 .posts-collapse .post-header:hover::before {
-  background: #222;
+  background: #fdfdff;
 }
 .posts-collapse .post-meta {
   position: absolute;
@@ -1291,7 +1291,7 @@ pre .javascript .function {
   opacity: 0.6;
 }
 .posts-collapse .post-title a {
-  color: #666;
+  color: rgba(205,205,207,0.9);
   border-bottom: none;
 }
 .page-home .post-type-quote .post-header,
@@ -1314,7 +1314,7 @@ pre .javascript .function {
 .posts-expand .post-title-link {
   display: inline-block;
   position: relative;
-  color: #555;
+  color: rgba(230,230,232,0.95);
   border-bottom: none;
   line-height: 1.2;
   vertical-align: top;
@@ -1350,8 +1350,8 @@ pre .javascript .function {
 }
 .posts-expand .post-meta {
   margin: 3px 0 60px 0;
-  color: #999;
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: rgba(185,185,187,0.9);
+  font-family: 'Lato', "SF Pro Display", "Microsoft YaHei", sans-serif;
   font-size: 12px;
   text-align: center;
 }
@@ -1361,7 +1361,7 @@ pre .javascript .function {
   padding: 3px;
 }
 .posts-expand .post-meta .post-category-list-link {
-  color: #999;
+  color: rgba(185,185,187,0.9);
 }
 .posts-expand .post-meta .post-description {
   font-size: 14px;
@@ -1422,7 +1422,7 @@ pre .javascript .function {
   margin-top: 50px;
 }
 .post-button .btn {
-  color: #555;
+  color: rgba(230,230,232,0.95);
   font-size: 14px;
   background: transparent;
   border-radius: 0;
@@ -1446,7 +1446,7 @@ pre .javascript .function {
   display: table;
   margin-top: 15px;
   width: 100%;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #0c0c0e;
 }
 .post-nav-divider {
   display: table-cell;
@@ -1463,11 +1463,11 @@ pre .javascript .function {
   display: block;
   line-height: 25px;
   font-size: 14px;
-  color: #555;
+  color: rgba(230,230,232,0.95);
   border-bottom: none;
 }
 .post-nav-item a:hover {
-  color: #222;
+  color: #fdfdff;
   border-bottom: none;
 }
 .post-nav-item a:active {
@@ -1497,7 +1497,7 @@ pre .javascript .function {
   margin: 80px auto 60px;
   width: 8%;
   height: 1px;
-  background: #ccc;
+  background: rgba(55,55,57,0.9);
   text-align: center;
 }
 .post:last-child .post-eof.post-eof.post-eof {
@@ -1527,13 +1527,6 @@ pre .javascript .function {
 .fancybox-close:hover {
   border: none;
 }
-.post-copyright {
-  margin: 2em 0 0;
-  padding: 0.5em 1em;
-  border-left: 3px solid #ff1700;
-  background-color: #f9f9f9;
-  list-style: none;
-}
 .sidebar {
   position: fixed;
   right: 0;
@@ -1541,16 +1534,16 @@ pre .javascript .function {
   bottom: 0;
   width: 0;
   z-index: 1040;
-  box-shadow: inset 0 2px 6px #000;
-  background: #222;
+  box-shadow: inset 0 2px 6px clear;
+  background: rgba(27,27,29,0.95);
   -webkit-transform: translateZ(0);
 }
 .sidebar a {
-  color: #999;
-  border-bottom-color: #555;
+  color: rgba(185,185,187,0.9);
+  border-bottom-color: rgba(230,230,232,0.95);
 }
 .sidebar a:hover {
-  color: #eee;
+  color: #0c0c0e;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .sidebar {
@@ -1565,7 +1558,7 @@ pre .javascript .function {
 .sidebar-inner {
   position: relative;
   padding: 20px 10px;
-  color: #999;
+  color: rgba(185,185,187,0.9);
   text-align: center;
 }
 .sidebar-toggle {
@@ -1575,7 +1568,7 @@ pre .javascript .function {
   width: 14px;
   height: 14px;
   padding: 5px;
-  background: #222;
+  background: rgba(75,75,77,0.9);
   line-height: 0;
   z-index: 1050;
   cursor: pointer;
@@ -1609,19 +1602,19 @@ pre .javascript .function {
   padding: 2px;
   max-width: 96px;
   height: auto;
-  border: 2px solid #333;
+  border: 2px solid rgba(253,253,255,0.98);
 }
 .site-author-name {
   margin: 5px 0 0;
   text-align: center;
-  color: #f5f5f5;
+  color: rgba(27,27,29,0.95);
   font-weight: normal;
 }
 .site-description {
   margin-top: 5px;
   text-align: center;
   font-size: 14px;
-  color: #999;
+  color: rgba(185,185,187,0.9);
 }
 .site-state {
   overflow: hidden;
@@ -1632,7 +1625,7 @@ pre .javascript .function {
 .site-state-item {
   display: inline-block;
   padding: 0 15px;
-  border-left: 1px solid #333;
+  border-left: 1px solid rgba(253,253,255,0.98);
 }
 .site-state-item:first-child {
   border-left: none;
@@ -1680,7 +1673,7 @@ pre .javascript .function {
   vertical-align: middle;
   margin-right: 10px;
   margin-bottom: 10px;
-  border-bottom-color: #555;
+  border-bottom-color: rgba(230,230,232,0.95);
   font-size: 13px;
 }
 .links-of-author a:before {
@@ -1691,7 +1684,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #da1c87;
+  background: #ffe4e4;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -1718,10 +1711,10 @@ pre .javascript .function {
   cursor: pointer;
   border-bottom: 1px solid transparent;
   font-size: 14px;
-  color: #555;
+  color: rgba(230,230,232,0.95);
 }
 .sidebar-nav li:hover {
-  color: #f5f5f5;
+  color: rgba(27,27,29,0.95);
 }
 .page-post-detail .sidebar-nav-toc {
   padding: 0 5px;
@@ -1730,11 +1723,11 @@ pre .javascript .function {
   margin-left: 10px;
 }
 .sidebar-nav .sidebar-nav-active {
-  color: #87daff;
-  border-bottom-color: #87daff;
+  color: #27b0ed;
+  border-bottom-color: #27b0ed;
 }
 .sidebar-nav .sidebar-nav-active:hover {
-  color: #87daff;
+  color: #27b0ed;
 }
 .sidebar-panel {
   display: none;
@@ -1744,7 +1737,7 @@ pre .javascript .function {
 }
 .post-toc-empty {
   font-size: 14px;
-  color: #666;
+  color: rgba(205,205,207,0.9);
 }
 .post-toc-wrap {
   overflow: hidden;
@@ -1767,12 +1760,12 @@ pre .javascript .function {
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
   transition-property: all;
-  color: #999;
-  border-bottom-color: #555;
+  color: rgba(185,185,187,0.9);
+  border-bottom-color: rgba(230,230,232,0.95);
 }
 .post-toc ol a:hover {
-  color: #ccc;
-  border-bottom-color: #ccc;
+  color: rgba(55,55,57,0.9);
+  border-bottom-color: rgba(55,55,57,0.9);
 }
 .post-toc .nav-item {
   overflow: hidden;
@@ -1793,18 +1786,18 @@ pre .javascript .function {
   display: block;
 }
 .post-toc .nav .active > a {
-  color: #87daff;
-  border-bottom-color: #87daff;
+  color: #27b0ed;
+  border-bottom-color: #27b0ed;
 }
 .post-toc .nav .active-current > a {
-  color: #87daff;
+  color: #27b0ed;
 }
 .post-toc .nav .active-current > a:hover {
-  color: #87daff;
+  color: #27b0ed;
 }
 .footer {
   font-size: 14px;
-  color: #999;
+  color: rgba(185,185,187,0.9);
 }
 .footer img {
   border: none;
@@ -2258,7 +2251,7 @@ pre .javascript .function {
   width: 10px;
   height: 10px;
   opacity: 0.5;
-  background: #555;
+  background: rgba(230,230,232,0.95);
   border: 1px solid #fff;
   border-radius: 50%;
 }
@@ -2277,7 +2270,7 @@ pre .javascript .function {
   margin: 5px 10px;
 }
 .category-all-page .category-list-count {
-  color: #bbb;
+  color: rgba(75,75,77,0.9);
 }
 .category-all-page .category-list-count:before {
   display: inline;
@@ -2458,7 +2451,7 @@ pre .javascript .function {
   }
 }
 .page-post-detail .sidebar-toggle-line {
-  background: #87daff;
+  background: #27b0ed;
 }
 .page-post-detail .comments {
   overflow: hidden;
@@ -2475,7 +2468,7 @@ p {
   margin: 0 0 25px 0;
 }
 a {
-  border-bottom-color: #ccc;
+  border-bottom-color: rgba(55,55,57,0.9);
 }
 hr {
   margin: 20px 0;
@@ -2485,7 +2478,7 @@ hr {
   margin-top: 80px;
 }
 .header {
-  background: #f5f5f5;
+  background: rgba(27,27,29,0.95);
 }
 .header-inner {
   padding: 25px 0 20px;
@@ -2540,8 +2533,8 @@ hr {
 .logo-line-after {
   display: block;
   overflow: hidden;
-  margin: 0 auto;
-  width: 75%;
+  margin: 3px auto;
+  width: 100%;
 }
 @media (max-width: 767px) {
   .logo-line-before,
@@ -2554,7 +2547,7 @@ hr {
   position: relative;
   display: block;
   height: 2px;
-  background: #222;
+  background: #fdfdff;
 }
 @media (max-width: 767px) {
   .logo-line-before i,
@@ -2669,7 +2662,7 @@ hr {
   }
 }
 .posts-expand .post-title:hover:before {
-  background: #222;
+  background: #fdfdff;
 }
 .posts-expand .post-body img {
   margin: 0;
@@ -2679,11 +2672,11 @@ hr {
 }
 .posts-expand .post-tags a {
   padding: 1px 5px;
-  background: #f5f5f5;
+  background: rgba(27,27,29,0.95);
   border-bottom: none;
 }
 .posts-expand .post-tags a:hover {
-  background: #ccc;
+  background: rgba(55,55,57,0.9);
 }
 .posts-expand .post-nav {
   margin-top: 40px;
@@ -2696,10 +2689,10 @@ hr {
   margin: 0 8px 8px 0 !important;
   padding: 0;
   font-size: 14px;
-  color: #666;
+  color: rgba(205,205,207,0.9);
   background: none;
   border: none;
-  border-bottom: 2px solid #666;
+  border-bottom: 2px solid rgba(205,205,207,0.9);
   transition-property: border;
 }
 @media (max-width: 767px) {
@@ -2713,7 +2706,7 @@ hr {
   }
 }
 .post-button a:hover {
-  border-bottom-color: #222;
+  border-bottom-color: #fdfdff;
 }
 .links-of-blogroll-inline .links-of-blogroll-item {
   display: inline-block;
@@ -2766,8 +2759,8 @@ hr {
 .footer {
   margin-top: 80px;
   padding: 10px 0;
-  background: #f5f5f5;
-  color: #666;
+  background: rgba(27,27,29,0.95);
+  color: rgba(205,205,207,0.9);
 }
 .footer-inner {
   margin: 0 auto;
