@@ -186,8 +186,8 @@ th {
 body {
   position: relative;
   font-family: 'Lato', "SF Pro Display", "Microsoft YaHei", sans-serif;
-  font-size: 16.5px;
-  line-height: 2.1;
+  font-size: 16px;
+  line-height: 2;
   color: rgba(230,230,232,0.95);
   background: #000;
 }
@@ -203,7 +203,7 @@ body {
 }
 @media (min-width: 1600px) {
   body {
-    font-size: 18.5px;
+    font-size: 18px;
   }
 }
 h1,
@@ -1104,7 +1104,7 @@ pre .javascript .function {
 .post-body .figure .caption {
   margin: 10px auto 15px;
   text-align: center;
-  font-size: 16.5px;
+  font-size: 16px;
   color: rgba(185,185,187,0.9);
   font-weight: bold;
   line-height: 1;
@@ -1684,7 +1684,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #fa44fe;
+  background: #b8998b;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2688,7 +2688,7 @@ hr {
 .post-button a {
   margin: 0 8px 8px 0 !important;
   padding: 0;
-  font-size: 16.5px;
+  font-size: 16px;
   color: rgba(205,205,207,0.9);
   background: none;
   border: none;
@@ -2697,12 +2697,12 @@ hr {
 }
 @media (max-width: 767px) {
   .post-button a {
-    font-size: 14.5px;
+    font-size: 14px;
   }
 }
 @media (min-width: 1600px) {
   .post-button a {
-    font-size: 18.5px;
+    font-size: 18px;
   }
 }
 .post-button a:hover {
